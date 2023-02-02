@@ -1,22 +1,55 @@
 nav
 {
 	text-align:center;
-	text-decoration: bold;
+	text-decoration: none;
 	font-weight: bold;
-	color: yellow;
-	
+	color: black;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 20px;
+    
 }
+	
+
 nav a
 {
 	text-decoration: none
 }
 
-nav:hover
+a
 {
-	background-color:grey
+	transition: all .7s ease-in-out;
+
 }
 
-nav:visited 
+
+a:visited 
 { 
-	text-decoration: none; 
+	text-decoration: none;
+	text-decoration: none;
+	color:	black;
+	
 }
+a:link
+{
+	text-decoration: none;
+    color: black;
+    
+}
+a:hover
+{
+	background-color:grey;
+	color: white;
+
+}
+body
+{
+	background-color:white;
+    margin:0;
+	padding:0;
+	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
+	
+	color:black;
+	text-align:center;
+}
+	
+

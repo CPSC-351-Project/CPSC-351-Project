@@ -1,0 +1,22 @@
+nav
+{
+	text-align:center;
+	text-decoration: bold;
+	font-weight: bold;
+	color: yellow;
+	
+}
+nav a
+{
+	text-decoration: none
+}
+
+nav:hover
+{
+	background-color:grey
+}
+
+nav:visited 
+{ 
+	text-decoration: none; 
+}

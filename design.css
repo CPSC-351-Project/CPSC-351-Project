@@ -14,6 +14,10 @@ nav
 header
 {
 	text-align: center;
+	background-image:url(cnu.png);
+	background-repeat:no-repeat;
+    background-position:left;
+	background-size:300px;
 }	
 
 nav a
@@ -26,7 +30,86 @@ a
 	transition: all .7s ease-in-out;
 
 }
+.navbar 
+{
+	overflow: hidden;
+	float: right;
+}
+  
+  /* Links inside the navbar */
+.navbar a 
+{
+	float: left;
+	font-size: 16px;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+  
+  /* The dropdown container */
+.dropdown 
+{
+	float: left;
+	overflow: hidden;
 
+}
+.dropdown:hover
+{
+	background-color:rgb(174, 173, 173);
+	transition: .7s ease-in-out;
+}
+  
+  /* Dropdown button */
+.dropdown .dropbtn 
+{
+	font-size: 30px;
+	border: none;
+	outline: none;
+	color: #004a8e;
+	padding: 14px 16px;
+	background-color: inherit;
+	font-family: inherit; /* Important for vertical align on mobile phones */
+	margin: 0; /* Important for vertical align on mobile phones */
+}
+  
+  
+  /* Dropdown content (hidden by default) */
+.dropdown-content 
+{
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+  
+  /* Links inside the dropdown */
+.dropdown-content a 
+{
+	float: none;
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+}
+  
+  /* Hover state */
+.dropdown-content a:hover 
+{
+	background-color: #004a8e
+}
+  /* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content 
+{
+	display: block;
+
+
+	
+	
+}
 
 a:visited 
 { 
@@ -43,13 +126,13 @@ a:link
 }
 a:hover
 {
-	background-color:grey;
+	background-color:#013d75;
 	color: white;
 
 }
 body
 {
-	background-image:linear-gradient(white,#004a8e);
+	background-image:linear-gradient(230deg,white,#004a8e);
     margin:0;
 	padding:0;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
@@ -61,6 +144,8 @@ body
 p
 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	font-size: 16;
+	color:black
 
 }
 img
@@ -72,18 +157,71 @@ h1
 {
 	padding-bottom: .67em;
 	padding-top: 1.5em;
-	color:#004a8e
+	color:#004a8e;
+	text-align: right;
 }
 p
 {
 	text-align: left;
 }
+@media only screen and (max-width: 400px) 
+{
+	h1
+    {
+       color:#004a8e;
+	   /* background-color: white; */
+	   padding: 0;
+	   margin:0;
+	   padding-left: 0;
+	  
+	   
+				
+    }
+
+	
+	.navbar a 
+	{
+	font-size: 12px;
+	color: #004a8e;
+	text-align: left;
+	padding: 14px 16px;
+	text-decoration: none;
+	}
+	
+	header
+	{
+		background-image: url(cnu.png);
+		background-repeat: no-repeat;
+		background-position: left bottom;
+		background-size: 100px;
+	}
+}
 footer
 {
-	background-color: white;
+	background-image: url(cnu.png);
+	background-repeat: no-repeat;
+	background-position: center;
+    background-size: 400px;
     padding-top: 1em;
     padding-bottom: 1em;
-	text-align: center;
-	font-size: 24px;
+	text-align: left;
+	font-size: 12px;
+	color: white
+
 
 }
+h4
+{
+	text-align: center;
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-size: 20px
+}
+footer a:link
+{
+    color: white;
+    text-decoration: none;
+}
+
+

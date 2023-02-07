@@ -1,11 +1,12 @@
 nav
 {
-	float:right;
+	text-align: right;
 	text-decoration: none;
 	font-weight: bold;
-	color: #004a8e;
+	color: white;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size: 20px;
+	
 	
 
 
@@ -16,10 +17,75 @@ header
 	text-align: center;
 	background-image:url(cnu.png);
 	background-repeat:no-repeat;
-    background-position:left;
+    background-position:right;
 	background-size:300px;
+    /* background-color:white; */
 }	
-
+#wrap {
+	width: 100%;
+	height: 50px;
+	margin: 0;
+	z-index: 99;
+	position: relative;
+	/* background-color: white; */
+}
+  
+  .navbar {
+	height: 50px;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+  }
+  
+  .navbar li {
+	height: auto;
+	width: 135.8px;
+	float: left;
+	text-align: center;
+	list-style: none;
+	font: normal bold 13px/1em Arial, Verdana, Helvetica;
+	padding: 0;
+	margin: 0;
+	color:yellow;
+  }
+  
+  .navbar a {
+	padding: 18px 0;
+	text-decoration: none;
+	color: white;
+	display: block;
+  }
+  
+  .navbar li:hover,
+  a:hover {
+	background-color: white;
+  }
+  
+  .navbar li ul {
+	display: none;
+	height: auto;
+	margin: 0;
+	padding: 0;
+  }
+  
+  .navbar li:hover ul {
+	display: block;
+  }
+  
+  .navbar li ul li {
+	background-color: white;
+  }
+  
+  .navbar li ul li a {
+	border-left: 1px solid #444444;
+	border-right: 1px solid #444444;
+	border-top: 1px solid #c9d4d8;
+	border-bottom: 1px solid #444444;
+  }
+  
+  .navbar li ul li a:hover {
+	background-color: #a3a1a1;
+  }
 nav a
 {
 	text-decoration: none
@@ -29,86 +95,6 @@ a
 {
 	transition: all .7s ease-in-out;
 
-}
-.navbar 
-{
-	overflow: hidden;
-	float: right;
-}
-  
-  /* Links inside the navbar */
-.navbar a 
-{
-	float: left;
-	font-size: 16px;
-	color: white;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-}
-  
-  /* The dropdown container */
-.dropdown 
-{
-	float: left;
-	overflow: hidden;
-
-}
-.dropdown:hover
-{
-	background-color:rgb(174, 173, 173);
-	transition: .7s ease-in-out;
-}
-  
-  /* Dropdown button */
-.dropdown .dropbtn 
-{
-	font-size: 30px;
-	border: none;
-	outline: none;
-	color: #004a8e;
-	padding: 14px 16px;
-	background-color: inherit;
-	font-family: inherit; /* Important for vertical align on mobile phones */
-	margin: 0; /* Important for vertical align on mobile phones */
-}
-  
-  
-  /* Dropdown content (hidden by default) */
-.dropdown-content 
-{
-	display: none;
-	position: absolute;
-	background-color: #f9f9f9;
-	min-width: 160px;
-	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-	z-index: 1;
-}
-  
-  /* Links inside the dropdown */
-.dropdown-content a 
-{
-	float: none;
-	color: black;
-	padding: 12px 16px;
-	text-decoration: none;
-	display: block;
-	text-align: left;
-}
-  
-  /* Hover state */
-.dropdown-content a:hover 
-{
-	background-color: #004a8e
-}
-  /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content 
-{
-	display: block;
-
-
-	
-	
 }
 
 a:visited 
@@ -145,7 +131,8 @@ p
 {
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size: 16;
-	color:black
+	color:black;
+	text-align: left;
 
 }
 img
@@ -158,55 +145,30 @@ h1
 	padding-bottom: .67em;
 	padding-top: 1.5em;
 	color:#004a8e;
-	text-align: right;
-}
-p
-{
 	text-align: left;
+	border-left: 1em;
 }
-@media only screen and (max-width: 400px) 
+@media only screen and (max-width: 600px) 
 {
-	h1
-    {
-       color:#004a8e;
-	   /* background-color: white; */
-	   padding: 0;
-	   margin:0;
-	   padding-left: 0;
-	  
-	   
-				
-    }
-
-	
-	.navbar a 
-	{
-	font-size: 12px;
-	color: #004a8e;
-	text-align: left;
-	padding: 14px 16px;
-	text-decoration: none;
-	}
-	
 	header
 	{
 		background-image: url(cnu.png);
-		background-repeat: no-repeat;
-		background-position: left bottom;
-		background-size: 100px;
+		background-size: 100000px;
 	}
+	
 }
+
 footer
 {
 	background-image: url(cnu.png);
 	background-repeat: no-repeat;
 	background-position: center;
-    background-size: 400px;
+    background-size: 200px;
     padding-top: 1em;
     padding-bottom: 1em;
 	text-align: left;
 	font-size: 12px;
-	color: white
+	color: black
 
 
 }
@@ -220,7 +182,7 @@ h4
 }
 footer a:link
 {
-    color: white;
+    color: black;
     text-decoration: none;
 }
 

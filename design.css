@@ -1,14 +1,22 @@
 nav
 {
-	text-align:center;
+	float:right;
 	text-decoration: none;
 	font-weight: bold;
 	color: black;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 	font-size: 20px;
+	padding: .5em;
+	background-color: aquamarine;
+
+
     
 }
-	
+header
+{
+	background-color: antiquewhite;
+	text-align: center;
+}	
 
 nav a
 {
@@ -43,13 +51,24 @@ a:hover
 }
 body
 {
-	background-color:white;
+	background-color:aqua;
     margin:0;
 	padding:0;
 	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
-	
 	color:black;
-	text-align:center;
-}
-	
 
+}
+img
+{
+	width: 160;
+	float: left;
+	border:5px solid #000000;
+}
+h1
+{
+	padding-bottom: 2.5em;
+}
+p
+{
+	text-align: left;
+}

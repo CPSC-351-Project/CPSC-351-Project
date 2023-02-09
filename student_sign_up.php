@@ -14,6 +14,7 @@
     <h1>Sign Up</h1>
   </head>
   <body>
+  <p>Sign up page for students</p>
   <div class="login-form">
     <form action="">
       <label for="firstname">First Name</label>
@@ -23,10 +24,18 @@
       <input type="text" id="lastname" name="lastname" required><br><br>
 
       <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required><br><br>
+      <input type="email" id="email" name="email" required><br><br>
       
       <label for="email">Expected Graduation Year:</label>
       <input type="text" id="email" name="email" required><br><br>
+
+      <!-- Add a dropdown menu for Major -->
+      <label for="major">Major:</label>
+      <input type="text" id="major" name="major" required><br><br>
+
+      <!-- Add a dropdown menu for Minor -->
+      <label for="minor">Minor:</label>
+      <input type="text" id="minor" name="minor" required><br><br>
 
       <input type="submit" value="Login">
     </form>

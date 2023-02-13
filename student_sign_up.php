@@ -1,8 +1,3 @@
-<?php 
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,8 +21,8 @@
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required><br><br>
       
-      <label for="email">Expected Graduation Year:</label>
-      <input type="text" id="email" name="email" required><br><br>
+      <label for="grad_year">Expected Graduation Year:</label>
+      <input type="text" id="grad_year" name="grad_year" required><br><br>
 
       <!-- Major selection -->
       <label for="major">Select your Major:</label>

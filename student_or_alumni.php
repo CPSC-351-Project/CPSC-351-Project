@@ -26,10 +26,10 @@
       if(isset($_POST['user'])) {
         $selected_option = $_POST['user'];
         if($selected_option == 'Student') {
-          header('Location:student_sign_up.php');
+          header('Location: http://localhost/CPSC-351-Project/student_sign_up.php');
           exit;
         } elseif($selected_option == 'Alumni') {
-          header('Location:alumni_sign_up.php');
+          header('Location: http://localhost/CPSC-351-Project/alumni_sign_up.php');
           exit;
         }
         else {

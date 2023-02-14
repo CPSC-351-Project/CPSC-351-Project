@@ -1,8 +1,3 @@
-<?php 
-
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="style.css">
-    <h1>Sign Up</h1>
+    <link rel="stylesheet" href="design.css">
+    <h1 style="text-align: center;">Sign Up for Alumni Users</h1>
   </head>
-  <body>
+  <body style="text-align: center;">
+  <p style="text-align: center;">Sign up page for alumni users</p>
   <div class="login-form">
-    <form action="">
+    <form action="" style="display: inline-block;">
       <label for="firstname">First Name</label>
       <input type="text" id="firstname" name="firstname" required><br><br>
       
@@ -23,12 +19,12 @@
       <input type="text" id="lastname" name="lastname" required><br><br>
 
       <label for="email">Email:</label>
-      <input type="text" id="email" name="email" required><br><br>
+      <input type="email" id="email" name="email" required><br><br>
       
-      <label for="email">Expected Graduation Year:</label>
-      <input type="text" id="email" name="email" required><br><br>
-
-      <input type="submit" value="Login">
+      <label for="grad_year">Graduation Year:</label>
+      <input type="text" id="grad_year" name="grad_year" required><br><br>
+      
+      <input type="submit" value="Sign Up">
     </form>
   </div>
   </body>

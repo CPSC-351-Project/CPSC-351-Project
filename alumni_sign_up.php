@@ -23,11 +23,6 @@
       
       <label for="grad_year">Graduation Year:</label>
       <input type="text" id="grad_year" name="grad_year" required><br><br>
-
-      <!-- Major selection -->
-      
-
-      <!-- Minor selection -->
       
       <input type="submit" value="Sign Up">
     </form>

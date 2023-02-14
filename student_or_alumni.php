@@ -23,7 +23,7 @@
     
     
     <?php
-      /*if(isset($_POST['user'])) {
+      if(isset($_POST['user'])) {
         $selected_option = $_POST['user'];
         if($selected_option == 'Student') {
           header('Location:student_sign_up.php');
@@ -36,7 +36,7 @@
         header('Location:student_or_alumni.php');
         exit;
         }
-      }*/
+      }
       ?>
   </div>
   </body>

@@ -30,9 +30,9 @@ echo '
                 </ul>
               </li>
               <li>
-                <a href="#">Account</a>
+                <a href="login.php">Account</a>
                 <ul>
-                  <li><a href="login.php">Create Account</a></li>
+                  <li><a href="student_or_alumni.php">Create Account</a></li>
                   <li><a href="#">Manage Account</a></li>
                   <li><a href="#">Notifications</a></li>
                 </ul>

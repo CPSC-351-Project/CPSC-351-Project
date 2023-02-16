@@ -116,16 +116,16 @@ a:hover
 	color: white;
 
 }
-body
-{
-	background-image:linear-gradient(230deg,white,#004a8e);
-    margin:0;
-	padding:0;
-	font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;;
-	color:black;
+body {
+	background-image: linear-gradient(230deg,white,#004a8e);
+	background-repeat: no-repeat;
+	background-size: cover;
+	margin: 0;
+	padding: 0;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+	;
+	color: black;
 	margin: 1em;
-	
-
 }
 p
 {

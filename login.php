@@ -45,18 +45,16 @@ echo '
   <link rel="stylesheet" href="design.css">
 </head>
 <body>
-  <h1>Login Here</h1>
-  <div class="login-form">
-  <form action="login.php" method="post">
-  <label for="username">Username:</label>
-  <input type="text" id="username" name="username"><br>
+  <title>Login Here</title>
+  <form class="myform">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username">
 
-  <label for="password">Password:</label>
-  <input type="password" id="password" name="password"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
 
-  <button type="submit">Login</button>
-</form>
-  </div>
+    <input type="submit" value="Login">
+  </form>
 
 
 

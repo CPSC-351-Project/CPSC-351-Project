@@ -41,22 +41,21 @@ echo '
           </div>
           
         <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-        <h1>Website Title</h1>
     </header>
   <link rel="stylesheet" href="design.css">
-  <title>Login Here</title>
 </head>
 <body>
+  <h1>Login Here</h1>
   <div class="login-form">
-    <form action="">
-      <label for="username">Username:</label>
-      <input type="text" id="username" name="username"><br><br>
-      
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="password"><br><br>
-      
-      <input type="submit" value="Login">
-    </form>
+  <form action="login.php" method="post">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username"><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password"><br>
+
+  <button type="submit">Login</button>
+</form>
   </div>
 
 

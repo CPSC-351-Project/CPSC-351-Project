@@ -1,3 +1,22 @@
+<?php
+      if (isset($_POST['submit'])) {
+        if(isset($_POST['user'])) {
+          $selected_option = $_POST['user'];
+          if($selected_option == 'Student') {
+            header('Location: student_sign_up.php');
+            exit;
+          } elseif($selected_option == 'Alumni') {
+            header('Location: alumni_sign_up.php');
+            exit;
+          }
+          else {
+          header('Location: student_or_alumni.php');
+          exit;
+          }
+        } 
+      }
+      ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -20,24 +39,6 @@
 
       <input type="submit" value="Sign Up">
     </form>
-    
-    
-    <?php
-      if(isset($_POST['user'])) {
-        $selected_option = $_POST['user'];
-        if($selected_option == 'Student') {
-          header('Location:student_sign_up.php');
-          exit;
-        } elseif($selected_option == 'Alumni') {
-          header('Location:alumni_sign_up.php');
-          exit;
-        }
-        else {
-        header('Location:student_or_alumni.php');
-        exit;
-        }
-      }
-      ?>
   </div>
   </body>
 </html>

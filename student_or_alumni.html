@@ -1,22 +1,3 @@
-<?php
-      if (isset($_POST['submit'])) {
-        if(isset($_POST['user'])) {
-          $selected_option = $_POST['user'];
-          if($selected_option == 'Student') {
-            header('Location: student_sign_up.php');
-            exit;
-          } elseif($selected_option == 'Alumni') {
-            header('Location: alumni_sign_up.php');
-            exit;
-          }
-          else {
-          header('Location: student_or_alumni.php');
-          exit;
-          }
-        } 
-      }
-      ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -38,7 +19,27 @@
       <label for="alumni">Alumni</label><br><br>
 
       <input type="submit" value="Sign Up">
+          <!-- Your JavaScript code -->
+      <script>
+        // Get all radio buttons with name="my_radio"
+        var radios = document.getElementsByName('my_radio');
+        // Loop through the radio buttons and add an onclick event listener to each one
+        for(var i = 0; i < radios.length; i++) {
+          radios[i].onclick = function() {
+            // If this radio button is checked, redirect the user to the appropriate page
+            if(this.checked) {
+              if(this.value === 'Student') {
+                window.location.href = 'student_sign_up.php';
+              } else if(this.value === 'Alumni') {
+                window.location.href = 'alumni_sign_up.php';
+              }
+            }
+          }
+        }
+      </script>
     </form>
+
+    
   </div>
   </body>
 </html>

@@ -49,6 +49,14 @@ if (isset($_POST['submit'])) {
       </header>
 </head>
 <body>
+  <title>Login Here</title>
+  <form class="myform">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br>
+    
   <div class="login-form">
     <form action="">
       <label for="username">Username:</label>
@@ -60,8 +68,6 @@ if (isset($_POST['submit'])) {
       <input type="submit" value="Login">
     </form>
   </div>
-
-
 
 </body>
 

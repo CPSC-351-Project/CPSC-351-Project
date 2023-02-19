@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 
 $servername = "localhost";
 $username = "root";
@@ -32,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST') {
     }
     
     if (isset($fname) and isset($lname) and isset($email) and isset($username) and isset($password)) {
-		
-		$sql = "INSERT INTO accounts (fname, lname, email, username, password)
+        
+        $sql = "INSERT INTO accounts (fname, lname, email, username, password)
         VALUES ('John', 'Doe', 'john@example.com', 'john123', 'password1')";
 
 
@@ -112,5 +112,6 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST') {
 
 
 </body></html>
+
 
 

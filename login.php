@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
 </head>
 <body style="text-align: center;">
   <title>Login Here</title>
-  <form action="">
+  <form action="" method="post">
     <label for="username">Username:</label>
     <input type="text" id="username" name="username"><br><br>
     
@@ -63,5 +63,44 @@ if (isset($_POST['submit'])) {
   <p><strong>Don't have an account? Sign up below</strong></p><br>
   <a href="student_sign_up.php">Sign Up for Students</a><br>
   <a href="alumni_sign_up.php">Sign Up for Alumni</a>
+
+<?php
+// SQL Database connection
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "351test";
+
+$conn = mysqli_connect($server, $username, $password, $dbname);
+
+// Check if the connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+
+// Get the username and password from the form
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+// Escape the username and password to prevent SQL injection attacks
+$username = mysqli_real_escape_string($conn, $username);
+$password = mysqli_real_escape_string($conn, $password);
+
+// Query the database to check if the username and password match
+$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+$result = mysqli_query($conn, $sql);
+
+// Check if the query was successful
+if (mysqli_num_rows($result) > 0) {
+    // The username and password match a record in the database
+    echo "Login successful!";
+} else {
+    // The username and password do not match any records in the database
+    echo "Invalid username or password";
+}
+
+// Close the database connection
+mysqli_close($conn);
+?>
 </body>
 </html>

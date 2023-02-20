@@ -6,7 +6,7 @@ if (isset($_POST['submit'])) {
 
 }
 
-?>
+echo '
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,12 +32,12 @@ if (isset($_POST['submit'])) {
                   </ul>
                 </li>
                 <li>
-                  <a href="login.php">Account</a>
+                  <a href="#">Account</a>
                   <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
+                    <li><a href="student_or_alumni.php">Create Account</a></li>
+                    <li><a href="login.php">Manage Account</a></li>
+                    <li><a href="#">Notifications</a></li>
+                  </ul>
                 </li>
               </ul>
             </div>
@@ -52,16 +52,24 @@ if (isset($_POST['submit'])) {
   <title>Login Here</title>
   <form action="">
     <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br><br>
-    
+    <input type="text" id="username" name="username"><br>
+
     <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
+    <input type="password" id="password" name="password"><br>
     
-    <input type="submit" value="Login">
-  </form>
-  <br>
-  <p><strong>Don't have an account? Sign up below</strong></p><br>
-  <a href="student_sign_up.php">Sign Up for Students</a><br>
-  <a href="alumni_sign_up.php">Sign Up for Alumni</a>
+  <div class="login-form">
+    <form action="">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      
+      <input type="submit" value="Login">
+    </form>
+  </div>
+
 </body>
+
+
 </html>

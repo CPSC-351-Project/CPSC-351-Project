@@ -23,7 +23,7 @@
             <li>
                 <a href="login.php">Account</a>
                 <ul>
-                    <li><a href="student_or_alumni.php">Create Account</a></li>
+                    <li><a href="login.php">Login/Create Account</a></li>
                     <li><a href="">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>

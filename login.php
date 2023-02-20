@@ -45,62 +45,66 @@ if (isset($_POST['submit'])) {
             
             
           <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-          <h1>AlumniReach</h1>
+          <h1></h1>
       </header>
 </head>
 <body style="text-align: center;">
+  <h2>Login</h2>
   <title>Login Here</title>
-  <form action="" method="post">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br><br>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
-    
-    <input type="submit" value="Login">
-  </form>
-  <br>
-  <p><strong>Don't have an account? Sign up below</strong></p><br>
-  <a href="student_sign_up.php">Sign Up for Students</a><br>
-  <a href="alumni_sign_up.php">Sign Up for Alumni</a>
+  <div class="login-form">
+    <br>
+    <form action="" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username"><br><br>
+      
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password"><br><br>
+      
+      <input type="submit" value="Login">
+    </form>
+    <br>
+    <p style="text-align: center"><strong>Don't have an account? Sign up below</strong></p>
+    <a href="student_sign_up.php">Sign Up for Students</a><br>
+    <a href="alumni_sign_up.php">Sign Up for Alumni</a><br>
 
-<?php
-// SQL Database connection
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "351test";
+    <?php
+    // SQL Database connection
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "351project";
 
-$conn = mysqli_connect($server, $username, $password, $dbname);
+    $conn = mysqli_connect($server, $username, $password, $dbname);
 
-// Check if the connection was successful
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
+    // Check if the connection was successful
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
 
-// Get the username and password from the form
-$username = $_POST['username'];
-$password = $_POST['password'];
+    // Get the username and password from the form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-// Escape the username and password to prevent SQL injection attacks
-$username = mysqli_real_escape_string($conn, $username);
-$password = mysqli_real_escape_string($conn, $password);
+    // Escape the username and password to prevent SQL injection attacks
+    $username = mysqli_real_escape_string($conn, $username);
+    $password = mysqli_real_escape_string($conn, $password);
 
-// Query the database to check if the username and password match
-$sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
-$result = mysqli_query($conn, $sql);
+    // Query the database to check if the username and password match
+    $sql = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    $result = mysqli_query($conn, $sql);
 
-// Check if the query was successful
-if (mysqli_num_rows($result) > 0) {
-    // The username and password match a record in the database
-    echo "Login successful!";
-} else {
-    // The username and password do not match any records in the database
-    echo "Invalid username or password";
-}
+    // Check if the query was successful
+    if (mysqli_num_rows($result) > 0) {
+        // The username and password match a record in the database
+        echo "Login successful!";
+    } else {
+        // The username and password do not match any records in the database
+        echo "Invalid username or password";
+    }
 
-// Close the database connection
-mysqli_close($conn);
-?>
+    // Close the database connection
+    mysqli_close($conn);
+    ?>
+  </div>
 </body>
 </html>

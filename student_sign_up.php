@@ -236,6 +236,20 @@
 
       <input type="submit" value="Sign Up">
     </form>
+<?php
+// SQL Database connection
+$server = "localhost";
+$username = "root";
+$password = "";
+$dbname = "351project";
+
+$conn = mysqli_connect($server, $username, $password, $dbname);
+
+// Check if the connection was successful
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+}
+?>
   </div>
   </body>
 </html>

@@ -26,6 +26,17 @@
       
       <input type="submit" value="Sign Up">
     </form>
+    <?php
+	$servername = "localhost";
+	$username = "root";
+	$password = "";
+	$dbname = "alumnireach";
+	
+	$conn = mysqli_connect($servername, $username, $password, $dbname); 
+	
+	if ($conn->connect_error) {
+    die("bad connection: ".mysqli_connect_error());
+}
   </div>
   </body>
 </html>

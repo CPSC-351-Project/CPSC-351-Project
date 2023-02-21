@@ -25,8 +25,8 @@
       <input type="text" id="grad_year" name="grad_year" required><br><br>
 
       <!-- Major selection -->
-      <label for="major">Select your Major:</label>
-      <select name="major" id="major" required>
+      <label for="major_1">Select your Major:</label>
+      <select name="major_1" id="major_1" required>
         <option value="pick_one">*Select a Major*</option>
         <option value="Accounting">Accounting</option>
         <option value="American">American Studies</option>
@@ -70,8 +70,8 @@
         <option value="Theater">Theater</option>
       </select><br><br>
 
-      <label for="major">Enter your second Minor (If applicable):</label>
-      <select name="major" id="major">
+      <label for="major_2">Enter your second Minor (If applicable):</label>
+      <select name="major_2" id="major_2">
         <option value="pick_one">*Select a Major*</option>
         <option value="Accounting">Accounting</option>
         <option value="American">American Studies</option>
@@ -116,8 +116,8 @@
       </select><br><br>
 
       <!-- Minor selection -->
-      <label for="minor">Enter your Minor:</label>
-      <select name="minor" id="minor" required>
+      <label for="minor_1">Enter your Minor:</label>
+      <select name="minor_1" id="minor_1" required>
         <option value="pick_one">*Select a Minor*</option>
         <option value="A-A Studies">African-American Studies</option>
         <option value="American">American Studies</option>
@@ -175,8 +175,8 @@
         <option value="Writing">Writing</option>
       </select><br><br>
 
-      <label for="minor">Enter your second Minor (If applicable):</label>
-      <select name="minor" id="minor">
+      <label for="minor_2">Enter your second Minor (If applicable):</label>
+      <select name="minor_2" id="minor_2">
         <option value="pick_one">*Select a Minor*</option>
         <option value="A-A Studies">African-American Studies</option>
         <option value="American">American Studies</option>
@@ -236,20 +236,50 @@
 
       <input type="submit" value="Sign Up">
     </form>
-<?php
-// SQL Database connection
-$server = "localhost";
-$username = "root";
-$password = "";
-$dbname = "351project";
+    <?php
+    // SQL Database connection
+    $server = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "351project";
 
-$conn = mysqli_connect($server, $username, $password, $dbname);
+    $conn = mysqli_connect($server, $username, $password, $dbname);
 
-// Check if the connection was successful
-if (!$conn) {
-    die("Connection failed: " . mysqli_connect_error());
-}
-?>
+    // Check if the connection was successful
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    // Collect information from form
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $grad_year = $_POST['grad_year'];
+    $first_major = $_POST['major_1'];
+    $second_major = $_POST['major_2'];
+    $first_minor = $_POST['minor_1'];
+    $second_minor = $_POST['minor_2'];
+
+    // Escape the username and password to prevent SQL injection attacks
+    $firstname = mysqli_real_escape_string($conn, $firstname);
+    $lastname = mysqli_real_escape_string($conn, $lastname);
+    $email = mysqli_real_escape_string($conn, $email);
+    $grad_year  = mysqli_real_escape_string($conn, $grad_year);
+    $first_major = mysqli_real_escape_string($conn, $first_major);
+    $second_major = mysqli_real_escape_string($conn, $second_major);
+    $first_minor = mysqli_real_escape_string($conn, $first_minor);
+    $second_minor = mysqli_real_escape_string($conn, $second_minor);
+    
+    // Add the form information to the database
+    $insert_firstname = "INSERT INTO `student_accounts`(`firstname`) VALUES ('$firstname');";
+    $insert_lastname = "INSERT INTO `student_accounts`(`lastname`) VALUES ('$lastname');";
+    $insert_email = "INSERT INTO `student_accounts`(`email`) VALUES ('$email');";
+    $insert_year = "INSERT INTO `student_accounts`(`grad_year`) VALUES ('$grad_year');"; 
+    $insert_major_1 = "INSERT INTO `student_accounts`(`major_1') VALUES ('$major_1');";
+    $insert_major_2 = "INSERT INTO `student_accounts`(`major_2') VALUES ('$major_2');";
+    $insert_minor_1 = "INSERT INTO `student_accounts`(`minor_1) VALUES ('$minor_1');";
+    $insert_minor_2 = "INSERT INTO `student_accounts`(`minor_2') VALUES ('$minor_2');";
+    ?>
   </div>
   </body>
 </html>

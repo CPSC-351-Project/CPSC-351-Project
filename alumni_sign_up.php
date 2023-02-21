@@ -37,6 +37,7 @@
 	if ($conn->connect_error) {
     die("bad connection: ".mysqli_connect_error());
 }
+  ?>
   </div>
   </body>
 </html>

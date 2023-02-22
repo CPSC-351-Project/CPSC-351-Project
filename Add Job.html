@@ -36,9 +36,29 @@
     
 </head>
 <body>
-    <form>
-        <h2><u>Post A Job</h2></u></h2>
-        <form action="/action_page.php">
+   <?php
+        $jobname = $_POST["JobName"];
+        $companyname = $_POST["Companyname"];
+        $jobDescription = $_POST["Description"];
+
+        // Connect to the database
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "alumnireach";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Insert the data into the database
+        $sql = "INSERT INTO job post (JobName, Companyname, Description) VALUES ('$jobname', '$companyname', '$jobDescription')";
+
+        $conn->query($sql);
+        $conn->close();
+        ?>
+
+
+    
+        <h2><u>Post A Job</u></h2>
+        <form action="Job_Submitted.html" method="POST" >
             <label for="JobName">Enter Job Name:</label><br>
             <input type="text" id="JobName" name="JobName"><br><br>
 
@@ -46,11 +66,10 @@
             <input type="text" id="CompanyName" name="CompanyName" ><br><br>
             
             <label for="Description">Description:</label><br>
-            <input size="90" style=height:150px type="text" id="Description" name="Description"><br><br>
+            <textarea id="Description" name="Description" rows= 5 cols=40></textarea><br><br>
 
             <input type="submit" value="Submit"><br><br>          
-    </form> 
-
+        </form>
 
 
     

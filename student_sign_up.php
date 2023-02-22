@@ -237,17 +237,16 @@
       <input type="submit" value="Sign Up">
     </form>
     <?php
-    // SQL Database connection
-    $server = "localhost";
+
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "351project";
+    $dbname = "alumnireach";
 
-    $conn = mysqli_connect($server, $username, $password, $dbname);
+    $conn = mysqli_connect($servername, $username, $password, $dbname); 
 
-    // Check if the connection was successful
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
+    if ($conn->connect_error) {
+      die("bad connection: ".mysqli_connect_error());
     }
 
     // Collect information from form
@@ -279,6 +278,7 @@
     $insert_major_2 = "INSERT INTO `student_accounts`(`major_2') VALUES ('$major_2');";
     $insert_minor_1 = "INSERT INTO `student_accounts`(`minor_1) VALUES ('$minor_1');";
     $insert_minor_2 = "INSERT INTO `student_accounts`(`minor_2') VALUES ('$minor_2');";
+
     ?>
   </div>
   </body>

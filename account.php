@@ -6,6 +6,7 @@ $password = "";
 $dbname = "alumnireach";
 
 // Create connection
+
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
@@ -13,8 +14,8 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error());
 }
 
-if ($_SERVER['REQUEST_METHOD'] ==='POST') {
-    
+if (isset($_POST['firstName'])) {
+    echo 'bagggggga';
     if (isset($_POST['firstName'])) {
         $fname = $_POST['firstName'];
     }
@@ -32,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST') {
     }
     
     if (isset($fname) and isset($lname) and isset($email) and isset($username) and isset($password)) {
-        
-        $sql = "INSERT INTO accounts (fname, lname, email, username, password)
+		echo 'banana';
+		$sql = "INSERT INTO accounts (fname, lname, email, username, password)
         VALUES ('John', 'Doe', 'john@example.com', 'john123', 'password1')";
 
 
@@ -105,13 +106,12 @@ if ($_SERVER['REQUEST_METHOD'] ==='POST') {
     <label for="password">Password:</label>
     <input type="password" id="password" name="password">
 
-    <input type="submit" value="Register">
+    <input type="submit" value="Register" name="Submit">
     <div id="error"><?php echo isset($message) ? $message : '' ?></div>
   </form>
 
 
 
 </body></html>
-
 
 

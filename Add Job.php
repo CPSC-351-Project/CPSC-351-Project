@@ -36,7 +36,24 @@
     
 </head>
 <body>
-   <?php
+   
+
+    
+        <h2><u>Post A Job</u></h2>
+        <form action="Job_Submitted.html" method="POST" >
+            <label for="JobName">Enter Job Name:</label><br>
+            <input type="text" id="JobName" name="JobName"><br><br>
+
+            <label for="CompanyName">Enter Company Name:</label><br>
+            <input type="text" id="CompanyName" name="CompanyName" ><br><br>
+            
+            <label for="Description">Description:</label><br>
+            <textarea id="Description" name="Description" rows= 5 cols=40></textarea><br><br>
+
+            <input type="submit" value="Submit"><br><br>          
+        </form>
+
+        <?php
         $jobname = $_POST["JobName"];
         $companyname = $_POST["Companyname"];
         $jobDescription = $_POST["Description"];
@@ -54,23 +71,6 @@
         $conn->query($sql);
         $conn->close();
         ?>
-
-
-    
-        <h2><u>Post A Job</u></h2>
-        <form action="Job_Submitted.html" method="POST" >
-            <label for="JobName">Enter Job Name:</label><br>
-            <input type="text" id="JobName" name="JobName"><br><br>
-
-            <label for="CompanyName">Enter Company Name:</label><br>
-            <input type="text" id="CompanyName" name="CompanyName" ><br><br>
-            
-            <label for="Description">Description:</label><br>
-            <textarea id="Description" name="Description" rows= 5 cols=40></textarea><br><br>
-
-            <input type="submit" value="Submit"><br><br>          
-        </form>
-
 
     
         

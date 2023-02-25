@@ -20,21 +20,24 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-        
-    // Collect information from form
-    $firstname = $_REQUEST['firstname'];
-    $lastname = $_REQUEST['lastname'];
-    $email = $_REQUEST['email'];
-    $grad_year = $_REQUEST['grad_year'];
-        
-    // Performing insert query execution
-    $sql = "INSERT INTO alumni_accounts(firstname, lastname, email, grad_year) VALUES ($firstname, $lastname, $email, $grad_year);";
-        
-    if(mysqli_query($conn, $sql)){
-        echo "<h3>Account made successfully! \nWelcome $firstname $lastname! You may return home</h3>";
-    } else{
-        echo "ERROR: $sql. "
-            . mysqli_error($conn);
+    
+    if(isset($_POST['submit']))
+    {
+        // Collect information from form
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+        $email = $_POST['email'];
+        $grad_year = $_POST['grad_year'];
+
+        if(mysqli_query($conn, "insert into alumni_accounts (firstname,lastname,email,grad_year) 
+        values('$firstname','$lastname','$email','$grad_year')"));{
+            echo "<h3>Account made successfully! \nWelcome $firstname $lastname! You may return home</h3>";
+        }
+
+    }
+    else
+    {
+        echo "Please fill in the blanks";
     }
         
     // Close connection

@@ -1,3 +1,12 @@
+<?php
+session_start();
+    include "connection.php";
+    include "functions.php";
+    $user_data = check_login($conn);
+
+?>
+
+<!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
 <head>    
@@ -5,11 +14,11 @@
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li>
                 <a href="#">Job</a>
                 <ul>
-                    <li><a href="Find Jobs.html">Find Jobs</a></li>
+                    <li><a href="Find Jobs.php">Find Jobs</a></li>
                     <li><a href="Add Job.php">Post a Job</a></li>
                 </ul>
             </li>
@@ -28,14 +37,17 @@
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
+        
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
     <h1>AlumniReach</h1>      
   </header>
-    
 </head>
-
+<h4>Hello, <?php echo $user_data['first_name']; echo " "; echo $user_data['last_name']; ?>! Welcome to Alumni Reach!</h4>
 <body>
     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia sagittis pharetra. Quisque lacinia nibh dolor, quis tristique ante posuere quis. Etiam pellentesque massa id erat luctus, ut hendrerit lectus efficitur. Sed ante lacus, molestie egestas justo posuere, cursus vehicula est. Duis tincidunt molestie lectus sit amet pulvinar. Aliquam quam lectus, consequat id vestibulum hendrerit, ultricies at orci. Sed eget eleifend odio. Cras tellus velit, elementum vel blandit a, venenatis id enim. Pellentesque quis velit facilisis arcu egestas aliquam et quis dolor. Suspendisse potenti. Aliquam accumsan, felis sit amet fringilla venenatis, nisl orci euismod justo, ac tristique nulla ligula ac nibh. Pellentesque aliquet placerat faucibus.<br><br>
 

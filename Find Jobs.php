@@ -1,3 +1,10 @@
+<?php
+session_start();
+    include "connection.php";
+    include "functions.php";
+    $user_data = check_login($conn);
+
+?>
 <html>
 <title>Lets go</title>
 <head>    
@@ -9,8 +16,8 @@
             <li>
                 <a href="#">Job</a>
                 <ul>
-                    <li><a href="Find Jobs.html">Find Jobs</a></li>
-                    <li><a href="Add Job.html">Post a Job</a></li>
+                    <li><a href="Find Jobs.php">Find Jobs</a></li>
+                    <li><a href="Add Job.php">Post a Job</a></li>
                 </ul>
             </li>
             <li>
@@ -23,7 +30,7 @@
             <li>
                 <a href="login.php">Account</a>
                 <ul>
-                    <li><a href="student_or_alumni.php">Create Account</a></li>
+                    <li><a href="login.php">Create Account</a></li>
                     <li><a href="">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>

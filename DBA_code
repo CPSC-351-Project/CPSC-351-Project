@@ -51,11 +51,7 @@ CREATE TABLE IF NOT EXISTS `forum_post` (
 CREATE TABLE IF NOT EXISTS `job_post` (
   `JpostID` INT NOT NULL,
   `jobDescription` VARCHAR(200) NULL DEFAULT NULL,
-  `jobOpenings` VARCHAR(45) NULL DEFAULT NULL,
-  `internships` VARCHAR(45) NULL DEFAULT NULL,
-  `internshipDescription` VARCHAR(200) NULL DEFAULT NULL,
+  `JobName` VARCHAR(45) NULL DEFAULT NULL,
+  `Companyname` VARCHAR(45) NULL DEFAULT NULL,
   `postDate` DATE NULL DEFAULT NULL,
-  `students_studentID` INT NOT NULL,
-  `alumni_alumniID` INT NOT NULL,
-  `company_rep_employerID` INT NOT NULL,
   PRIMARY KEY (`JpostID`));

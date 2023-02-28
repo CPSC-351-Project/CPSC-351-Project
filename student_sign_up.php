@@ -11,7 +11,7 @@
   <body style="text-align: center;">
   <p style="text-align: center;">Sign up page for student users</p>
   <div class="login-form">
-    <form action="" style="display: inline-block;">
+    <form action="" style="display: inline-block;" method="post">
       <label for="firstname">First Name</label>
       <input type="text" id="firstname" name="firstname" required><br><br>
       
@@ -236,50 +236,6 @@
 
       <input type="submit" value="Sign Up">
     </form>
-    <?php
-    // SQL Database connection
-    $server = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "351project";
-
-    $conn = mysqli_connect($server, $username, $password, $dbname);
-
-    // Check if the connection was successful
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
-
-    // Collect information from form
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
-    $email = $_POST['email'];
-    $grad_year = $_POST['grad_year'];
-    $first_major = $_POST['major_1'];
-    $second_major = $_POST['major_2'];
-    $first_minor = $_POST['minor_1'];
-    $second_minor = $_POST['minor_2'];
-
-    // Escape the username and password to prevent SQL injection attacks
-    $firstname = mysqli_real_escape_string($conn, $firstname);
-    $lastname = mysqli_real_escape_string($conn, $lastname);
-    $email = mysqli_real_escape_string($conn, $email);
-    $grad_year  = mysqli_real_escape_string($conn, $grad_year);
-    $first_major = mysqli_real_escape_string($conn, $first_major);
-    $second_major = mysqli_real_escape_string($conn, $second_major);
-    $first_minor = mysqli_real_escape_string($conn, $first_minor);
-    $second_minor = mysqli_real_escape_string($conn, $second_minor);
-    
-    // Add the form information to the database
-    $insert_firstname = "INSERT INTO `student_accounts`(`firstname`) VALUES ('$firstname');";
-    $insert_lastname = "INSERT INTO `student_accounts`(`lastname`) VALUES ('$lastname');";
-    $insert_email = "INSERT INTO `student_accounts`(`email`) VALUES ('$email');";
-    $insert_year = "INSERT INTO `student_accounts`(`grad_year`) VALUES ('$grad_year');"; 
-    $insert_major_1 = "INSERT INTO `student_accounts`(`major_1') VALUES ('$major_1');";
-    $insert_major_2 = "INSERT INTO `student_accounts`(`major_2') VALUES ('$major_2');";
-    $insert_minor_1 = "INSERT INTO `student_accounts`(`minor_1) VALUES ('$minor_1');";
-    $insert_minor_2 = "INSERT INTO `student_accounts`(`minor_2') VALUES ('$minor_2');";
-    ?>
   </div>
   </body>
 </html>

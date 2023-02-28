@@ -34,45 +34,44 @@
 ?>
 <!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" type="text/css" href="design.css">
-    <title>Login Here</title>
-    <header>
-            <link rel="stylesheet" href="design.css">
-            <div id="wrap">
-                <ul class="navbar">
-                  <li><a href="index.php">Home</a></li>
-                  <li>
-                    <a href="#">Job</a>
-                    <ul>
-                      <li><a href="Find Jobs.html">Find Jobs</a></li>
-                      <li><a href="Add Job.html">Post a Job</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="#">Networking</a>
-                    <ul>
-                      <li><a href="#">Advice Forum</a></li>
-                      <li><a href="#">Events Page</a></li>
-                    </ul>
-                  </li>
-                  <li>
-                    <a href="login.php">Account</a>
-                    <ul>
-                      <li><a href="login.php">Login/Create Account</a></li>
-                      <li><a href="">Manage Account</a></li>
-                      <li><a href="account.php">Notifications</a></li>
-                  </ul>
-                  </li>
+<head>    
+  <header>
+    <link rel="stylesheet" href="design.css">
+    <div id="wrap">
+        <ul class="navbar">
+            <li><a href="index.php">Home</a></li>
+            <li>
+                <a href="#">Job</a>
+                <ul>
+                    <li><a href="Find Jobs.php">Find Jobs</a></li>
+                    <li><a href="Add Job.php">Post a Job</a></li>
                 </ul>
-              </div>
-              
-              
-              
-            <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-            <h1></h1>
-        </header>
-  </head>
+            </li>
+            <li>
+                <a href="#">Networking</a>
+                <ul>
+                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="#">Events Page</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="login.php">Account</a>
+                <ul>
+                    <li><a href="login.php">Login/Create Account</a></li>
+                    <li><a href="">Manage Account</a></li>
+                    <li><a href="account.php">Notifications</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
+        
+        </ul>
+      </div>
+      <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
+    <h1>AlumniReach</h1>      
+  </header>
+</head>
   <body style="text-align: center;">
     <h2>Login</h2>
     <title>Login Here</title>

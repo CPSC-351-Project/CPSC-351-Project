@@ -18,7 +18,7 @@ session_start();
             <li>
                 <a href="#">Job</a>
                 <ul>
-                    <li><a href="Find Jobs.html">Find Jobs</a></li>
+                    <li><a href="Find Jobs.php">Find Jobs</a></li>
                     <li><a href="Add Job.php">Post a Job</a></li>
                 </ul>
             </li>
@@ -46,7 +46,6 @@ session_start();
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
     <h1>AlumniReach</h1>      
   </header>
-    
 </head>
 <h4>Hello, <?php echo $user_data['first_name']; echo " "; echo $user_data['last_name']; ?>! Welcome to Alumni Reach!</h4>
 <body>

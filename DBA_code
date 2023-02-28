@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `alumni` (
   `contactInformation` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`));
 
-CREATE TABLE IF NOT EXISTS `company rep` (
+CREATE TABLE IF NOT EXISTS `company_rep` (
   `employerID` INT NOT NULL,
   `hiringManager` VARCHAR(70) NULL DEFAULT NULL,
   `contactInformation` VARCHAR(45) NULL DEFAULT NULL,
@@ -38,23 +38,23 @@ CREATE TABLE IF NOT EXISTS `students` (
   `bio` VARCHAR(200) NULL DEFAULT NULL,
   PRIMARY KEY (`studentID`));
 
-CREATE TABLE IF NOT EXISTS `forum post` (
+CREATE TABLE IF NOT EXISTS `forum_post` (
   `FpostID` INT NOT NULL,
   `postDescription` VARCHAR(200) NULL DEFAULT NULL,
   `postDate` DATETIME NOT NULL,
   `students_studentID` INT NOT NULL,
   `alumni_alumniID` INT NOT NULL,
-  `company rep_employerID` INT NOT NULL,
+  `company_rep_employerID` INT NOT NULL,
   PRIMARY KEY (`FpostID`));
 
-CREATE TABLE IF NOT EXISTS `job post` (
+CREATE TABLE IF NOT EXISTS `job_post` (
   `JpostID` INT NOT NULL,
   `jobDescription` VARCHAR(200) NULL DEFAULT NULL,
   `jobOpenings` VARCHAR(45) NULL DEFAULT NULL,
-  `interships` VARCHAR(45) NULL DEFAULT NULL,
-  `intershipDescription` VARCHAR(200) NULL DEFAULT NULL,
+  `internships` VARCHAR(45) NULL DEFAULT NULL,
+  `internshipDescription` VARCHAR(200) NULL DEFAULT NULL,
   `postDate` DATE NULL DEFAULT NULL,
   `students_studentID` INT NOT NULL,
   `alumni_alumniID` INT NOT NULL,
-  `company rep_employerID` INT NOT NULL,
+  `company_rep_employerID` INT NOT NULL,
   PRIMARY KEY (`JpostID`));

@@ -1,3 +1,39 @@
+<?php
+session_start();
+  include "connection.php";
+  include "functions.php";
+
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // something was posted
+    // Collect information from form
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['pword'];
+    $grad_year = $_POST['grad_year'];
+    $major_1 = $_POST['major_1'];
+    $major_2 = $_POST['major_2'];
+    $minor_1 = $_POST['minor_1'];
+    $minor_2 = $_POST['minor_2'];
+    $job = $_POST['job'];
+
+    if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($password)){
+        // save to database
+        $user_id = random_num(10);
+        $sql = "insert into alumni (user_id,first_name,last_name,email,pword,grad_year,major_1,major_2,minor_1,minor_2,job)
+        values('$user_id', '$firstname', '$lastname', '$email', '$password', '$grad_year', '$major_1', '$major_2', '$minor_1', '$minor_2', '$job')";
+        mysqli_query($conn, $sql);
+        echo "Sign Up was successful";
+        header("Location: login.php");
+        die();
+
+    }else{
+        echo "Please enter some valid information";
+    }
+    
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,7 +47,7 @@
   <body style="text-align: center;">
   <p style="text-align: center;">Sign up page for alumni users</p>
   <div class="login-form">
-    <form action="account_confirm_for_alumni.php" style="display: inline-block;">
+    <form style="display: inline-block;" method="post">
       <label for="firstname">First Name</label>
       <input type="text" id="firstname" name="firstname" required><br><br>
       
@@ -20,49 +56,30 @@
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required><br><br>
+
+      <label for="pword">Password:</label>
+      <input type="password" name="pword" id="pword" required><br><br>
       
       <label for="grad_year">Graduation Year:</label>
       <input type="text" id="grad_year" name="grad_year" required><br><br>
+
+      <label for="major_1">What was your Major:</label>
+      <input type="text" name="major_1" id="major_1"><br><br>
+
+      <label for="major_2">What was your second Major(if applicable):</label>
+      <input type="text" name="major_2" id="major_2"><br><br>
+
+      <label for="minor_1">What was your Minor:</label>
+      <input type="text" name="minor_1" id="minor_1"><br><br>
+
+      <label for="minor_2">What was your second Minor(if applicable):</label>
+      <input type="text" name="minor_2" id="minor_2"><br><br>
+      
+      <label for="job">Job Title</label>
+      <input type="text" name="job" id="job"><br><br>
       
       <input type="submit" value="Sign Up">
     </form>
-    <?php
-
-	$servername = "localhost";
-	$username = "root";
-	$password = "";
-	$dbname = "alumnireach";
-	
-	$conn = mysqli_connect($servername, $username, $password, $dbname); 
-	
-	if ($conn->connect_error) {
-    die("bad connection: ".mysqli_connect_error());
-}
-  ?>
-
-    // // Collect information from form
-    // $firstname = $_POST['firstname'];
-    // $lastname = $_POST['lastname'];
-    // $email = $_POST['email'];
-    // $grad_year = $_POST['grad_year'];
-
-    // // Escape the username and password to prevent SQL injection attacks
-    // $firstname = mysqli_real_escape_string($conn, $firstname);
-    // $lastname = mysqli_real_escape_string($conn, $lastname);
-    // $email = mysqli_real_escape_string($conn, $email);
-    // $grad_year  = mysqli_real_escape_string($conn, $grad_year);
-    
-    // // Add the form information to the database
-    // $insert_firstname = "INSERT INTO `alumni_accounts`(`firstname`) VALUES ('$firstname');";
-    // mysqli_query($conn, $insert_firstname);
-    // $insert_lastname = "INSERT INTO `alumni_accounts`(`lastname`) VALUES ('$lastname');";
-    // mysqli_query($conn, $insert_lastname);
-    // $insert_email = "INSERT INTO `alumni_accounts`(`email`) VALUES ('$email');";
-    // mysqli_query($conn, $insert_email);
-    // $insert_year = "INSERT INTO `alumni_accounts`(`grad_year`) VALUES ('$grad_year');";
-    // mysqli_query($conn, $insert_year);
-    // $conn->close();
-    ?>
   </div>
   </body>
 </html>

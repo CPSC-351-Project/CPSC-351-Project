@@ -56,7 +56,7 @@
         <?php
         if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'])){
             $jobname = $_POST["JobName"];
-            $companyname = $_POST["Companyname"];
+            $companyname = $_POST["CompanyName"];
             $jobDescription = $_POST["Description"];
 
             // Connect to the database
@@ -67,7 +67,7 @@
             $conn = new mysqli($servername, $username, $password, $dbname);
 
             // Insert the data into the database
-            $sql = "INSERT INTO job_post (JobName, Companyname, jobDescription) VALUES ('$jobname', '$companyname', '$jobDescription')";
+            $sql = "INSERT INTO job_post (JobName, CompanyName, jobDescription) VALUES ('$jobname', '$companyname', '$jobDescription')";
 
             $conn->query($sql);
             $conn->close();

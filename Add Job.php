@@ -39,57 +39,55 @@
     
 
         
-        <?php
-        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        <h2><u>Post A Job</u></h2>
+            <form action="" method="POST">
+                <label for="JobName">Enter Job Name:</label><br>
+                <input type="text" id="JobName" name="JobName" required><br><br>
+
+                <label for="CompanyName">Enter Company Name:</label><br>
+                <input type="text" id="CompanyName" name="CompanyName" required><br><br>
+
+                <label for="Description">Description:</label><br>
+                <textarea id="Description" name="Description" rows= 5 cols=40 required></textarea><br><br>
+
+                <input type="submit" value="Submit"><br><br>
+            </form>
+
+            <?php
             if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'])) {
                 $jobname = $_POST["JobName"];
                 $companyname = $_POST["CompanyName"];
                 $jobDescription = $_POST["Description"];
-
+            
                 // Connect to the database
                 $servername = "localhost";
                 $username = "root";
                 $password = "";
                 $dbname = "alumnireach";
                 $conn = new mysqli($servername, $username, $password, $dbname);
-
+            
                 // Check connection
                 if ($conn->connect_error) {
                     die("Connection failed: " . $conn->connect_error);
                 }
-
-                // Prepare and bind the statement
-                $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription) VALUES (?, ?, ?)");
+            
+                // Prepare and bind the insert statement
+                $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, postDate) VALUES (?, ?, ?, NOW())");
                 $stmt->bind_param("sss", $jobname, $companyname, $jobDescription);
-
-                // Execute the statement
+            
+                // Execute the insert statement
                 if ($stmt->execute()) {
-                    echo "Job posted successfully!";
+                    header("Location: Job_Submitted.html");
+                    exit();
                 } else {
-                    echo "Error: " . $sql . "<br>" . $conn->error;
+                    echo "Error posting job: " . $conn->error;
                 }
-
+            
+                // Close the connection and statement
                 $stmt->close();
                 $conn->close();
-            } else {
-                echo "All fields are required!";
             }
-        }
-        ?>
-
-        <h2><u>Post A Job</u></h2>
-        <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
-            <label for="JobName">Enter Job Name:</label><br>
-            <input type="text" id="JobName" name="JobName" required><br><br>
-
-            <label for="CompanyName">Enter Company Name:</label><br>
-            <input type="text" id="CompanyName" name="CompanyName" required><br><br>
-
-            <label for="Description">Description:</label><br>
-            <textarea id="Description" name="Description" rows=5 cols=40 required></textarea><br><br>
-
-            <input type="submit" value="Submit"><br><br>
-        </form>
+            ?>
 
 
         

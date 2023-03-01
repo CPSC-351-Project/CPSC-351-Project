@@ -70,6 +70,5 @@ In venenatis justo sem, nec imperdiet enim ullamcorper a. Morbi in turpis in met
 <br></p>
 </body>
 <footer>
-    Thank you for using our webstie!
 </footer>
 </html>

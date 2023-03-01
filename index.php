@@ -69,4 +69,7 @@ Phasellus id ipsum nec nisi congue imperdiet. Nulla non nibh dui. Vivamus viverr
 In venenatis justo sem, nec imperdiet enim ullamcorper a. Morbi in turpis in metus tempus dapibus ac ornare est. Nunc sit amet lectus sem. Duis et ligula pellentesque, tempus velit a, posuere tellus. Vestibulum cursus massa libero. Duis molestie turpis sit amet mauris egestas venenatis. Morbi laoreet malesuada dolor, vitae ornare elit. Praesent vitae ultricies sem, id interdum tellus. Integer volutpat, tellus ac hendrerit condimentum, nisl orci vehicula justo, at pulvinar mauris lectus in nisl. Donec scelerisque dolor nec nibh rhoncus, nec vehicula nulla iaculis. Vivamus scelerisque erat vel pharetra porttitor.<br>
 <br></p>
 </body>
+<footer>
+    Thank you for using our webstie!
+</footer>
 </html>

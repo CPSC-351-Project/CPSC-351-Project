@@ -5,7 +5,7 @@
                 <link rel="stylesheet" href="design.css">
                 <div id="wrap">
                     <ul class="navbar">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li>
                             <a href="#">Job</a>
                             <ul>

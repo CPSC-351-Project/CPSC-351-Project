@@ -54,22 +54,24 @@
         </form>
 
         <?php
-        $jobname = $_POST["JobName"];
-        $companyname = $_POST["Companyname"];
-        $jobDescription = $_POST["Description"];
+        if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'])){
+            $jobname = $_POST["JobName"];
+            $companyname = $_POST["Companyname"];
+            $jobDescription = $_POST["Description"];
 
-        // Connect to the database
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "alumnireach";
-        $conn = new mysqli($servername, $username, $password, $dbname);
+            // Connect to the database
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "alumnireach";
+            $conn = new mysqli($servername, $username, $password, $dbname);
 
-        // Insert the data into the database
-        $sql = "INSERT INTO job post (JobName, Companyname, Description) VALUES ('$jobname', '$companyname', '$jobDescription')";
+            // Insert the data into the database
+            $sql = "INSERT INTO job_post (JobName, Companyname, Description) VALUES ('$jobname', '$companyname', '$jobDescription')";
 
-        $conn->query($sql);
-        $conn->close();
+            $conn->query($sql);
+            $conn->close();
+        }
         ?>
 
     

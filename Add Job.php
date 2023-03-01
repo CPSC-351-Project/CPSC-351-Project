@@ -67,7 +67,7 @@
             $conn = new mysqli($servername, $username, $password, $dbname);
 
             // Insert the data into the database
-            $sql = "INSERT INTO job_post (JobName, Companyname, Description) VALUES ('$jobname', '$companyname', '$jobDescription')";
+            $sql = "INSERT INTO job_post (JobName, Companyname, jobDescription) VALUES ('$jobname', '$companyname', '$jobDescription')";
 
             $conn->query($sql);
             $conn->close();

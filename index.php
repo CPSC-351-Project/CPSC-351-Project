@@ -19,10 +19,10 @@ session_start();
         <a href="#">Job</a>
         <ul>
           <li>
-            <a href="Find%20Jobs.php">Find Jobs</a>
+            <a href="Find Jobs.php">Find Jobs</a>
           </li>
           <li>
-            <a href="Add%20Job.php">Post a Job</a>
+            <a href="Add Job.php">Post a Job</a>
           </li>
         </ul>
       </li>

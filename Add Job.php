@@ -1,5 +1,5 @@
 <html>
-    <title>Lets go</title>
+    <title>Alumni Reach</title>
         <head>    
             <header>
                 <link rel="stylesheet" href="design.css">
@@ -9,8 +9,8 @@
                         <li>
                             <a href="#">Job</a>
                             <ul>
-                                <li><a href="Find Jobs.html">Find Jobs</a></li>
-                                <li><a href="Add Job.html">Post a Job</a></li>
+                                <li><a href="Find Jobs.php">Find Jobs</a></li>
+                                <li><a href="Add Job.php">Post a Job</a></li>
                             </ul>
                         </li>
                         <li>
@@ -23,7 +23,7 @@
                         <li>
                             <a href="login.php">Account</a>
                             <ul>
-                                <li><a href="student_or_alumni.php">Create Account</a></li>
+                            <li><a href="login.php">Login/Create Account</a></li>
                                 <li><a href="">Manage Account</a></li>
                                 <li><a href="account.php">Notifications</a></li>
                             </ul>
@@ -47,17 +47,28 @@
                 <label for="CompanyName">Enter Company Name:</label><br>
                 <input type="text" id="CompanyName" name="CompanyName" required><br><br>
 
-                <label for="Description">Description:</label><br>
-                <textarea id="Description" name="Description" rows= 5 cols=40 required></textarea><br><br>
+                <label for="Location">Enter Job Location:</label><br>
+                <input type="test" id="Location" name="Location" required><br><br>
+
+                <label for="Description">Description:</label>
+                <p>Please provide a brief description of the job, the recommended major(s), the job location, salary or wage, and any other information needed for the applicant!</p>
+
+                <textarea id="Description" name="Description" rows= 5 cols=40 wrap="hard" required></textarea><br><br>
+
+                <label for="JobLink">Enter Job Link:</label><br>
+                <input type="url" id="JobLink" name="JobLink" required><br><br>
+
 
                 <input type="submit" value="Submit"><br><br>
             </form>
 
             <?php
-            if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'])) {
+            if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'], $_POST['JobLink'], $_POST['Location'])) {
                 $jobname = $_POST["JobName"];
                 $companyname = $_POST["CompanyName"];
                 $jobDescription = $_POST["Description"];
+                $jobLink = $_POST["JobLink"];
+                $location = $_POST["Location"];
             
                 // Connect to the database
                 $servername = "localhost";
@@ -71,9 +82,10 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
             
-                // Prepare and bind the insert statement
-                $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, postDate) VALUES (?, ?, ?, NOW())");
-                $stmt->bind_param("sss", $jobname, $companyname, $jobDescription);
+                // Prepare and bind the insert statement with placeholders for each variable
+                $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
+                // Bind the variables to the statement
+                $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);
             
                 // Execute the insert statement
                 if ($stmt->execute()) {
@@ -87,6 +99,8 @@
                 $stmt->close();
                 $conn->close();
             }
+            
+            
             ?>
 
 

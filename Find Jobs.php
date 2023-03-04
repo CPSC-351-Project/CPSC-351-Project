@@ -12,7 +12,7 @@ session_start();
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li>
                 <a href="#">Job</a>
                 <ul>
@@ -43,14 +43,53 @@ session_start();
     
 </head>
 <body>
-    <h2><u>Find A Job</h2></u></h2>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia sagittis pharetra. Quisque lacinia nibh dolor, quis tristique ante posuere quis. Etiam pellentesque massa id erat luctus, ut hendrerit lectus efficitur. Sed ante lacus, molestie egestas justo posuere, cursus vehicula est. Duis tincidunt molestie lectus sit amet pulvinar. Aliquam quam lectus, consequat id vestibulum hendrerit, ultricies at orci. Sed eget eleifend odio. Cras tellus velit, elementum vel blandit a, venenatis id enim. Pellentesque quis velit facilisis arcu egestas aliquam et quis dolor. Suspendisse potenti. Aliquam accumsan, felis sit amet fringilla venenatis, nisl orci euismod justo, ac tristique nulla ligula ac nibh. Pellentesque aliquet placerat faucibus.<br><br>
+<?php
+// Check if the form was submitted
+if (isset($_POST['search'])) {
+    // Retrieve the search terms from the form
+    $searchTerms = $_POST['search'];
 
-    Ut dignissim ultricies felis vel lobortis. Curabitur egestas metus nec nulla mattis dictum. Morbi ullamcorper nunc id dolor tristique, tempus commodo nunc tristique. Pellentesque tempor fermentum purus sed convallis. Donec eleifend ligula urna. Proin mollis fermentum ligula, feugiat vestibulum dolor. Etiam ultrices ex sed congue suscipit. Donec vulputate ac neque a blandit. Vivamus vel purus malesuada, vestibulum elit et, cursus odio. Suspendisse faucibus scelerisque rhoncus. Proin in nunc faucibus ipsum semper dapibus.<br><br>
-        
-    Phasellus id ipsum nec nisi congue imperdiet. Nulla non nibh dui. Vivamus viverra metus sit amet pellentesque iaculis. Praesent in risus imperdiet metus faucibus pretium. Praesent finibus ligula vel euismod vulputate. Etiam a justo nisi. Pellentesque id convallis lacus. Phasellus sit amet suscipit quam, quis consequat magna. Proin in suscipit urna.<br><br>
-        
-    In venenatis justo sem, nec imperdiet enim ullamcorper a. Morbi in turpis in metus tempus dapibus ac ornare est. Nunc sit amet lectus sem. Duis et ligula pellentesque, tempus velit a, posuere tellus. Vestibulum cursus massa libero. Duis molestie turpis sit amet mauris egestas venenatis. Morbi laoreet malesuada dolor, vitae ornare elit. Praesent vitae ultricies sem, id interdum tellus. Integer volutpat, tellus ac hendrerit condimentum, nisl orci vehicula justo, at pulvinar mauris lectus in nisl. Donec scelerisque dolor nec nibh rhoncus, nec vehicula nulla iaculis. Vivamus scelerisque erat vel pharetra porttitor.<br><br></p>
+    // Connect to the database
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "alumnireach";
+        $conn = new mysqli($servername, $username, $password, $dbname);
+            
+
+    // Query the database for matching rows
+    $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
+
+    // Execute the query
+    $result = mysqli_query($conn, $query);
+
+    // Check if any rows were found
+    if (mysqli_num_rows($result) > 0) {
+        // Display the search results
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div>';
+            echo '<h3>' . $row['JobName'] . '</h3>';
+            echo '<p>' . $row['Location'] . '</p>';
+            echo '<p>' . $row['jobDescription'] . '</p>';
+            echo '<p>' . $row['JobLink'] . '</p>';
+            
+            echo '</div>';
+        }
+    } else {
+        echo 'No results found.';
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
+?>
+
+<!-- HTML form for search -->
+<form method="post" action="">
+    <input type="text" name="search" placeholder="Search...">
+    <button type="submit">Search</button>
+</form>
+
 </body>
 <footer>
 </footer>

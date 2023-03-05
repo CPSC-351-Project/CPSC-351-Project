@@ -27,10 +27,16 @@ CREATE TABLE if NOT EXISTS `company_rep` (
   PRIMARY KEY (`employerID`));
 
 CREATE TABLE if NOT EXISTS `students` (
-  `studentID` INT NOT NULL,
-  `graduationYear` INT NOT NULL,
-  `major` VARCHAR(45) NULL DEFAULT NULL,
-  `minor` VARCHAR(45) NULL DEFAULT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `first_name` varchar(100) NOT NULL,
+  `last_name` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `pword` varchar(75) NOT NULL,
+  `grad_year` YEAR NULL DEFAULT NULL,
+  `major_1` varchar(100) NULL DEFAULT NULL,
+  `major_2` varchar(100) NULL DEFAULT NULL,
+  `minor_1` varchar(100) NULL DEFAULT NULL,
+  `minor_2` varchar(100) NULL DEFAULT NULL,
   `careerIntrest` VARCHAR(45) NULL DEFAULT NULL,
   `resume` VARCHAR(45) NULL DEFAULT NULL,
   `bio` VARCHAR(200) NULL DEFAULT NULL,

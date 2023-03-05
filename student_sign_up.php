@@ -1,8 +1,37 @@
 <?php
+session_start();
+  include "connection.php";
+  include "functions.php";
 
+  if($_SERVER["REQUEST_METHOD"] == "POST"){
+    // something was posted
+    // Collect information from form
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $password = $_POST['pword'];
+    $grad_year = $_POST['grad_year'];
+    $major_1 = $_POST['major_1'];
+    $major_2 = $_POST['major_2'];
+    $minor_1 = $_POST['minor_1'];
+    $minor_2 = $_POST['minor_2'];
+
+    if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($password)){
+        // save to database
+        $user_id = random_num(10);
+        $sql = "insert into students (user_id,first_name,last_name,email,pword,grad_year,major_1,major_2,minor_1,minor_2)
+        values('$user_id', '$firstname', '$lastname', '$email', '$password', '$grad_year', '$major_1', '$major_2', '$minor_1', '$minor_2')";
+        mysqli_query($conn, $sql);
+        echo "Sign Up was successful";
+        header("Location: login.php");
+        die();
+
+    }else{
+        echo "Please enter some valid information";
+    }
+    
+  }
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>

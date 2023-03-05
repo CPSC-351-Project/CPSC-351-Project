@@ -31,212 +31,52 @@
 
       <!-- Major selection -->
       <label for="major_1">Select your Major:</label>
-      <select name="major_1" id="major_1" required>
-        <option value="pick_one">*Select a Major*</option>
-        <option value="Accounting">Accounting</option>
-        <option value="American">American Studies</option>
-        <option value="Anthropology">Anthropology</option>
-        <option value="Art">Art History</option>
-        <option value="Biochemistry">Biochemistry</option>
-        <option value="Biology">Biology</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Classical">Classical Studies</option>
-        <option value="Communication">Communication</option>
-        <option value="Computer Engineering">Computer Engineering</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Criminology">Criminology</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Economics">Economics</option>
-        <option value="Electrical Engineering">Electrical Engineering</option>
-        <option value="English">English</option>
-        <option value="Environmental Science">Environmental Science</option>
-        <option value="Finance">Finance</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Global Commerce and Culture">Global Commerce and Culture</option>
-        <option value="History">History</option>
-        <option value="Information Science">Information Science</option>
-        <option value="Interdisciplinary Studies">Interdisciplinary Studies</option>
-        <option value="Kinesiology">Kinesiology</option>
-        <option value="Management">Management</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Mathematics">Mathematics</option>
-        <option value="Applied Mathematics">Mathematics - Computational and Applied</option>
-        <option value="Music">Music</option>
-        <option value="Neuroscience">Neuroscience</option>
-        <option value="Philosophy">Philosophy</option>
-        <option value="Physics">Physics</option>
-        <option value="Political Science">Political Science</option>
-        <option value="Psychology">Psychology</option>
-        <option value="Social Work">Social Work</option>
-        <option value="Sociology">Sociology</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Studio">Studio Art</option>
-        <option value="Theater">Theater</option>
+      <select>
+        <option>Select</option>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <label for="major_2">Enter your second Minor (If applicable):</label>
-      <select name="major_2" id="major_2">
-        <option value="pick_one">*Select a Major*</option>
-        <option value="Accounting">Accounting</option>
-        <option value="American">American Studies</option>
-        <option value="Anthropology">Anthropology</option>
-        <option value="Art">Art History</option>
-        <option value="Biochemistry">Biochemistry</option>
-        <option value="Biology">Biology</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Classical">Classical Studies</option>
-        <option value="Communication">Communication</option>
-        <option value="Computer Engineering">Computer Engineering</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Criminology">Criminology</option>
-        <option value="Cybersecurity">Cybersecurity</option>
-        <option value="Economics">Economics</option>
-        <option value="Electrical Engineering">Electrical Engineering</option>
-        <option value="English">English</option>
-        <option value="Environmental Science">Environmental Science</option>
-        <option value="Finance">Finance</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Global Commerce and Culture">Global Commerce and Culture</option>
-        <option value="History">History</option>
-        <option value="Information Science">Information Science</option>
-        <option value="Interdisciplinary Studies">Interdisciplinary Studies</option>
-        <option value="Kinesiology">Kinesiology</option>
-        <option value="Management">Management</option>
-        <option value="Marketing">Marketing</option>
-        <option value="Mathematics">Mathematics</option>
-        <option value="Applied Mathematics">Mathematics - Computational and Applied</option>
-        <option value="Music">Music</option>
-        <option value="Neuroscience">Neuroscience</option>
-        <option value="Philosophy">Philosophy</option>
-        <option value="Physics">Physics</option>
-        <option value="Political Science">Political Science</option>
-        <option value="Psychology">Psychology</option>
-        <option value="Social Work">Social Work</option>
-        <option value="Sociology">Sociology</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Studio">Studio Art</option>
-        <option value="Theater">Theater</option>
+      <select>
+        <option>Select</option>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <!-- Minor selection -->
       <label for="minor_1">Enter your Minor:</label>
-      <select name="minor_1" id="minor_1" required>
-        <option value="pick_one">*Select a Minor*</option>
-        <option value="A-A Studies">African-American Studies</option>
-        <option value="American">American Studies</option>
-        <option value="Anthropology">Anthropology</option>
-        <option value="Art">Art History</option>
-        <option value="Biology">Biology</option>
-        <option value="Business Administration">Business Administration</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Childhood Studies">Childhood Studies</option>
-        <option value="Chinese Studies">Chinese Studies</option>
-        <option value="Civic Engagement and Social Justice">Civic Engagement and Social Justice</option>
-        <option value="Classical">Classical Studies</option>
-        <option value="Communication">Communication</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Dance">Dance</option>
-        <option value="Data Science">Data Science</option>
-        <option value="Digital Humanities">Digital Humanities</option>
-        <option value="Economics">Economics</option>
-        <option value="English">English</option>
-        <option value="Environmental Science">Environmental Science</option>
-        <option value="Film Studies">Film Studies</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Graphic Design">Graphic Design</option>
-        <option value="History">History</option>
-        <option value="Health">Health, Medical, and Wellness Studies</option>
-        <option value="Human">Human Rights and Conflict Resolution</option>
-        <option value="Information Science">Information Science</option>
-        <option value="International">International Culture and Business</option>
-        <option value="Judeo-Christian">Judeo-Christian Studies</option>
-        <option value="Journalism">Journalism</option>
-        <option value="Latin">Latin</option>
-        <option value="Latin American Studies">Latin American</option>
-        <option value="Leadership Studies">Leadership Studies</option>
-        <option value="Linguistics">Linguistics</option>
-        <option value="Literature">Literature</option>
-        <option value="Mathematics">Mathematics</option>
-        <option value="Medieval">Medieval and Renaissance Studies</option>
-        <option value="Middle East and North Africa">Middle East and North Africa Studies</option>
-        <option value="Military Science">Military Science (ROTC)</option>
-        <option value="Museum Studies">Museum Studies</option>
-        <option value="Philosophy">Philosophy and Religion</option>
-        <option value="Philosophy of Law">Philosophy of Law</option>
-        <option value="Photography">Photography and Video Art</option>
-        <option value="Physics">Physics</option>
-        <option value="Political Science">Political Science</option>
-        <option value="Psychology">Psychology</option>
-        <option value="Social Work">Social Work</option>
-        <option value="Sociology">Sociology</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Studio">Studio Art</option>
-        <option value="Theater">Theater</option>
-        <option value="National Security">U.S. National Security Studies</option>
-        <option value="Women, Gender and Sexuality">Women, Gender and Sexuality Studies</option>
-        <option value="Writing">Writing</option>
+      <select>
+        <option>Select</option>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <label for="minor_2">Enter your second Minor (If applicable):</label>
-      <select name="minor_2" id="minor_2">
-        <option value="pick_one">*Select a Minor*</option>
-        <option value="A-A Studies">African-American Studies</option>
-        <option value="American">American Studies</option>
-        <option value="Anthropology">Anthropology</option>
-        <option value="Art">Art History</option>
-        <option value="Biology">Biology</option>
-        <option value="Business Administration">Business Administration</option>
-        <option value="Chemistry">Chemistry</option>
-        <option value="Childhood Studies">Childhood Studies</option>
-        <option value="Chinese Studies">Chinese Studies</option>
-        <option value="Civic Engagement and Social Justice">Civic Engagement and Social Justice</option>
-        <option value="Classical">Classical Studies</option>
-        <option value="Communication">Communication</option>
-        <option value="Computer Science">Computer Science</option>
-        <option value="Dance">Dance</option>
-        <option value="Data Science">Data Science</option>
-        <option value="Digital Humanities">Digital Humanities</option>
-        <option value="Economics">Economics</option>
-        <option value="English">English</option>
-        <option value="Environmental Science">Environmental Science</option>
-        <option value="Film Studies">Film Studies</option>
-        <option value="French">French</option>
-        <option value="German">German</option>
-        <option value="Graphic Design">Graphic Design</option>
-        <option value="History">History</option>
-        <option value="Health">Health, Medical, and Wellness Studies</option>
-        <option value="Human">Human Rights and Conflict Resolution</option>
-        <option value="Information Science">Information Science</option>
-        <option value="International">International Culture and Business</option>
-        <option value="Judeo-Christian">Judeo-Christian Studies</option>
-        <option value="Journalism">Journalism</option>
-        <option value="Latin">Latin</option>
-        <option value="Latin American Studies">Latin American</option>
-        <option value="Leadership Studies">Leadership Studies</option>
-        <option value="Linguistics">Linguistics</option>
-        <option value="Literature">Literature</option>
-        <option value="Mathematics">Mathematics</option>
-        <option value="Medieval">Medieval and Renaissance Studies</option>
-        <option value="Middle East and North Africa">Middle East and North Africa Studies</option>
-        <option value="Military Science">Military Science (ROTC)</option>
-        <option value="Museum Studies">Museum Studies</option>
-        <option value="Philosophy">Philosophy and Religion</option>
-        <option value="Philosophy of Law">Philosophy of Law</option>
-        <option value="Photography">Photography and Video Art</option>
-        <option value="Physics">Physics</option>
-        <option value="Political Science">Political Science</option>
-        <option value="Psychology">Psychology</option>
-        <option value="Social Work">Social Work</option>
-        <option value="Sociology">Sociology</option>
-        <option value="Spanish">Spanish</option>
-        <option value="Studio">Studio Art</option>
-        <option value="Theater">Theater</option>
-        <option value="National Security">U.S. National Security Studies</option>
-        <option value="Women, Gender and Sexuality">Women, Gender and Sexuality Studies</option>
-        <option value="Writing">Writing</option>
+      <select>
+        <option>Select</option>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <input type="submit" value="Sign Up">

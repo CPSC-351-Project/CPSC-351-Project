@@ -64,51 +64,51 @@ session_start();
       <input type="number" id="grad_year" name="grad_year" required><br><br>
 
       <label for="major_1">What was your Major:</label>
-      <select required>
+      <select>
         <option>Select</option>
-      <?php 
-      $select = "SELECT * FROM major_minor";
-      $result = mysqli_query($conn, $select);
-      while ($row = mysqli_fetch_array($result)) {
-        echo '<option>'.$row['Majors'].'</option>';
-      }
-      ?>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <label for="major_2">What was your second Major(if applicable):</label>
       <select>
         <option>Select</option>
-      <?php 
-      $select = "SELECT * FROM major_minor";
-      $result = mysqli_query($conn, $select);
-      while ($row = mysqli_fetch_array($result)) {
-        echo '<option>'.$row['Majors'].'</option>';
-      }
-      ?>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <label for="minor_1">What was your Minor:</label>
       <select>
         <option>Select</option>
-      <?php 
-      $select = "SELECT * FROM major_minor";
-      $result = mysqli_query($conn, $select);
-      while ($row = mysqli_fetch_array($result)) {
-        echo '<option>'.$row['Minors'].'</option>';
-      }
-      ?>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
       </select><br><br>
 
       <label for="minor_2">What was your second Minor(if applicable):</label>
       <select>
         <option>Select</option>
-      <?php 
-      $select = "SELECT * FROM major_minor";
-      $result = mysqli_query($conn, $select);
-      while ($row = mysqli_fetch_array($result)) {
-        echo '<option>'.$row['Minors'].'</option>';
-      }
-      ?>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
       </select><br><br>
       
       <label for="job">Job Title</label>

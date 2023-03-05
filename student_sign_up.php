@@ -31,7 +31,7 @@
 
       <!-- Major selection -->
       <label for="major_1">Select your Major:</label>
-      <select>
+      <select name  = "major_1">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM majors";
@@ -43,7 +43,7 @@
       </select><br><br>
 
       <label for="major_2">Enter your second Minor (If applicable):</label>
-      <select>
+      <select name = "major_1">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM majors";
@@ -56,7 +56,7 @@
 
       <!-- Minor selection -->
       <label for="minor_1">Enter your Minor:</label>
-      <select>
+      <select name = "minor_1">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM minors";
@@ -68,7 +68,7 @@
       </select><br><br>
 
       <label for="minor_2">Enter your second Minor (If applicable):</label>
-      <select>
+      <select name = "minor_2">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM minors";

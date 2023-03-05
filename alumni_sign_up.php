@@ -64,7 +64,7 @@ session_start();
       <input type="number" id="grad_year" name="grad_year" required><br><br>
 
       <label for="major_1">What was your Major:</label>
-      <select>
+      <select name = "major_1">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM majors";
@@ -76,7 +76,7 @@ session_start();
       </select><br><br>
 
       <label for="major_2">What was your second Major(if applicable):</label>
-      <select>
+      <select name = "major_2">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM majors";
@@ -88,7 +88,7 @@ session_start();
       </select><br><br>
 
       <label for="minor_1">What was your Minor:</label>
-      <select>
+      <select name = "minor_1">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM minors";
@@ -100,7 +100,7 @@ session_start();
       </select><br><br>
 
       <label for="minor_2">What was your second Minor(if applicable):</label>
-      <select>
+      <select name = "minor_2">
         <option>Select</option>
         <?php 
         $select = "SELECT * FROM minors";

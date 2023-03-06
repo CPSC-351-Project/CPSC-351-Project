@@ -12,7 +12,7 @@
 
           $alumni = "select * from alumni where email='$email' limit 1";
           $student = "select * from alumni where email='$email' limit 1";
-          $result = mysqli_query($conn, $sql);
+          $result = mysqli_query($conn, $alumni);
 
           if($result){
             if ($result && mysqli_num_rows($result) > 0){

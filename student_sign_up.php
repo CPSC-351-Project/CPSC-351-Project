@@ -54,6 +54,9 @@ session_start();
 
       <label for="email">Email:</label>
       <input type="email" id="email" name="email" required><br><br>
+
+      <label for="pword">Password:</label>
+      <input type="password" name="pword" id="pword" required><br><br>
       
       <label for="grad_year">Expected Graduation Year:</label>
       <input type="text" id="grad_year" name="grad_year" required><br><br>

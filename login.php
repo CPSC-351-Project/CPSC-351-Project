@@ -10,7 +10,8 @@
       if(!empty($email)){
           // read from database
 
-          $sql = "select * from alumni where email='$email' limit 1";
+          $alumni = "select * from alumni where email='$email' limit 1";
+          $student = "select * from alumni where email='$email' limit 1";
           $result = mysqli_query($conn, $sql);
 
           if($result){

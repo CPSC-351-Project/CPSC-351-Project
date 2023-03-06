@@ -64,7 +64,7 @@ session_start();
 
       <label for="major_1">What was your Major:</label>
       <select name = "major_1">
-        <option>Select</option>
+        <option disabled selected value> -- select an option -- </option>
         <?php 
         $select = "SELECT * FROM majors";
         $result = mysqli_query($conn, $select);
@@ -76,7 +76,8 @@ session_start();
 
       <label for="major_2">What was your second Major(if applicable):</label>
       <select name = "major_2">
-        <option>Select</option>
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
         <?php 
         $select = "SELECT * FROM majors";
         $result = mysqli_query($conn, $select);
@@ -88,7 +89,8 @@ session_start();
 
       <label for="minor_1">What was your Minor:</label>
       <select name = "minor_1">
-        <option>Select</option>
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
         <?php 
         $select = "SELECT * FROM minors";
         $result = mysqli_query($conn, $select);
@@ -100,7 +102,8 @@ session_start();
 
       <label for="minor_2">What was your second Minor(if applicable):</label>
       <select name = "minor_2">
-        <option>Select</option>
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
         <?php 
         $select = "SELECT * FROM minors";
         $result = mysqli_query($conn, $select);

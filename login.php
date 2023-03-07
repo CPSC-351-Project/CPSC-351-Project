@@ -11,7 +11,7 @@
           // read from database
 
           $alumni = "select * from alumni where email='$email' limit 1";
-          $student = "select * from alumni where email='$email' limit 1";
+          $student = "select * from students where email='$email' limit 1";
           $result = mysqli_query($conn, $alumni);
 
           if($result){

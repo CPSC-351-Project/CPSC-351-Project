@@ -1,9 +1,40 @@
 <?php
-session_start();
-    include "connection.php";
-    include "functions.php";
-    $user_data = check_login($conn);
+    session_start();
+        include "connection.php";
+        include "functions.php";
+        $user_data = check_login($conn);
 
+// Check if the form was submitted
+if (isset($_POST['search'])) {
+    // Retrieve the search terms from the form
+    $searchTerms = $_POST['search'];          
+
+    // Connection was referenced in the include
+    // Query the database for matching rows
+    $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
+
+    // Execute the query
+    $result = mysqli_query($conn, $query);
+
+    // Check if any rows were found
+    if (mysqli_num_rows($result) > 0) {
+        // Display the search results
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div>';
+            echo '<h3>' . $row['JobName'] . '</h3>';
+            echo '<p>' . $row['Location'] . '</p>';
+            echo '<p>' . $row['jobDescription'] . '</p>';
+            echo '<p>' . $row['JobLink'] . '</p>';
+            
+            echo '</div>';
+        }
+    } else {
+        echo 'No results found.';
+    }
+
+    // Close the database connection
+    mysqli_close($conn);
+}
 ?>
 <html>
 <title>Lets go</title>
@@ -40,49 +71,8 @@ session_start();
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
     <h1>AlumniReach</h1>      
   </header>
-    
 </head>
 <body>
-<?php
-// Check if the form was submitted
-if (isset($_POST['search'])) {
-    // Retrieve the search terms from the form
-    $searchTerms = $_POST['search'];
-
-    // Connect to the database
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "alumnireach";
-        $conn = new mysqli($servername, $username, $password, $dbname);
-            
-
-    // Query the database for matching rows
-    $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
-
-    // Execute the query
-    $result = mysqli_query($conn, $query);
-
-    // Check if any rows were found
-    if (mysqli_num_rows($result) > 0) {
-        // Display the search results
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div>';
-            echo '<h3>' . $row['JobName'] . '</h3>';
-            echo '<p>' . $row['Location'] . '</p>';
-            echo '<p>' . $row['jobDescription'] . '</p>';
-            echo '<p>' . $row['JobLink'] . '</p>';
-            
-            echo '</div>';
-        }
-    } else {
-        echo 'No results found.';
-    }
-
-    // Close the database connection
-    mysqli_close($conn);
-}
-?>
 
 <!-- HTML form for search -->
 <form method="post" action="">

@@ -1,3 +1,7 @@
+html {
+    background: linear-gradient(230deg,white,#004a8e);
+}
+
 nav {
     text-align: right;
     text-decoration: none;

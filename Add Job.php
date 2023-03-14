@@ -1,45 +1,83 @@
-<html>
-    <title>Alumni Reach</title>
-        <head>    
-            <header>
-                <link rel="stylesheet" href="design.css">
-                <div id="wrap">
-                    <ul class="navbar">
-                        <li><a href="index.php">Home</a></li>
-                        <li>
-                            <a href="#">Job</a>
-                            <ul>
-                                <li><a href="Find Jobs.php">Find Jobs</a></li>
-                                <li><a href="Add Job.php">Post a Job</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Networking</a>
-                            <ul>
-                                <li><a href="#">Advice Forum</a></li>
-                                <li><a href="#">Events Page</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="login.php">Account</a>
-                            <ul>
-                            <li><a href="login.php">Login/Create Account</a></li>
-                                <li><a href="">Manage Account</a></li>
-                                <li><a href="account.php">Notifications</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-                <h1>AlumniReach</h1>      
-            </header>
-            
-        </head>
-    <body>
-    
+<?php
+    session_start();
+        include "connection.php";
+        include "functions.php";
+        $user_data = check_login($conn);
 
+        if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'], $_POST['JobLink'], $_POST['Location'])) {
+            $jobname = $_POST["JobName"];
+            $companyname = $_POST["CompanyName"];
+            $jobDescription = $_POST["Description"];
+            $jobLink = $_POST["JobLink"];
+            $location = $_POST["Location"];
         
-        <h2><u>Post A Job</u></h2>
+            // Connection was referenced in the include
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+        
+            // Prepare and bind the insert statement with placeholders for each variable
+            $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
+            // Bind the variables to the statement
+            $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);
+        
+            // Execute the insert statement
+            if ($stmt->execute()) {
+                header("Location: Job_Submitted.html");
+                exit();
+            } else {
+                echo "Error posting job: " . $conn->error;
+            }
+        
+            // Close the connection and statement
+            $stmt->close();
+            $conn->close();
+        }
+?>
+<html>
+<title>Alumni Reach</title>
+<head>    
+  <header>
+    <link rel="stylesheet" href="design.css">
+    <div id="wrap">
+        <ul class="navbar">
+            <li><a href="index.php">Home</a></li>
+            <li>
+                <a href="#">Job</a>
+                <ul>
+                    <li><a href="Find Jobs.php">Find Jobs</a></li>
+                    <li><a href="Add Job.php">Post a Job</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Networking</a>
+                <ul>
+                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="#">Events Page</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="login.php">Account</a>
+                <ul>
+                    <li><a href="login.php">Login/Create Account</a></li>
+                    <li><a href="">Manage Account</a></li>
+                    <li><a href="account.php">Notifications</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
+        
+        </ul>
+      </div>
+      <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
+    <h1>AlumniReach</h1>      
+  </header>
+</head>
+    <body>
+        <h2 style="text-align: center;"><u>Post A Job</u></h2>
+        <div>
             <form action="" method="POST">
                 <label for="JobName">Enter Job Name:</label><br>
                 <input type="text" id="JobName" name="JobName" required><br><br>
@@ -60,51 +98,10 @@
 
 
                 <input type="submit" value="Submit"><br><br>
+        </div>
             </form>
 
-            <?php
-            if (isset($_POST['JobName'], $_POST['CompanyName'], $_POST['Description'], $_POST['JobLink'], $_POST['Location'])) {
-                $jobname = $_POST["JobName"];
-                $companyname = $_POST["CompanyName"];
-                $jobDescription = $_POST["Description"];
-                $jobLink = $_POST["JobLink"];
-                $location = $_POST["Location"];
-            
-                // Connect to the database
-                $servername = "localhost";
-                $username = "root";
-                $password = "";
-                $dbname = "alumnireach";
-                $conn = new mysqli($servername, $username, $password, $dbname);
-            
-                // Check connection
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-            
-                // Prepare and bind the insert statement with placeholders for each variable
-                $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
-                // Bind the variables to the statement
-                $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);
-            
-                // Execute the insert statement
-                if ($stmt->execute()) {
-                    header("Location: Job_Submitted.html");
-                    exit();
-                } else {
-                    echo "Error posting job: " . $conn->error;
-                }
-            
-                // Close the connection and statement
-                $stmt->close();
-                $conn->close();
-            }
-            
-            
-            ?>
-
-
-        
+   
             
         
             

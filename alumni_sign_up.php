@@ -17,6 +17,7 @@ session_start();
     $minor_2 = $_POST['minor_2'];
     $job = $_POST['job'];
 
+    // Checks if the form is empty or not
     if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($password)){
         // save to database
         $user_id = random_num(10);
@@ -32,7 +33,6 @@ session_start();
     }
     
   }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -61,25 +61,67 @@ session_start();
       <input type="password" name="pword" id="pword" required><br><br>
       
       <label for="grad_year">Graduation Year:</label>
-      <input type="text" id="grad_year" name="grad_year" required><br><br>
+      <input type="number" id="grad_year" name="grad_year" required><br><br>
 
       <label for="major_1">What was your Major:</label>
-      <input type="text" name="major_1" id="major_1"><br><br>
+      <select name = "major_1">
+        <option disabled selected value> -- select an option -- </option>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
+      </select><br><br>
 
       <label for="major_2">What was your second Major(if applicable):</label>
-      <input type="text" name="major_2" id="major_2"><br><br>
+      <select name = "major_2">
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
+        <?php 
+        $select = "SELECT * FROM majors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['majors'].'</option>';
+        }
+        ?>
+      </select><br><br>
 
       <label for="minor_1">What was your Minor:</label>
-      <input type="text" name="minor_1" id="minor_1"><br><br>
+      <select name = "minor_1">
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
+      </select><br><br>
 
       <label for="minor_2">What was your second Minor(if applicable):</label>
-      <input type="text" name="minor_2" id="minor_2"><br><br>
+      <select name = "minor_2">
+        <option disabled selected value> -- select an option -- </option>
+        <option>None</option>
+        <?php 
+        $select = "SELECT * FROM minors";
+        $result = mysqli_query($conn, $select);
+        while ($row = mysqli_fetch_array($result)) {
+          echo '<option>'.$row['minors'].'</option>';
+        }
+        ?>
+      </select><br><br>
       
       <label for="job">Job Title</label>
       <input type="text" name="job" id="job"><br><br>
-      
+
       <input type="submit" value="Sign Up">
+      <input type="reset">
     </form>
+    <br><br>
+    <a href="login.php">Back to Login Page</a>
   </div>
   </body>
 </html>

@@ -119,6 +119,8 @@ session_start();
       <input type="submit" value="Sign Up">
       <input type="reset">
     </form>
+    <br><br>
+    <a href="login.php">Back to Login Page</a>
   </div>
   </body>
 </html>

@@ -16,6 +16,7 @@ session_start();
     $minor_1 = $_POST['minor_1'];
     $minor_2 = $_POST['minor_2'];
 
+    // Checks if the form is empty or not
     if(!empty($firstname) && !empty($lastname) && !empty($email) && !empty($password)){
         // save to database
         $user_id = random_num(10);

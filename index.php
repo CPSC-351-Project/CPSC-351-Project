@@ -33,7 +33,7 @@ session_start();
                 <a href="login.php">Account</a>
                 <ul>
                     <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
+                    <li><a href="management.php">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>

@@ -11,13 +11,13 @@
             $jobLink = $_POST["JobLink"];
             $location = $_POST["Location"];
         
-            // Connection was referenced in the include
+            
             // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
             }
         
-            // Prepare and bind the insert statement with placeholders for each variable
+            // Preppared statement to protect from SQLi
             $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
             // Bind the variables to the statement
             $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);
@@ -61,7 +61,7 @@
                 <a href="login.php">Account</a>
                 <ul>
                     <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
+                    <li><a href="management.php">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>
@@ -76,29 +76,27 @@
   </header>
 </head>
     <body>
-        <h2 style="text-align: center;"><u>Post A Job</u></h2>
-        <div>
-            <form action="" method="POST">
-                <label for="JobName">Enter Job Name:</label><br>
-                <input type="text" id="JobName" name="JobName" required><br><br>
+        <h2><u>Post A Job</u></h2>
+        <form action="" method="POST">
+            <label for="JobName">Enter Job Name:</label><br>
+            <input type="text" id="JobName" name="JobName" required><br><br>
 
-                <label for="CompanyName">Enter Company Name:</label><br>
-                <input type="text" id="CompanyName" name="CompanyName" required><br><br>
+            <label for="CompanyName">Enter Company Name:</label><br>
+            <input type="text" id="CompanyName" name="CompanyName" required><br><br>
 
-                <label for="Location">Enter Job Location:</label><br>
-                <input type="test" id="Location" name="Location" required><br><br>
+            <label for="Location">Enter Job Location:</label><br>
+            <input type="test" id="Location" name="Location" required><br><br>
 
-                <label for="Description">Description:</label>
-                <p>Please provide a brief description of the job, the recommended major(s), the job location, salary or wage, and any other information needed for the applicant!</p>
+            <label for="Description">Description:</label>
+            <p>Please provide a brief description of the job, the recommended major(s), the job location, salary or wage, and any other information needed for the applicant!</p>
 
-                <textarea id="Description" name="Description" rows= 5 cols=40 wrap="hard" required></textarea><br><br>
+            <textarea id="Description" name="Description" rows= 5 cols=40 wrap="hard" required></textarea><br><br>
 
-                <label for="JobLink">Enter Job Link:</label><br>
-                <input type="url" id="JobLink" name="JobLink" required><br><br>
+            <label for="JobLink">Enter Job Link:</label><br>
+            <input type="url" id="JobLink" name="JobLink" required><br><br>
 
 
-                <input type="submit" value="Submit"><br><br>
-        </div>
+            <input type="submit" value="Submit"><br><br>
             </form>
 
    

@@ -54,15 +54,17 @@ session_start();
             <form action="">
                 <div class="form-group">
                     <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" class="form-control" value="<?php echo $user_data['first_name'];?>"><br>
+                    <input type="text" name="firstname" class="form-control" value="<?php echo $user_data['first_name'];?>"><br><br>
                     <label for="lastname">Last Name</label>
-                    <input type="text" name="lastname" class="form-control" value="<?php echo $user_data['last_name'];?>"><br>
+                    <input type="text" name="lastname" class="form-control" value="<?php echo $user_data['last_name'];?>"><br><br>
                     <label for="email">Email</label>
-                    <input type="text" name="email" class="form-control" value="<?php echo $user_data['email'];?>"><br>
+                    <input type="text" name="email" class="form-control" value="<?php echo $user_data['email'];?>"><br><br>
                     <label for="job">Position title</label>
-                    <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br>
+                    <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br><br>
                     <label for="bio">Bio</label>
-                    <input type="text" name="bio" class="form-control" value="<?php echo $user_data['bio'];?>">
+                    <input type="text" name="bio" class="form-control" value="<?php echo $user_data['bio'];?>"><br><br>
+                    <input type="submit" value="Add Information"><br>
+                    <input type="submit" value="Update Information"><br>
                 </div>
             </form>
         </div>

@@ -62,7 +62,10 @@ session_start();
                     <label for="job">Position title</label>
                     <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br>
                     <label for="bio">Bio</label>
-                    <input type="text" name="bio" class="form-control" value="<?php echo $user_data['bio'];?>">
+                    <input type="text" name="bio" class="form-control" value="<?php echo $user_data['bio'];?>"><br>
+                    <input type="submit" value="Add contact information">
+                    <input type="submit" value="Update changes">
+
                 </div>
             </form>
         </div>

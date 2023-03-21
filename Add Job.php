@@ -35,6 +35,7 @@
             $conn->close();
         }
 ?>
+<!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
 <head>    
@@ -53,7 +54,7 @@
             <li>
                 <a href="#">Networking</a>
                 <ul>
-                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
                 </ul>
             </li>

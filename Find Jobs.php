@@ -48,9 +48,9 @@
     <button type="submit">Search</button>
 </form>
 <?php
-// Check if the form was submitted
+
 if (isset($_POST['search'])) {
-    // Retrieve the search terms from the form
+    
     $searchTerms = $_POST['search'];          
 
     

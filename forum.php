@@ -43,9 +43,20 @@ session_start();
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach</h1>      
+    <h1>AlumniReach-Forum</h1>      
   </header>
 </head>
-    <body>
-    </body>
+<body>
+    <div class="container">
+        <div class="subforum">
+            <div class="subforum-title">
+                <h1>General Information</h1>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="forum_functions.js"></script>
+</body>
 </html>

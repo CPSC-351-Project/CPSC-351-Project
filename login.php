@@ -2,6 +2,34 @@
   session_start();
   include "connection.php";
   include "functions.php";
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+      $email = $_POST['email'];
+      $pword = $_POST['pword'];
+
+      if(!empty($email)){
+          // read from database
+
+          $alumni = "select * from alumni where email='$email' limit 1";
+          $student = "select * from students where email='$email' limit 1";
+          $result = mysqli_query($conn, $alumni);
+
+          if($result){
+            if ($result && mysqli_num_rows($result) > 0){
+              $user_data = mysqli_fetch_assoc($result);
+              if($user_data['pword'] === $pword)
+              {  
+                $id = $_SESSION['user_id'] = $user_data['user_id'];
+                header("Location: index.php");
+                die;
+            }
+          }
+          echo "Wrong username or password!";
+      }else{
+          echo "Please enter some valid information!";
+      }
+      
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html>

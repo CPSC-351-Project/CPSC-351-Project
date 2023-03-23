@@ -34,6 +34,9 @@
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>
+            <li>
+                <a href="logout.php">Logout</a>
+            </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->

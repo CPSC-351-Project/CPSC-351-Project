@@ -46,11 +46,17 @@ session_start();
   </header>
 </head>
 <body>
-    <h3>Forum Post</h3>
+    <h3>New Post</h3>
+    <form style="display: inline-block;" method="post">
+      <label for="title">Title</label><br>
+      <input type="text" id="title" name="title" required><br><br>
 
-    <div>
-        <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
-    </div>
+      <label for="post">Post</label><br>
+      <textarea name="post" id="post" cols="30" rows="10" required></textarea><br><br>
+
+      <input type="submit" value="Sign Up">
+      <input type="reset">
+
+    </form>    
 </body>
 </html>

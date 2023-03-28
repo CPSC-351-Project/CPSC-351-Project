@@ -46,7 +46,7 @@ session_start();
   </header>
 </head>
 <body>
-    <h3 class="center">Forum Post</h3>
+    <h3>Forum Post</h3>
         <table class="tableClass" style="margin: auto">
             <thead>
                 <tr>
@@ -57,7 +57,7 @@ session_start();
             <tbody>
                 <?php
                     $forum = mysqli_query($conn, "SELECT * FROM forum_post");
-                    $alum = mysqli_query($conn, "SELECT * FROM alumni");
+                    $alum = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
                     while($postdb = mysqli_fetch_array($forum)) {
                         $alumni = mysqli_fetch_array($alum)
                     ?>
@@ -72,9 +72,9 @@ session_start();
                     ?>
             </tbody>
         </table>
-    <div class="center">
+    <div>
         <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
+        <p class="text-align: center;"><a class="link" href="forum_post.php">Click Here</a></p>
     </div>
 </body>
 </html>

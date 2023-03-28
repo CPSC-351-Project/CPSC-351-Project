@@ -350,6 +350,13 @@ footer a:link
   th:last-child,
   td:last-child {
     padding-right: 0; }
-  
-  tr:nth-child(even) {
-    background-color: #4b4a4a; }
+
+
+.link{
+    transition: all .7s ease-in-out;
+    text-decoration: none;
+    text-decoration: none;
+    color:	#004a8e;
+    background-color:#013d75;
+    color: white;
+}

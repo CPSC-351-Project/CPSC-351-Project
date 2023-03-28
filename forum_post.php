@@ -20,7 +20,7 @@ session_start();
                 VALUES ('$post_id', $id, '$title', '$post', NOW())";
                 mysqli_query($conn, $sql);
                 echo "Post created successfully";
-                header("Location: forum_post.php");
+                header("Location: forum.php");
                 exit();
             }else{
                 echo "Please enter some valid information";

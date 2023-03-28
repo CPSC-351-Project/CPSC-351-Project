@@ -42,14 +42,13 @@ CREATE TABLE if NOT EXISTS `students` (
   `bio` VARCHAR(200) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`));
 
-CREATE TABLE if NOT EXISTS `forum_post` (
-  `FpostID` INT NOT NULL,
-  `postDescription` VARCHAR(200) NULL DEFAULT NULL,
-  `postDate` DATETIME NOT NULL,
-  `students_studentID` INT NOT NULL,
-  `alumni_alumniID` INT NOT NULL,
-  `company_rep_employerID` INT NOT NULL,
-  PRIMARY KEY (`FpostID`));
+CREATE TABLE `forum_post` (
+  `pID` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `post_title` tinytext NOT NULL,
+  `post_description` text DEFAULT NULL,
+  `post_date` datetime NOT NULL
+)
 
 CREATE TABLE if NOT EXISTS `job_post` (
   `JpostID` INT NOT NULL AUTO_INCREMENT,

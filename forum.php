@@ -46,9 +46,9 @@ session_start();
   </header>
 </head>
 <body>
-    <h3>Forum Post</h3>
+    <h3 class="center">Forum Post</h3>
 
-    <div>
+    <div class="center">
         <p class="text-align: center;">Want to make your own post?</p>
         <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
     </div>

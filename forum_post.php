@@ -3,6 +3,30 @@ session_start();
     include "connection.php";
     include "functions.php";
     $user_data = check_login($conn);
+    $id = $user_data['user_id'];
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        // something was posted
+        // Collect information from form
+        $title = $_POST['title'];
+        $post = $_POST['post'];
+
+        if(isset($_POST['submit'])){
+            // Checks if the form is empty or not
+            if(!empty($title) && !empty($post)){
+                // save to database
+                $post_id = random_num(10);
+                $sql = "INSERT INTO forum_post (pID, user_id, post_title, post_description, post_date) 
+                VALUES ('$post_id', $id, '$title', '$post', NOW())";
+                mysqli_query($conn, $sql);
+                echo "Post created successfully";
+                header("Location: forum_post.php");
+                exit();
+            }else{
+                echo "Please enter some valid information";
+            }
+        }
+      }
 ?>
 
 <!DOCTYPE html>
@@ -46,17 +70,18 @@ session_start();
   </header>
 </head>
 <body>
-    <h3>New Post</h3>
-    <form style="display: inline-block;" method="post">
-      <label for="title">Title</label><br>
-      <input type="text" id="title" name="title" required><br><br>
+    <div class="login-form">    
+        <h3>New Post</h3>
+            <form style="display: inline-block;" method="post">
+            <label for="title">Title</label><br>
+            <input type="text" id="title" name="title" required><br><br>
 
-      <label for="post">Post</label><br>
-      <textarea name="post" id="post" cols="30" rows="10" required></textarea><br><br>
+            <label for="post">Post</label><br>
+            <textarea name="post" id="post" cols="80" rows="10"></textarea><br><br>
 
-      <input type="submit" value="Sign Up">
-      <input type="reset">
-
-    </form>    
+            <input type="submit" name="submit" value="Post">
+            <input type="reset">
+            </form> 
+    </div>   
 </body>
 </html>

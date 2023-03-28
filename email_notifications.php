@@ -19,10 +19,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $subject = $_POST['subject'];
     $message = $_POST['message'];
 
-    // Insert the message into the database
-    $sql = "INSERT INTO messages (sender_name, recipient_email, subject, message) VALUES ('$sender_name', '$sender_email', '$recipient_email', '$subject', '$message')";
-    $result = mysqli_query($conn, $sql);
-
     // Check if the query was successful
     if ($result) {
         // Send the email to the recipient
@@ -45,3 +41,4 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 mysqli_close($conn);
 
 ?>
+// For the database -> Need recipiant_email, subject, message, sender name 

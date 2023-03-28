@@ -3,6 +3,26 @@ session_start();
 include "connection.php";
 include "functions.php";
 $user_data = check_login($conn);
+
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $job = $_POST['job'];
+    $bio = $_POST['bio'];
+    $phone = $_POST['phone'];
+    $address = $_POST['address'];
+
+    $query = "UPDATE alumni SET first_name='$first_name', last_name='$last_name', email='$email', job='$job', bio='$bio', phone_num='$phone_num', address='$address' WHERE user_id=".$_SESSION['user_id'];
+    echo $query;
+    exit();
+    if(mysqli_query($conn, $query)) {
+        echo "Profile updated successfully";
+        exit;
+    } else {
+        echo "Failed to update profile";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,19 +70,26 @@ $user_data = check_login($conn);
         <div class="row">
             <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
                 <div class="form-group">
-                    <h1>Edit your Profile here</h1>
+                    <h1>Edit your Account here</h1>
                     <label for="firstname">First Name</label>
                     <input type="text" name="firstname" class="form-control" value="<?php echo $user_data['first_name'];?>"><br><br>
                     <label for="lastname">Last Name</label>
                     <input type="text" name="lastname" class="form-control" value="<?php echo $user_data['last_name'];?>"><br><br>
                     <label for="email">Email</label>
                     <input type="text" name="email" class="form-control" value="<?php echo $user_data['email'];?>"><br><br>
-                    <label for="phone">Phone number</label>
-                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>"><br><br>
                     <label for="job">Position title</label>
                     <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br><br>
                     <label for="bio">Bio</label>
                     <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>"></textarea><br><br>
+                    <label for="phone">Phone number</label>
+                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>"><br><br>
                     <label for="address">Address</label>
                     <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>"><br><br>
-                    <a href="edit_profile.php"><input type="button" name="edit_profile" value="update changes"></
+                    <input type="submit" name="edit_profile" value="update changes">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

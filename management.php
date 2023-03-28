@@ -60,7 +60,7 @@ $user_data = check_login($conn);
                     <label for="job">Position title</label>
                     <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>" readonly><br><br>
                     <label for="bio">Bio</label>
-                    <textarea name="bio" class="form-control" rows="2"><?php echo $user_data['bio'];?></textarea><br><br>
+                    <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>" readonly></textarea><br><br>
                     <label for="phone">Phone number</label>
                     <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>" readonly><br><br>
                     <label for="address">Address</label>

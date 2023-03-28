@@ -22,7 +22,7 @@
             <li>
                 <a href="#">Networking</a>
                 <ul>
-                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
                 </ul>
             </li>
@@ -33,6 +33,9 @@
                     <li><a href="">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
             </li>
         </ul>
       </div>

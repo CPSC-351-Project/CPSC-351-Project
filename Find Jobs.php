@@ -22,7 +22,7 @@
             <li>
                 <a href="#">Networking</a>
                 <ul>
-                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
                 </ul>
             </li>
@@ -33,6 +33,9 @@
                     <li><a href="">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
             </li>
         </ul>
       </div>
@@ -48,9 +51,9 @@
     <button type="submit">Search</button>
 </form>
 <?php
-// Check if the form was submitted
+
 if (isset($_POST['search'])) {
-    // Retrieve the search terms from the form
+    
     $searchTerms = $_POST['search'];          
 
     

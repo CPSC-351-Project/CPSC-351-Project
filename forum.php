@@ -1,3 +1,11 @@
+<?php
+session_start();
+    include "connection.php";
+    include "functions.php";
+    $user_data = check_login($conn);
+?>
+
+<!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
 <head>    
@@ -24,22 +32,25 @@
                 <a href="login.php">Account</a>
                 <ul>
                     <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
+                    <li><a href="management.php">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="logout.php">Logout</a>
             </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach</h1>      
+    <h1>AlumniReach-Forum</h1>      
   </header>
-    
 </head>
-    <body>
-        <h2>Job Successfully Created!</h2>
-        <p><a href="index.php">Return to the home page</a></p>
-        <p>Want to sumbit another job? <a href="Add Job.php">Click Here!</a></p>
-    </body>
-    <footer>
-    </footer>
+<body>
+    <h3>Forum Post</h3>
+
+    <div>
+        <p class="text-align: center;">Want to make your own post?</p>
+        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
+    </div>
+</body>
 </html>

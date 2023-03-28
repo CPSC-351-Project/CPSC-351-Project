@@ -2,7 +2,6 @@
   session_start();
   include "connection.php";
   include "functions.php";
-
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       $email = $_POST['email'];
       $pword = $_POST['pword'];
@@ -31,7 +30,6 @@
       
     }
   }
-
 ?>
 <!DOCTYPE html>
 <html>

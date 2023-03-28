@@ -3,38 +3,6 @@
         include "connection.php";
         include "functions.php";
         $user_data = check_login($conn);
-
-// Check if the form was submitted
-if (isset($_POST['search'])) {
-    // Retrieve the search terms from the form
-    $searchTerms = $_POST['search'];          
-
-    // Connection was referenced in the include
-    // Query the database for matching rows
-    $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
-
-    // Execute the query
-    $result = mysqli_query($conn, $query);
-
-    // Check if any rows were found
-    if (mysqli_num_rows($result) > 0) {
-        // Display the search results
-        while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div>';
-            echo '<h3>' . $row['JobName'] . '</h3>';
-            echo '<p>' . $row['Location'] . '</p>';
-            echo '<p>' . $row['jobDescription'] . '</p>';
-            echo '<p>' . $row['JobLink'] . '</p>';
-            
-            echo '</div>';
-        }
-    } else {
-        echo 'No results found.';
-    }
-
-    // Close the database connection
-    mysqli_close($conn);
-}
 ?>
 <html>
 <title>Lets go</title>
@@ -79,7 +47,40 @@ if (isset($_POST['search'])) {
     <input type="text" name="search" placeholder="Search...">
     <button type="submit">Search</button>
 </form>
+<?php
+// Check if the form was submitted
+if (isset($_POST['search'])) {
+    // Retrieve the search terms from the form
+    $searchTerms = $_POST['search'];          
 
+    
+    // Query the database for matching rows
+    $query = "SELECT * FROM job_post WHERE ('JobName' LIKE '%{$searchTerms}%') OR ('jobDescription' LIKE '%{$searchTerms}%') OR ('Companyname' LIKE '%{$searchTerms}%') OR ('Location' LIKE '%{$searchTerms}%')";
+    // $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
+
+    
+    $result = mysqli_query($conn, $query);
+
+    
+    if (mysqli_num_rows($result) > 0) {
+        // Display the search results
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo '<div>';
+            echo '<h3>' . $row['JobName'] . '</h3>';
+            echo '<p>' . $row['Location'] . '</p>';
+            echo '<p>' . $row['jobDescription'] . '</p>';
+            echo '<p>' . $row['JobLink'] . '</p>';
+            
+            echo '</div>';
+        }
+    } else {
+        echo 'No results found.';
+    }
+
+    
+    mysqli_close($conn);
+}
+?>
 </body>
 <footer>
 </footer>

@@ -47,7 +47,31 @@ session_start();
 </head>
 <body>
     <h3 class="center">Forum Post</h3>
+        <table class="tableClass" style="margin: auto">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Post By</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $forum = mysqli_query($conn, "SELECT * FROM forum_post");
+                    $alum = mysqli_query($conn, "SELECT * FROM alumni");
+                    while($postdb = mysqli_fetch_array($forum)) {
+                        $alumni = mysqli_fetch_array($alum)
+                    ?>
+                        <tr>
+                            <td><?php echo $postdb['post_title']?></td>
+                            <td><?php echo $alumni['first_name'] . " " . $alumni['last_name']?></td>
+                        </tr>
 
+                    <?php
+                    }
+                    mysqli_close($conn);
+                    ?>
+            </tbody>
+        </table>
     <div class="center">
         <p class="text-align: center;">Want to make your own post?</p>
         <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>

@@ -24,19 +24,21 @@
                 <ul>
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>
                 <a href="login.php">Account</a>
                 <ul>
-                    <li><a href="login.php">Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
+                    <li><a href="login.php">Login/Create Account</a></li>
+                    <li><a href="management.php">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>
             <li>
                 <a href="logout.php">Logout</a>
             </li>
+        
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->

@@ -42,3 +42,10 @@ mysqli_close($conn);
 
 ?>
 // For the database -> Need recipiant_email, subject, message, sender name 
+
+//QUESTIONS: 
+	// -- Should I gather data from multipule tables to get the email/other information or should I create a new database 
+	// holds all the information I need for this code? 
+	
+//Issues: 
+	// -- The job post is not ready quite yet 

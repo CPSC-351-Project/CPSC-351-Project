@@ -47,24 +47,21 @@
 
 <!-- HTML form for search -->
 <form method="post" action="">
-    <input type="text" name="search" placeholder="Search...">
+    <input type="text" name="search" placeholder="Search..." required>
     <button type="submit">Search</button>
 </form>
 <?php
 
 if (isset($_POST['search'])) {
+    $searchTerms = $_POST['search'];
     
-    $searchTerms = $_POST['search'];          
+    // Query the database for matching rows using prepared statements
+    $stmt = $conn->prepare("SELECT * FROM job_post WHERE jobDescription LIKE ?");
+    $searchTerms = "%$searchTerms%";
+    $stmt->bind_param("s", $searchTerms);
+    $stmt->execute();
+    $result = $stmt->get_result();
 
-    
-    // Query the database for matching rows
-    $query = "SELECT * FROM job_post WHERE ('JobName' LIKE '%{$searchTerms}%') OR ('jobDescription' LIKE '%{$searchTerms}%') OR ('Companyname' LIKE '%{$searchTerms}%') OR ('Location' LIKE '%{$searchTerms}%')";
-    // $query = "SELECT * FROM job_post WHERE jobDescription LIKE '%{$searchTerms}%'";
-
-    
-    $result = mysqli_query($conn, $query);
-
-    
     if (mysqli_num_rows($result) > 0) {
         // Display the search results
         while ($row = mysqli_fetch_assoc($result)) {
@@ -73,16 +70,15 @@ if (isset($_POST['search'])) {
             echo '<p>' . $row['Location'] . '</p>';
             echo '<p>' . $row['jobDescription'] . '</p>';
             echo '<p>' . $row['JobLink'] . '</p>';
-            
             echo '</div>';
         }
     } else {
         echo 'No results found.';
     }
 
-    
     mysqli_close($conn);
 }
+
 ?>
 </body>
 <footer>

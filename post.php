@@ -5,6 +5,28 @@ session_start();
     $user_data = check_login($conn);
     $id = $user_data['user_id'];
     $P_ID = $_GET['pid'];
+
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        // something was posted
+        // Collect information from form
+        $reply = $_POST['reply'];
+
+        if(isset($_POST['reply'])){
+            // Checks if the form is empty or not
+            if(!empty($post)){
+                // save to database
+                $reply_id = random_num(10);
+                $sql = "INSERT INTO forum_reply (rID, pID, user_id, reply, reply_date) 
+                VALUES ('$reply_id', '$P_ID', '$id', '$reply', NOW())";
+                mysqli_query($conn, $sql);
+                echo "Reply created successfully";
+                header("Location: post.php");
+                exit();
+            }else{
+                echo "Please enter some valid information";
+            }
+        }
+      }
 ?>
 
 <!DOCTYPE html>
@@ -51,7 +73,6 @@ session_start();
     <div>
         <h2>Post</h2>
         <?php
-        echo "The variable value is: $P_ID";
         $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $P_ID");
         $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $P_ID");
         $f_post = mysqli_fetch_array($forum);
@@ -64,9 +85,17 @@ session_start();
         $l_name = $user_name['last_name'];
         echo "<h3>Post Title: $post_name</h3>";
         echo "<h3>By: $f_name $l_name</h3>";
-        echo "<h4>$post_desc</h4>";
-
+        echo "<h5>$post_desc</h5>";
         ?>
+        <h4>Add a Reply</h4>
+        <form style="display: inline-block;" method="post">
+            <textarea name="reply" id="reply" cols="50" rows="10"></textarea><br>
+            <input type="submit" name="submit" value="Reply">
+            <input type="reset" value="Clear">
+        </form>
+
+
+        <h4>Replies</h4>
     </div>
     <div>
         <p class="text-align: center;"><a class="link" href="forum.php">Go to Forum Home</a></p>

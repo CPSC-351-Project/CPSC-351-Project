@@ -49,8 +49,13 @@
 <h2>Search for Jobs</h2>
 <!-- HTML form for search -->
 <form method="post" action="">
-    <input type="text" name="search" placeholder="Search..." required>
-    <button type="submit">Search</button>
+    <input type="text" name="search" placeholder="Search..." required >
+    <button type="submit" style="background-color:white; color: #333; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; 
+        box-shadow: 0 12px 16px 0 #0000003d, 0 17px 50px 0 rgba(0,0,0,0.19);"
+        onmouseover="this.style.backgroundColor='white'; this.style.color='#013d75'; this.style.boxShadow='0 12px 16px 0 #0000003d, 0 17px 50px 0 rgba(0,0,0,0.19)';"
+        onmouseout="this.style.backgroundColor='white'; this.style.color='#333'; this.style.boxShadow='0 12px 16px 0 #0000003d, 0 17px 50px 0 rgba(0,0,0,0.19)';"
+        onmousedown="this.style.backgroundColor='#a3a1a1'; this.style.boxShadow='0 5px #0000003d'; this.style.transform='translateY(4px)';"
+        onmouseup="this.style.backgroundColor='white'; this.style.boxShadow='0 12px 16px 0 #0000003d, 0 17px 50px 0 rgba(0,0,0,0.19)'; this.style.transform='none';">Search</button>
 </form>
 <style>
     table {

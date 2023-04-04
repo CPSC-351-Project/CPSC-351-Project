@@ -74,12 +74,7 @@ CREATE TABLE if NOT EXISTS `minors` (
 INSERT INTO `minors` (`minors`) VALUES ('African-American Studies'), ('American Studies'), ('Anthropology'), ('Art History'), ('Biology'), ('Business Administration'), ('Chemistry'), ('Childhood Studies'), ('Chinese Studies'), ('Civic Engagement and Social Justice'), ('Classical Studies'), ('Communication'), ('Computer Science'), ('Dance'), ('Data Science'), ('Digital Humanities'), ('Economics'), ('English'), ('Environmental Science'), ('Film Studies'), ('French'), ('German'), ('Graphic Design'), ('Health, Medical, and Wellness Studies'), ('History'), ('Human Rights and Conflict Resolution'), ('Information Science'), ('International Culture and Business'), ('Journalism'), ('Judeo-Christian Studies'), ('Latin'), ('Latin American'), ('Leadership Studies'), ('Linguistics'), ('Literature'), ('Mathematics'), ('Medieval and Renaissance Studies'), ('Middle East and North Africa Studies'), ('Military Science (ROTC)'), ('Museum Studies'), ('Philosophy and Religion'), ('Philosophy of Law'), ('Photography and Video Art'), ('Physics'), ('Political Science'), ('Psychology'), ('Social Work'), ('Sociology'), ('Spanish'), ('Studio Art'), ('Theater'), ('U.S. National Security Studies'), ('Women, Gender and Sexuality Studies'), ('Writing');
 
 CREATE TABLE `messaging` (
-  `mid` int(11) NOT NULL,
-  `user` bigint(20) NOT NULL,
-  `message` longtext NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-)
-
-ALTER TABLE `messaging`
-  ADD PRIMARY KEY (`mid`),
-  ADD KEY `user` (`user`);
+  `id` int(11) NOT NULL,
+  `message` text NOT NULL,
+  `dtsent` datetime NOT NULL
+);

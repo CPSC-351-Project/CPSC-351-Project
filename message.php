@@ -3,6 +3,7 @@ session_start();
     include "connection.php";
     include "functions.php";
     $user_data = check_login($conn);
+
 ?>
 
 <!DOCTYPE html>
@@ -48,11 +49,8 @@ session_start();
   </header>
 </head>
 <body>
-    <h3>Forum Post</h3>
-
-    <div>
-        <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
-    </div>
+    <h2>Messaging</h2> 
 </body>
+<footer>
+</footer>
 </html>

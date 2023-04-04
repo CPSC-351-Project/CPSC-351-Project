@@ -49,8 +49,7 @@ session_start();
   </header>
 </head>
 <body>
-    <h2>Messaging</h2>
-    
+    <h2>Messaging</h2> 
 </body>
 <footer>
 </footer>

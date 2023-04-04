@@ -46,42 +46,77 @@
   </header>
 </head>
 <body>
-
+<h2>Search for Jobs</h2>
 <!-- HTML form for search -->
 <form method="post" action="">
     <input type="text" name="search" placeholder="Search..." required>
     <button type="submit">Search</button>
 </form>
+<style>
+    table {
+        border-collapse: collapse;
+        width:auto;
+    }
+
+    th,
+    td {
+        text-align: left;
+        padding: 8px;
+        border: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>Company Name</th>
+            <th>Job Name</th>
+            <th>Location</th>
+            <th>Job Description</th>
+            <th>Job Link</th>
+            <th>Date Posted</th>
+
+            
+        </tr>
+    </thead>
+    <tbody>
 <?php
 
 if (isset($_POST['search'])) {
     $searchTerms = $_POST['search'];
     
     // Query the database for matching rows using prepared statements
-    $stmt = $conn->prepare("SELECT * FROM job_post WHERE jobDescription LIKE ?");
+    $stmt = $conn->prepare("SELECT * FROM job_post WHERE jobDescription LIKE ? OR JobName LIKE ? OR Location LIKE ? OR Companyname LIKE ?");
     $searchTerms = "%$searchTerms%";
-    $stmt->bind_param("s", $searchTerms);
+    $stmt->bind_param("ssss", $searchTerms, $searchTerms, $searchTerms, $searchTerms);
     $stmt->execute();
     $result = $stmt->get_result();
 
     if (mysqli_num_rows($result) > 0) {
-        // Display the search results
+        // Display the search results in a table
         while ($row = mysqli_fetch_assoc($result)) {
-            echo '<div>';
-            echo '<h3>' . $row['JobName'] . '</h3>';
-            echo '<p>' . $row['Location'] . '</p>';
-            echo '<p>' . $row['jobDescription'] . '</p>';
-            echo '<p>' . $row['JobLink'] . '</p>';
-            echo '</div>';
+            echo '<tr>';
+            echo '<td>' . $row['Companyname'] . '</td>';
+            echo '<td>' . $row['JobName'] . '</td>';
+            echo '<td>' . $row['Location'] . '</td>';
+            echo '<td>' . $row['jobDescription'] . '</td>';
+            echo '<td><a href="' . $row['JobLink'] . '">' . $row['JobLink'] . '</a></td>';
+            echo '<td>' . $row['postDate'] . '</td>';
+            echo '</tr>';
         }
     } else {
-        echo 'No results found.';
+        echo '<tr><td colspan="4">No results found.</td></tr>';
     }
 
     mysqli_close($conn);
 }
-
 ?>
+</tbody>
+</table>
 </body>
 <footer>
 </footer>

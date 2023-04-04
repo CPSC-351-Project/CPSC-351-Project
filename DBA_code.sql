@@ -43,7 +43,7 @@ CREATE TABLE if NOT EXISTS `students` (
   PRIMARY KEY (`user_id`));
 
 CREATE TABLE if NOT EXISTS `forum_post` (
-  `pID` INT NOT NULL AUTO_INCREMENT,
+  `pID` INT NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `post_title` tinytext NOT NULL,
   `post_description` text DEFAULT NULL,
@@ -51,6 +51,15 @@ CREATE TABLE if NOT EXISTS `forum_post` (
   PRIMARY KEY (`pID`));
   ALTER TABLE `forum_post` ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `alumni`(`user_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
+CREATE TABLE if NOT EXISTS `forum_reply` (
+  `rID` int(11) NOT NULL,
+  `pID` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `reply` text NOT NULL,
+  `reply_date` datetime NOT NULL
+  PRIMARY KEY (`rID`));
+  ALTER TABLE `forum_reply` ADD CONSTRAINT `postID` FOREIGN KEY (`pID`) REFERENCES `forum_post`(`pID`) ON DELETE CASCADE ON UPDATE CASCADE;
+  
 CREATE TABLE if NOT EXISTS `job_post` (
   `JpostID` INT NOT NULL AUTO_INCREMENT,
   `jobDescription` LONGTEXT NULL DEFAULT NULL,

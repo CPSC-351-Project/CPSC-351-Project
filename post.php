@@ -58,8 +58,13 @@ session_start();
         $user_name = mysqli_fetch_array($user);
 
         $post_name = $f_post['post_title'];
-        $name = $user_name;
-        echo "<h3>$post_name By: </h3>";
+        $post_desc = $f_post['post_description'];
+
+        $f_name = $user_name['first_name'];
+        $l_name = $user_name['last_name'];
+        echo "<h3>Post Title: $post_name</h3>";
+        echo "<h3>By: $f_name $l_name</h3>";
+        echo "<h4>$post_desc</h4>";
 
         ?>
     </div>

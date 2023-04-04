@@ -62,11 +62,11 @@ session_start();
                         $alumni = mysqli_fetch_array($alum)
                     ?>
                         <tr>
-                            <td><?php echo $postdb['post_title']?></td>
+                            <td><a class="link" href="post.php?ID=<?php echo $postid['pID'];?>" data-toggle="tab" id="<?php echo $postid['pID'];?>"><?php echo $postdb['post_title']?></a></td>
                             <td><?php echo $alumni['first_name'] . " " . $alumni['last_name']?></td>
                         </tr>
 
-                    <?php
+                    <?
                     }
                     mysqli_close($conn);
                     ?>

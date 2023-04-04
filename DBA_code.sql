@@ -49,8 +49,7 @@ CREATE TABLE if NOT EXISTS `forum_post` (
   `post_description` text DEFAULT NULL,
   `post_date` datetime NOT NULL,
   PRIMARY KEY (`pID`));
-  ALTER TABLE forum_posts ADD CONSTRAINT user_conn
-  FOREIGN KEY (user_id) REFERENCES alumni(user_id);
+  ALTER TABLE `forum_post` ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `alumni`(`user_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 CREATE TABLE if NOT EXISTS `job_post` (
   `JpostID` INT NOT NULL AUTO_INCREMENT,

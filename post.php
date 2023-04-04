@@ -3,6 +3,8 @@ session_start();
     include "connection.php";
     include "functions.php";
     $user_data = check_login($conn);
+    $id = $user_data['user_id'];
+    $P_ID = $_GET['pid'];
 ?>
 
 <!DOCTYPE html>
@@ -46,38 +48,19 @@ session_start();
   </header>
 </head>
 <body>
-    <h3>Forum Post</h3>
-        <table class="tableClass" style="margin: auto">
-            <thead>
-                <tr>
-                    <td>Title</td>
-                    <td>Post By</td>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    $forum = mysqli_query($conn, "SELECT * FROM forum_post");
-                    $alum = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
-                    while($postdb = mysqli_fetch_array($forum)) {
-                        $alumni = mysqli_fetch_array($alum);
-                        $postID = $postdb['pID'];
-                        $post_title = $postdb['post_title'];
-                        $Fname = $alumni['first_name'];
-                        $Lname = $alumni['last_name'];
-                        $link = "post.php?" . http_build_query(array("pid" => $postID));
-
-                        echo "<tr>";
-                            echo "<td><a class='link' href='$link'>$post_title</a></td>";
-                            echo "<td> $Fname $Lname</td>";
-                        echo "</tr>";
-                    }
-                    mysqli_close($conn);
-                    ?>
-            </tbody>
-        </table>
     <div>
-        <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a class="link" href="forum_post.php">Click Here</a></p>
+        <h2>Post</h2>
+        <?php
+        echo "The variable value is: $P_ID";
+        $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $P_ID");
+        $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
+        $f_post = mysqli_fetch_array($forum);
+        $user_name = mysqli_fetch_array($user);
+
+        $post_name = $f_post['post_title'];
+        $name = $user_name;
+        echo "<h3>$post_name By: </h3>";
+
+        ?>
     </div>
 </body>
-</html>

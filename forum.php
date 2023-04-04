@@ -53,6 +53,7 @@ session_start();
                 <tr>
                     <td>Title</td>
                     <td>Post By</td>
+                    <td>Date Posted</td>
                 </tr>
             </thead>
             <tbody>
@@ -63,6 +64,7 @@ session_start();
                         $alumni = mysqli_fetch_array($alum);
                         $postID = $postdb['pID'];
                         $post_title = $postdb['post_title'];
+                        $p_date = $postdb['post_date'];
                         $Fname = $alumni['first_name'];
                         $Lname = $alumni['last_name'];
                         $link = "post.php?" . http_build_query(array("pid" => $postID));
@@ -70,6 +72,7 @@ session_start();
                         echo "<tr>";
                             echo "<td><a class='link' href='$link'>$post_title</a></td>";
                             echo "<td> $Fname $Lname</td>";
+                            echo "<td> $p_date</td>";
                         echo "</tr>";
                     }
                     mysqli_close($conn);

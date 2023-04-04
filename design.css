@@ -355,8 +355,7 @@ footer a:link
 .link{
     transition: all .7s ease-in-out;
     text-decoration: none;
-    text-decoration: none;
     color:	#004a8e;
-    background-color:#013d75;
+    background-color:#000000;
     color: white;
 }

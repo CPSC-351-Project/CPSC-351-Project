@@ -53,7 +53,7 @@ session_start();
         <?php
         echo "The variable value is: $P_ID";
         $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $P_ID");
-        $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
+        $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $P_ID");
         $f_post = mysqli_fetch_array($forum);
         $user_name = mysqli_fetch_array($user);
 
@@ -67,5 +67,8 @@ session_start();
         echo "<h4>$post_desc</h4>";
 
         ?>
+    </div>
+    <div>
+        <p class="text-align: center;"><a class="link" href="forum.php">Go to Forum Home</a></p>
     </div>
 </body>

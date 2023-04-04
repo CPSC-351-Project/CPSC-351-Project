@@ -47,6 +47,7 @@ session_start();
 </head>
 <body>
     <h3>Forum Post</h3>
+    <p>Click on the title to see the full post and replies</p>
         <table class="tableClass" style="margin: auto">
             <thead>
                 <tr>

@@ -67,10 +67,9 @@ session_start();
                         $p_date = $postdb['post_date'];
                         $Fname = $alumni['first_name'];
                         $Lname = $alumni['last_name'];
-                        $link = "post.php?" . http_build_query(array("pid" => $postID));
 
                         echo "<tr>";
-                            echo "<td><a class='link' href='$link'>$post_title</a></td>";
+                            echo "<td><a class='link' href='post.php?pID=$postID'>$post_title</a></td>";
                             echo "<td> $Fname $Lname</td>";
                             echo "<td> $p_date</td>";
                         echo "</tr>";

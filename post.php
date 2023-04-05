@@ -4,29 +4,16 @@ session_start();
     include "functions.php";
     $user_data = check_login($conn);
     $id = $user_data['user_id'];
-    $P_ID = $_GET['pid'];
+    
 
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        // something was posted
-        // Collect information from form
-        $reply = $_POST['reply'];
-
-        if(isset($_POST['reply'])){
-            // Checks if the form is empty or not
-            if(!empty($post)){
-                // save to database
-                $reply_id = random_num(10);
-                $sql = "INSERT INTO forum_reply (rID, pID, user_id, reply, reply_date) 
-                VALUES ('$reply_id', '$P_ID', '$id', '$reply', NOW())";
-                mysqli_query($conn, $sql);
-                echo "Reply created successfully";
-                header("Location: post.php");
-                exit();
-            }else{
-                echo "Please enter some valid information";
-            }
-        }
-      }
+    if(isset($_GET['pID'])) {
+        // code to execute if the variable is set
+        $post_ID = $_GET['pID'];
+    } else {
+        // code to execute if the variable is not set
+        $post_ID = "Post Id is not set";
+    }
+    echo $post_ID;
 ?>
 
 <!DOCTYPE html>
@@ -73,8 +60,8 @@ session_start();
     <div>
         <h2>Post</h2>
         <?php
-        $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $P_ID");
-        $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $P_ID");
+        $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $post_ID");
+        $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $post_ID");
         $f_post = mysqli_fetch_array($forum);
         $user_name = mysqli_fetch_array($user);
 
@@ -83,19 +70,55 @@ session_start();
 
         $f_name = $user_name['first_name'];
         $l_name = $user_name['last_name'];
-        echo "<h3>Post Title: $post_name</h3>";
-        echo "<h3>By: $f_name $l_name</h3>";
-        echo "<h5>$post_desc</h5>";
         ?>
+        <h3><?php echo "Post Title: $post_name"?></h3>
+        <h3><?php echo "By: $f_name $l_name"?></h3>
+        <p style='text-align: center'><?php echo $post_desc ?></p>
+
+
         <h4>Add a Reply</h4>
         <form style="display: inline-block;" method="post">
-            <textarea name="reply" id="reply" cols="50" rows="10"></textarea><br>
+            <label for="reply"></label>
+            <textarea name="reply" id="reply" cols="50" rows="4"></textarea><br>
             <input type="submit" name="submit" value="Reply">
             <input type="reset" value="Clear">
         </form>
+        <?php
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                // something was posted
+                // Collect information from form
+                $reply = $_POST['reply'];
 
-
+                if(isset($_POST['submit'])){
+                    // Checks if the form is empty or not
+                    if(!empty($reply)){
+                        // save to database
+                        $reply_id = random_num(10);
+                        $sql = "INSERT INTO forum_reply (rID, pID, user_id, reply, reply_date) 
+                        VALUES ('$reply_id', '$post_ID', '$id', '$reply', NOW())";
+                        mysqli_query($conn, $sql);
+                        echo "Reply created successfully";
+                        header("Location: post.php?pID=$postID");
+                        exit();
+                    }else{
+                        echo "Please enter some valid information";
+                    }
+                }
+            }
+        ?>
+    </div>
+    <div>
         <h4>Replies</h4>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST"){
+                $reply = mysqli_query($conn, "SELECT * FROM forum_reply WHERE pID = $post_ID");
+
+                while($reply > 0){
+                    echo"";
+                    echo"";
+                }
+            }
+            ?>
     </div>
     <div>
         <p class="text-align: center;"><a class="link" href="forum.php">Go to Forum Home</a></p>

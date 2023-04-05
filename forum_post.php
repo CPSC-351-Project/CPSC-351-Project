@@ -4,29 +4,6 @@ session_start();
     include "functions.php";
     $user_data = check_login($conn);
     $id = $user_data['user_id'];
-
-    if($_SERVER["REQUEST_METHOD"] == "POST"){
-        // something was posted
-        // Collect information from form
-        $title = $_POST['title'];
-        $post = $_POST['post'];
-
-        if(isset($_POST['submit'])){
-            // Checks if the form is empty or not
-            if(!empty($title) && !empty($post)){
-                // save to database
-                $post_id = random_num(10);
-                $sql = "INSERT INTO forum_post (pID, user_id, post_title, post_description, post_date) 
-                VALUES ('$post_id', $id, '$title', '$post', NOW())";
-                mysqli_query($conn, $sql);
-                echo "Post created successfully";
-                header("Location: forum.php");
-                exit();
-            }else{
-                echo "Please enter some valid information";
-            }
-        }
-      }
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +59,30 @@ session_start();
             <input type="submit" name="submit" value="Post">
             <input type="reset">
             </form> 
+        <?php
+            if($_SERVER["REQUEST_METHOD"] == "POST"){
+                // something was posted
+                // Collect information from form
+                $title = $_POST['title'];
+                $post = $_POST['post'];
+        
+                if(isset($_POST['submit'])){
+                    // Checks if the form is empty or not
+                    if(!empty($title) && !empty($post)){
+                        // save to database
+                        $post_id = random_num(10);
+                        $sql = "INSERT INTO forum_post (pID, user_id, post_title, post_description, post_date) 
+                        VALUES ('$post_id', $id, '$title', '$post', NOW())";
+                        mysqli_query($conn, $sql);
+                        echo "Post created successfully";
+                        header("Location: forum.php");
+                        exit();
+                    }else{
+                        echo "Please enter some valid information";
+                    }
+                }
+             }
+        ?>
     </div>   
 </body>
 </html>

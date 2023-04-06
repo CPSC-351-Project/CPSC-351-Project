@@ -27,6 +27,7 @@ session_start();
                 <ul>
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>
@@ -40,10 +41,11 @@ session_start();
             <li>
                 <a href="logout.php">Logout</a>
             </li>
+        
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach-Forum</h1>      
+    <h1>AlumniReach</h1>      
   </header>
 </head>
 <body>

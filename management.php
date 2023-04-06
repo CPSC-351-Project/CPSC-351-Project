@@ -7,8 +7,8 @@ $user_data = check_login($conn);
 
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Alumni Reach</title>
+<head>    
+  <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
@@ -25,6 +25,7 @@ $user_data = check_login($conn);
                 <ul>
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>

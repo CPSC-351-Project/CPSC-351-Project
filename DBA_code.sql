@@ -1,10 +1,4 @@
-CREATE TABLE if NOT EXISTS `customer` (
-  `cust_id` INT NULL DEFAULT NULL,
-  `cust_name` VARCHAR(40) NULL DEFAULT NULL,
-  `tel_no` VARCHAR(15) NULL DEFAULT NULL,
-  `date_of_reg` DATE NULL DEFAULT NULL);
-
-CREATE TABLE if NOT EXISTS `alumni` (
+CREATE TABLE alumni (
   `user_id` bigint(20) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
@@ -20,29 +14,7 @@ CREATE TABLE if NOT EXISTS `alumni` (
   `contactInformation` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`user_id`));
 
-CREATE TABLE if NOT EXISTS `company_rep` (
-  `employerID` INT NOT NULL,
-  `hiringManager` VARCHAR(70) NULL DEFAULT NULL,
-  `contactInformation` VARCHAR(45) NULL DEFAULT NULL,
-  PRIMARY KEY (`employerID`));
-
-CREATE TABLE if NOT EXISTS `students` (
-  `user_id` bigint(20) NOT NULL,
-  `first_name` varchar(100) NOT NULL,
-  `last_name` varchar(100) NOT NULL,
-  `email` varchar(100) NOT NULL,
-  `pword` varchar(75) NOT NULL,
-  `grad_year` YEAR NULL DEFAULT NULL,
-  `major_1` varchar(100) NULL DEFAULT NULL,
-  `major_2` varchar(100) NULL DEFAULT NULL,
-  `minor_1` varchar(100) NULL DEFAULT NULL,
-  `minor_2` varchar(100) NULL DEFAULT NULL,
-  `careerIntrest` VARCHAR(45) NULL DEFAULT NULL,
-  `resume` VARCHAR(45) NULL DEFAULT NULL,
-  `bio` VARCHAR(200) NULL DEFAULT NULL,
-  PRIMARY KEY (`user_id`));
-
-CREATE TABLE if NOT EXISTS `forum_post` (
+CREATE TABLE forum_post (
   `pID` INT NOT NULL,
   `user_id` bigint(20) NOT NULL,
   `post_title` tinytext NOT NULL,
@@ -50,17 +22,8 @@ CREATE TABLE if NOT EXISTS `forum_post` (
   `post_date` datetime NOT NULL,
   PRIMARY KEY (`pID`));
   ALTER TABLE `forum_post` ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `alumni`(`user_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
-
-CREATE TABLE if NOT EXISTS `forum_reply` (
-  `rID` int(11) NOT NULL,
-  `pID` int(11) NOT NULL,
-  `user_id` bigint(20) NOT NULL,
-  `reply` text NOT NULL,
-  `reply_date` datetime NOT NULL
-  PRIMARY KEY (`rID`));
-  ALTER TABLE `forum_reply` ADD CONSTRAINT `postID` FOREIGN KEY (`pID`) REFERENCES `forum_post`(`pID`) ON DELETE CASCADE ON UPDATE CASCADE;
   
-CREATE TABLE if NOT EXISTS `job_post` (
+CREATE TABLE job_post (
   `JpostID` INT NOT NULL AUTO_INCREMENT,
   `jobDescription` LONGTEXT NULL DEFAULT NULL,
   `JobName` LONGTEXT NULL DEFAULT NULL,
@@ -69,6 +32,16 @@ CREATE TABLE if NOT EXISTS `job_post` (
   `Location` LONGTEXT NULL DEFAULT NULL,
   `postDate` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`JpostID`));
+
+CREATE TABLE forum_reply (
+  `rID` int(11) NOT NULL,
+  `pID` int(11) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  `reply` text NOT NULL,
+  `reply_date` datetime NOT NULL,
+  PRIMARY KEY (`rID`)
+  );
+  ALTER TABLE `forum_reply` ADD CONSTRAINT `postID` FOREIGN KEY (`pID`) REFERENCES `forum_post`(`pID`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 CREATE TABLE if NOT EXISTS `majors` (
   `majors` varchar(50) NOT NULL,
@@ -86,9 +59,9 @@ CREATE TABLE `messaging` (
   `mid` int(11) NOT NULL,
   `user` bigint(20) NOT NULL,
   `message` longtext NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-)
+  `timestamp` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  ADD PRIMARY KEY (`mid`)
+);
 
 ALTER TABLE `messaging`
-  ADD PRIMARY KEY (`mid`),
   ADD KEY `user` (`user`);

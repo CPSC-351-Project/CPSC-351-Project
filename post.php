@@ -13,7 +13,7 @@ session_start();
         // code to execute if the variable is not set
         $post_ID = "Post Id is not set";
     }
-    echo $post_ID;
+    // echo $post_ID;
 ?>
 
 <!DOCTYPE html>
@@ -98,7 +98,8 @@ session_start();
                         VALUES ('$reply_id', '$post_ID', '$id', '$reply', NOW())";
                         mysqli_query($conn, $sql);
                         echo "Reply created successfully";
-                        header("Location: post.php?pID=$postID");
+                        header("Location: forum.php");
+                        // header("Location: post.php?pID=$postID");
                         exit();
                     }else{
                         echo "Please enter some valid information";
@@ -109,18 +110,26 @@ session_start();
     </div>
     <div>
         <h4>Replies</h4>
-            <?php
-            if ($_SERVER["REQUEST_METHOD"] == "POST"){
-                $reply = mysqli_query($conn, "SELECT * FROM forum_reply WHERE pID = $post_ID");
-
-                while($reply > 0){
-                    echo"";
-                    echo"";
-                }
-            }
-            ?>
+            <table class="tableClass" style="margin: auto">
+                <tbody>
+                <?php
+                    $reply_query = mysqli_query($conn, "SELECT * FROM forum_reply WHERE pID = $post_ID");
+                    while($replyDB = mysqli_fetch_array($reply_query)){
+                        $user_reply = $replyDB['reply'];
+                        $reply_date = $replyDB['reply_date'];
+                        echo "<tr>";
+                        echo "<td>$user_reply</td>";
+                        echo "<td>By: $f_name $l_name</td>";
+                        echo "<td>$reply_date</td>";
+                        echo "</tr>";
+                    }
+                    $conn->close();
+                ?>
+                </tbody>
+            </table>
     </div>
     <div>
         <p class="text-align: center;"><a class="link" href="forum.php">Go to Forum Home</a></p>
     </div>
 </body>
+</html>

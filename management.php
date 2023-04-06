@@ -2,7 +2,9 @@
 session_start();
 include "connection.php";
 include "functions.php";
-$user_data = check_login($conn);
+$user_data = get_userdata($conn, $_SESSION['user_id']);
+
+
 ?>
 
 <!DOCTYPE html>
@@ -52,19 +54,19 @@ $user_data = check_login($conn);
                 <div class="form-group">
                     <h1>Manage your Account here</h1>
                     <label for="firstname">First Name</label>
-                    <input type="text" name="firstname" class="form-control" value="<?php echo $user_data['first_name'];?>" readonly><br><br>
+                    <input type="text" name="first_name" class="form-control" value="<?php echo $user_data['first_name'];?>" disabled><br><br>
                     <label for="lastname">Last Name</label>
-                    <input type="text" name="lastname" class="form-control" value="<?php echo $user_data['last_name'];?>" readonly><br><br>
+                    <input type="text" name="lastname" class="form-control" value="<?php echo $user_data['last_name'];?>" disabled><br><br>
                     <label for="email">Email</label>
-                    <input type="text" name="email" class="form-control" value="<?php echo $user_data['email'];?>" readonly><br><br>
+                    <input type="text" name="email" class="form-control" value="<?php echo $user_data['email'];?>" disabled><br><br>
                     <label for="job">Position title</label>
-                    <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>" readonly><br><br>
+                    <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>" disabled><br><br>
                     <label for="bio">Bio</label>
-                    <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>" readonly></textarea><br><br>
+                    <textarea name="bio" class="form-control" rows="2" disabled><?php echo $user_data['bio'];?></textarea><br><br>
                     <label for="phone">Phone number</label>
-                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>" readonly><br><br>
+                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>" disabled><br><br>
                     <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>" readonly><br><br>
+                    <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>" disabled><br><br>
                     <a href="edit_profile.php"><input type="button" name="edit_profile" value="Edit Profile">
                 </div>
             </form>

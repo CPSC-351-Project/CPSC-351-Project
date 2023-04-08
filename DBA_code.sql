@@ -40,11 +40,11 @@ INSERT INTO `alumni` (`user_id`, `first_name`, `last_name`, `email`, `pword`, `g
 CREATE TABLE `events` (
   `eID` int(11) NOT NULL,
   `user_id` varchar(30) NOT NULL,
-  `name` varchar(75) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `location` varchar(100) NOT NULL,
-  `description` text NOT NULL
+  `eventName` varchar(75) NOT NULL,
+  `eventDate` date NOT NULL,
+  `eventTime` time NOT NULL,
+  `eventLocation` varchar(100) NOT NULL,
+  `eventDescription` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

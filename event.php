@@ -1,39 +1,34 @@
 ﻿<?php
     session_start();
-        include "connection.php";
-        include "functions.php";
-        $user_data = check_login($conn);
+    include "connection.php";
+    include "functions.php";
+    $user_data = check_login($conn);
+    $id = $user_data['user_id'];
 
-        if (isset($_POST['eventDate'], $_POST['eventName'], $_POST['eventTime'], $_POST['eventDescription'], $_POST['eventLocation'])) {
-            $eventDate = $_POST["eventDate"];
-            $eventName = $_POST["eventName"];
-            $eventTime = $_POST["eventTime"];
-            $eventDescription = $_POST["eventDescription"];
-            $eventLocation = $_POST["eventLocation"];
-        
-            
-            // Check connection
-            if ($conn->connect_error) {
-                die("Connection failed: " . $conn->connect_error);
-            }
-        
-            // Preppared statement to protect from SQLi
-            $stmt = $conn->prepare("INSERT INTO events (eID, user_id, eventDate, eventName, eventTime, eventDescription, eventLocation) VALUES (?, ?, ?, ?, ?, ?, NOW())");
-            // Bind the variables to the statement
-            $stmt->bind_param("ssssss", $eID, $user_id, $eventDate, $eventName, $eventTime, $eventDescription, $eventLocation);
-        
-            // Execute the insert statement
-            if ($stmt->execute()) {
-                header("Location: event.php");
-                echo "it submitted";
-            } else {
-                echo "Error posting job: " . $conn->error;
-            }
-        
-            // Close the connection and statement
-            $stmt->close();
-            $conn->close();
-        }
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
+        $eventDate = $_POST["eventDate"];
+        $eventName = $_POST["eventName"];
+        $eventTime = $_POST["eventTime"];
+        $eventDescription = $_POST["eventDescription"];
+        $eventLocation = $_POST["eventLocation"];
+
+        // Use prepared statement with placeholders
+        $sql = "INSERT INTO events (eID, user_id, eventDate, eventName, eventTime, eventDescription, eventLocation) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $eID = random_num(10);
+        $stmt->bind_param("issssss", $eID, $id, $eventDate, $eventName, $eventTime, $eventDescription, $eventLocation);
+        $stmt->execute();
+
+        // Close the statement
+        $stmt->close();
+
+        // Close the connection
+        $conn->close();
+
+        // Redirect and exit
+        header("Location: event.php");
+        exit();
+    }
 ?>
 <html>
 <title>Alumni Reach</title>

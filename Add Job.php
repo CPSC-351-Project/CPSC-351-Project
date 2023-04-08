@@ -17,7 +17,7 @@
                 die("Connection failed: " . $conn->connect_error);
             }
         
-            // Preppared statement to protect from SQLi
+            // Prepared statement to protect from SQLi
             $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
             // Bind the variables to the statement
             $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);
@@ -35,6 +35,7 @@
             $conn->close();
         }
 ?>
+<!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
 <head>    
@@ -53,8 +54,9 @@
             <li>
                 <a href="#">Networking</a>
                 <ul>
-                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>

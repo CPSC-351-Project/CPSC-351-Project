@@ -2,7 +2,6 @@
   session_start();
   include "connection.php";
   include "functions.php";
-
     if($_SERVER["REQUEST_METHOD"] == "POST"){
       $email = $_POST['email'];
       $pword = $_POST['pword'];
@@ -31,7 +30,6 @@
       
     }
   }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -51,15 +49,16 @@
             <li>
                 <a href="#">Networking</a>
                 <ul>
-                    <li><a href="#">Advice Forum</a></li>
+                    <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>
                 <a href="login.php">Account</a>
                 <ul>
                     <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="">Manage Account</a></li>
+                    <li><a href="management.php">Manage Account</a></li>
                     <li><a href="account.php">Notifications</a></li>
                 </ul>
             </li>

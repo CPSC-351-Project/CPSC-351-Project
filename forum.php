@@ -26,6 +26,7 @@ session_start();
                 <ul>
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
+                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>
@@ -39,18 +40,49 @@ session_start();
             <li>
                 <a href="logout.php">Logout</a>
             </li>
+        
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach-Forum</h1>      
+    <h1>AlumniReach</h1>      
   </header>
 </head>
 <body>
     <h3>Forum Post</h3>
+    <p>Click on the title to see the full post and replies</p>
+        <table class="tableClass" style="margin: auto">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Post By</td>
+                    <td>Date Posted</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $forum = mysqli_query($conn, "SELECT * FROM forum_post");
+                    $alum = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
+                    while($postdb = mysqli_fetch_array($forum)) {
+                        $alumni = mysqli_fetch_array($alum);
+                        $postID = $postdb['pID'];
+                        $post_title = $postdb['post_title'];
+                        $p_date = $postdb['post_date'];
+                        $Fname = $alumni['first_name'];
+                        $Lname = $alumni['last_name'];
 
+                        echo "<tr>";
+                            echo "<td><a class='link' href='post.php?pID=$postID'>$post_title</a></td>";
+                            echo "<td> $Fname $Lname</td>";
+                            echo "<td> $p_date</td>";
+                        echo "</tr>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+            </tbody>
+        </table>
     <div>
         <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
+        <p class="text-align: center;"><a class="link" href="forum_post.php">Click Here</a></p>
     </div>
 </body>
 </html>

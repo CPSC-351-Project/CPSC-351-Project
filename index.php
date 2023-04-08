@@ -26,7 +26,7 @@ session_start();
                 <a href="#">Networking</a>
                 <ul>
                     <li><a href="#">Advice Forum</a></li>
-                    <li><a href="#">Events Page</a></li>
+                    <li><a href="event.php">Events Page</a></li>
                 </ul>
             </li>
             <li>

@@ -4,22 +4,26 @@ session_start();
 include "connection.php";
 include "functions.php";
 <<<<<<< HEAD
+<<<<<<< HEAD
 $user_data = check_login($conn);
+=======
+$user_id_to_get=$_SESSION['user_id'];
+$user_data = check_login($conn, $user_id_to_get);
+>>>>>>> c485f4ecd3d8b1464cbff26156bf3599ee7655f6
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $firstname = $_POST['firstname'];
-    $lastname = $_POST['lastname'];
+    $first_name = $_POST['firstname'];
+    $last_name = $_POST['lastname'];
     $email = $_POST['email'];
     $job = $_POST['job'];
     $bio = $_POST['bio'];
-    $phone = $_POST['phone'];
+    $phone_num = $_POST['phone'];
     $address = $_POST['address'];
 
     $query = "UPDATE alumni SET first_name='$first_name', last_name='$last_name', email='$email', job='$job', bio='$bio', phone_num='$phone_num', address='$address' WHERE user_id=".$_SESSION['user_id'];
-    echo $query;
-    exit();
     if(mysqli_query($conn, $query)) {
         echo "Profile updated successfully";
+<<<<<<< HEAD
         exit;
 =======
 $user_id_to_get=$_SESSION['user_id'];
@@ -39,6 +43,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         echo "Profile updated successfully";
         
 >>>>>>> 32e507eb264f2dc7d6dda301bc9b4b3f0d1c8408
+=======
+        
+>>>>>>> c485f4ecd3d8b1464cbff26156bf3599ee7655f6
     } else {
         echo "Failed to update profile";
     }
@@ -101,19 +108,27 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br><br>
                     <label for="bio">Bio</label>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>"></textarea><br><br>
 =======
                     <textarea name="bio" class="form-control" rows="2"> <?php echo $user_data['bio'];?></textarea><br><br>
 >>>>>>> 32e507eb264f2dc7d6dda301bc9b4b3f0d1c8408
+=======
+                    <textarea name="bio" class="form-control" rows="2"> <?php echo $user_data['bio'];?></textarea><br><br>
+>>>>>>> c485f4ecd3d8b1464cbff26156bf3599ee7655f6
                     <label for="phone">Phone number</label>
                     <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>"><br><br>
                     <label for="address">Address</label>
                     <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>"><br><br>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <input type="submit" name="edit_profile" value="update changes">
 =======
                     <a href="management.php"><input type="submit" name="edit_profile" value="update changes">
 >>>>>>> 32e507eb264f2dc7d6dda301bc9b4b3f0d1c8408
+=======
+                    <a href="management.php"><input type="submit" name="edit_profile" value="update changes">
+>>>>>>> c485f4ecd3d8b1464cbff26156bf3599ee7655f6
                 </div>
             </form>
         </div>

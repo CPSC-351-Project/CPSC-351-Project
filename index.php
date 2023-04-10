@@ -3,7 +3,6 @@ session_start();
     include "connection.php";
     include "functions.php";
     $user_data = check_login($conn);
-
 ?>
 
 <!DOCTYPE html>
@@ -25,14 +24,9 @@ session_start();
             <li>
                 <a href="#">Networking</a>
                 <ul>
-<<<<<<< HEAD
-                    <li><a href="#">Advice Forum</a></li>
-                    <li><a href="event.php">Events Page</a></li>
-=======
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
                     <li><a href="message.php">Messaging</a></li>
->>>>>>> 32e507eb264f2dc7d6dda301bc9b4b3f0d1c8408
                 </ul>
             </li>
             <li>

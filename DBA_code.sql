@@ -1,15 +1,11 @@
---
 -- Database: `alumnireach`
 --
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `alumni`
---
 
 CREATE TABLE `alumni` (
   `user_id` varchar(30) NOT NULL,
+  `class` varchar(25) NOT NULL,
   `first_name` varchar(100) NOT NULL,
   `last_name` varchar(100) NOT NULL,
   `email` varchar(100) NOT NULL,
@@ -28,8 +24,10 @@ CREATE TABLE `alumni` (
 -- Dumping data for table `alumni`
 --
 
-INSERT INTO `alumni` (`user_id`, `first_name`, `last_name`, `email`, `pword`, `grad_year`, `major_1`, `major_2`, `minor_1`, `minor_2`, `job`, `bio`, `contactInformation`) VALUES
-('3072', 'Ramsey', 'Holeman', 'rjholeman25@gmail.com', '1234', 2023, '', '', '', '', '', NULL, NULL);
+INSERT INTO `alumni` (`user_id`, `class`, `first_name`, `last_name`, `email`, `pword`, `grad_year`, `major_1`, `major_2`, `minor_1`, `minor_2`, `job`, `bio`, `contactInformation`) VALUES
+('3072', '', 'Ramsey', 'Holeman', 'rjholeman25@gmail.com', '1234', 2023, '', '', '', '', '', NULL, NULL),
+('466782953', 'Student', 'Student', 'Admin', 'student@email.com', '1234', 2023, 'Information Science', '', 'Data Science', 'Environmental Science', NULL, NULL, NULL),
+('805646', 'Alumni', 'Alumni', 'Admin', 'alumni@email.com', '1234', 2010, 'Computer Engineering', 'Cybersecurity', 'Linguistics', 'Studio Art', 'Developer', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -46,6 +44,14 @@ CREATE TABLE `events` (
   `eventLocation` varchar(100) NOT NULL,
   `eventDescription` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`eID`, `user_id`, `eventName`, `eventDate`, `eventTime`, `eventLocation`, `eventDescription`) VALUES
+(687183, '3072', 'Name', '2023-04-16', '21:48:00', 'test', 'Test'),
+(803486006, '3072', 'Test', '2023-04-12', '20:46:00', 'Test', 'Test');
 
 -- --------------------------------------------------------
 
@@ -87,7 +93,8 @@ CREATE TABLE `forum_reply` (
 --
 
 INSERT INTO `forum_reply` (`rID`, `pID`, `user_id`, `reply`, `reply_date`) VALUES
-(62647, 8350, '3072', 'hello', '2023-04-06 17:49:33');
+(62647, 8350, '3072', 'hello', '2023-04-06 17:49:33'),
+(25591015, 8350, '3072', 'This works', '2023-04-10 17:14:51');
 
 -- --------------------------------------------------------
 
@@ -307,7 +314,7 @@ ALTER TABLE `minors`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `eID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `eID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=803486007;
 
 --
 -- AUTO_INCREMENT for table `job_post`
@@ -324,6 +331,7 @@ ALTER TABLE `job_post`
 --
 ALTER TABLE `forum_post`
   ADD CONSTRAINT `user` FOREIGN KEY (`user_id`) REFERENCES `alumni` (`user_id`) ON DELETE NO ACTION ON UPDATE CASCADE;
+
 --
 -- Constraints for table `forum_reply`
 --

@@ -58,34 +58,32 @@ session_start();
 <h3>User Profile</h3>
 <body>
     <?php
-    $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $u_ID");
-    $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $u_ID");
+    $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE user_id = $u_ID");
+    $user = mysqli_query($conn, "SELECT * FROM alumni WHERE user_id = $u_ID");
     $f_post = mysqli_fetch_array($forum);
     $user_name = mysqli_fetch_array($user);
 
+    // From User Table
     $f_name = $user_name['first_name'];
+    $l_name = $user_name['last_name'];
+    $email = $user_name['email'];
+    $class = $user_name['class'];
+    $grad_year = $user_name['grad_year'];
+    $major_1 = $user_name['major_1'];
+    $major_2 = $user_name['major_2'];
+    $minor_1 = $user_name['minor_1'];
+    $minor_2 = $user_name['minor_2'];
+    $job = $user_name['job'];
+    $bio = $user_name['bio'];
 
     ?>
     <main>
 		<section class="#">
 			<h1>Profile Information</h1>
 			<ul>
-				<li><strong>Name:</strong> <?php echo $f_name?></li>
-				<li><strong>Email:</strong> johndoe@example.com</li>
-				<li><strong>Location:</strong> Los Angeles, CA</li>
-				<li><strong>Interests:</strong> Music, movies, sports</li>
-				<li><strong>Bio:</strong> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel justo id ex sollicitudin venenatis vel vel nisi.</li>
-			</ul>
-			<a href="edit-profile.php">Edit Profile</a>
-		</section>
-		<section class="friend-list">
-			<h2>Friends</h2>
-			<ul>
-				<li><a href="#">Friend 1</a></li>
-				<li><a href="#">Friend 2</a></li>
-				<li><a href="#">Friend 3</a></li>
-				<li><a href="#">Friend 4</a></li>
-				<li><a href="#">Friend 5</a></li>
+				<li><strong>Name:</strong> <?php echo "$f_name" . " " . "$l_name";?></li>
+				<li><strong>Email:</strong> <?php echo "$email;"?></li>
+				<li><strong>Bio:</strong> <?php echo "$bio";?></li>
 			</ul>
 		</section>
 		<section class="post-list">
@@ -96,17 +94,7 @@ session_start();
 					<p>Post content goes here.</p>
 					<span>Posted on: June 1, 2022</span>
 				</li>
-				<li>
-					<h3>Post Title</h3>
-					<p>Post content goes here.</p>
-					<span>Posted on: May 15, 2022</span>
-				</li>
-				<li>
-					<h3>Post Title</h3>
-					<p>Post content goes here.</p>
-					<span>Posted on: April 25, 2022</span>
-				</li>
-			</ul>
+            </ul>
 		</section>
 	</main>
 	<footer>

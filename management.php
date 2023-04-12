@@ -13,6 +13,7 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
 </head>
 <body>
     <header>
+        <link rel="stylesheet" href="design.css">
         <div id="wrap">
             <ul class="navbar">
                 <li><a href="index.php">Home</a></li>
@@ -26,8 +27,9 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
                 <li>
                     <a href="#">Networking</a>
                     <ul>
-                        <li><a href="#">Advice Forum</a></li>
+                        <li><a href="forum.php">Advice Forum</a></li>
                         <li><a href="#">Events Page</a></li>
+                        <li><a href="message.php">Messaging</a></li>
                     </ul>
                 </li>
                 <li>
@@ -43,9 +45,8 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
                 </li>
             </ul>
         </div>
-        <h1>AlumniReach</h1>
+    <h1>AlumniReach</h1>
     </header>
-
     <div class="center">
         <div class="row">
             <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">

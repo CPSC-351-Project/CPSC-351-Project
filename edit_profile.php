@@ -32,6 +32,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 </head>
 <body>
     <header>
+        <link rel="stylesheet" href="design.css">
         <div id="wrap">
             <ul class="navbar">
                 <li><a href="index.php">Home</a></li>
@@ -45,8 +46,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <li>
                     <a href="#">Networking</a>
                     <ul>
-                        <li><a href="#">Advice Forum</a></li>
+                        <li><a href="forum.php">Advice Forum</a></li>
                         <li><a href="#">Events Page</a></li>
+                        <li><a href="message.php">Messaging</a></li>
                     </ul>
                 </li>
                 <li>
@@ -62,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </li>
             </ul>
         </div>
-        <h1>AlumniReach</h1>
+    <h1>AlumniReach</h1>
     </header>
     <div class="center">
         <div class="row">

@@ -67,10 +67,8 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
                     <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>" readonly></textarea><br><br>
                     
                     <label for="phone">Phone number</label>
-                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>" disabled><br><br>
+                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['contactInformation'];?>" disabled><br><br>
                     
-                    <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>" disabled><br><br>
                     <a href="edit_profile.php"><input type="button" name="edit_profile" value="Edit Profile">
                 </div>
             </form>

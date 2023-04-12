@@ -4,6 +4,7 @@ session_start();
 include "connection.php";
 include "functions.php";
 $user_data = check_login($conn);
+$id = $user_data['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $first_name = $_POST['firstname'];
     $last_name = $_POST['lastname'];
@@ -13,9 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $phone_num = $_POST['phone'];
     $address = $_POST['address'];
 
-    $query = "UPDATE alumni SET first_name='$first_name', last_name='$last_name', email='$email', job='$job', bio='$bio', phone_num='$phone_num', address='$address' WHERE user_id=".$_SESSION['user_id'];
-    if(mysqli_query($conn, $query)) {
+    $query = "UPDATE alumni SET first_name = ?, last_name = ?, email = ?, job = ?, bio = ?, contactInformation = ? WHERE user_id = ?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, 'sssssii', $first_name, $last_name, $email, $job, $bio, $phone_num, $id);
+    if(mysqli_stmt_execute($stmt)) {
         echo "Profile updated successfully";
+        header("location:management.php");
         exit;}
     }
 ?>
@@ -80,13 +84,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <label for="bio">Bio</label>
                     <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>"></textarea><br><br>
                     
-                    <label for="phone">Phone number</label>
-                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['phone_num'];?>"><br><br>
-                    
-                    <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" value="<?php echo $user_data['address'];?>"><br><br>
+                    <label for="phone">Phone number (No "-" please!)</label>
+                    <input type="text" name="phone" class="form-control" value="<?php echo $user_data['contactInformation'];?>"><br><br>
 
-                    <a href="management.php"><input type="submit" name="edit_profile" value="update changes">
+                    <a href="management.php"><input type="submit" name="edit_profile" value="Update Changes">
                 </div>
             </form>
         </div>

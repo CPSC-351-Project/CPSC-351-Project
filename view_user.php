@@ -55,12 +55,11 @@ session_start();
     <h1>AlumniReach</h1>      
   </header>
 </head>
-<h3>User Profile</h3>
+<h2>User Profile</h2>
 <body>
     <?php
     $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE user_id = $u_ID");
     $user = mysqli_query($conn, "SELECT * FROM alumni WHERE user_id = $u_ID");
-    $f_post = mysqli_fetch_array($forum);
     $user_name = mysqli_fetch_array($user);
 
     // From User Table
@@ -87,19 +86,26 @@ session_start();
 			</ul>
 		</section>
 		<section class="post-list">
-			<h2>Posts</h2>
+			<h1>Posts</h1>
+            <?php
+            while($f_post = mysqli_fetch_array($forum)){
+                $p_title = $f_post['post_title'];
+                $p_date = $f_post['post_date'];
+                $p_desc = $f_post['post_description'];
+            ?>
 			<ul>
 				<li>
-					<h3>Post Title</h3>
-					<p>Post content goes here.</p>
-					<span>Posted on: June 1, 2022</span>
+					<h3>Title: <?php echo "$p_title";?></h3>
+					<p>Description: <?php echo "$p_desc";?></p>
+					<span>Posted on: <?php echo "$p_date";?></span>
 				</li>
             </ul>
+            <?php
+            }
+            mysqli_close($conn);
+            ?>
 		</section>
 	</main>
-	<footer>
-		<!-- Add footer content here -->
-	</footer>
 </body>
 <footer>
 </footer>

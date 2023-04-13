@@ -4,7 +4,6 @@ session_start();
     include "functions.php";
     $user_data = check_login($conn);
     $id = $user_data['user_id'];
-    
 
     if(isset($_GET['pID'])) {
         // code to execute if the variable is set

@@ -2,14 +2,15 @@
 session_start();
     include "connection.php";
     include "functions.php";
+    // $user_data = checkLoginStatus();
     $user_data = check_login($conn);
-
 ?>
 
 <!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
-<head>    
+<head>   
+    <script src="function.js"></script>
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
@@ -25,14 +26,9 @@ session_start();
             <li>
                 <a href="#">Networking</a>
                 <ul>
-<<<<<<< HEAD
-                    <li><a href="#">Advice Forum</a></li>
-                    <li><a href="event.php">Events Page</a></li>
-=======
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
                     <li><a href="message.php">Messaging</a></li>
->>>>>>> 32e507eb264f2dc7d6dda301bc9b4b3f0d1c8408
                 </ul>
             </li>
             <li>
@@ -54,14 +50,53 @@ session_start();
   </header>
 </head>
 <h4>Hello, <?php echo $user_data['first_name']; echo " "; echo $user_data['last_name']; ?>! Welcome to Alumni Reach!</h4>
-<body>
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia sagittis pharetra. Quisque lacinia nibh dolor, quis tristique ante posuere quis. Etiam pellentesque massa id erat luctus, ut hendrerit lectus efficitur. Sed ante lacus, molestie egestas justo posuere, cursus vehicula est. Duis tincidunt molestie lectus sit amet pulvinar. Aliquam quam lectus, consequat id vestibulum hendrerit, ultricies at orci. Sed eget eleifend odio. Cras tellus velit, elementum vel blandit a, venenatis id enim. Pellentesque quis velit facilisis arcu egestas aliquam et quis dolor. Suspendisse potenti. Aliquam accumsan, felis sit amet fringilla venenatis, nisl orci euismod justo, ac tristique nulla ligula ac nibh. Pellentesque aliquet placerat faucibus.<br><br>
 
-    Ut dignissim ultricies felis vel lobortis. Curabitur egestas metus nec nulla mattis dictum. Morbi ullamcorper nunc id dolor tristique, tempus commodo nunc tristique. Pellentesque tempor fermentum purus sed convallis. Donec eleifend ligula urna. Proin mollis fermentum ligula, feugiat vestibulum dolor. Etiam ultrices ex sed congue suscipit. Donec vulputate ac neque a blandit. Vivamus vel purus malesuada, vestibulum elit et, cursus odio. Suspendisse faucibus scelerisque rhoncus. Proin in nunc faucibus ipsum semper dapibus.<br><br>
-        
-    Phasellus id ipsum nec nisi congue imperdiet. Nulla non nibh dui. Vivamus viverra metus sit amet pellentesque iaculis. Praesent in risus imperdiet metus faucibus pretium. Praesent finibus ligula vel euismod vulputate. Etiam a justo nisi. Pellentesque id convallis lacus. Phasellus sit amet suscipit quam, quis consequat magna. Proin in suscipit urna.<br><br>
-        
-    In venenatis justo sem, nec imperdiet enim ullamcorper a. Morbi in turpis in metus tempus dapibus ac ornare est. Nunc sit amet lectus sem. Duis et ligula pellentesque, tempus velit a, posuere tellus. Vestibulum cursus massa libero. Duis molestie turpis sit amet mauris egestas venenatis. Morbi laoreet malesuada dolor, vitae ornare elit. Praesent vitae ultricies sem, id interdum tellus. Integer volutpat, tellus ac hendrerit condimentum, nisl orci vehicula justo, at pulvinar mauris lectus in nisl. Donec scelerisque dolor nec nibh rhoncus, nec vehicula nulla iaculis. Vivamus scelerisque erat vel pharetra porttitor.<br><br></p>
+<!-- Slideshow container -->
+<div class="slideshow-container">
+
+  <!-- Full-width images with number and caption text -->
+  <div class="mySlides fade">
+    <div class="numbertext">1 / 3</div>
+    <img src="christopher-newport-university-campus.jpg" style="width:100%">
+    <div class="text">Caption Text</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">2 / 3</div>
+    <img src="library.jpg" style="width:100%">
+    <div class="text">Caption Two</div>
+  </div>
+
+  <div class="mySlides fade">
+    <div class="numbertext">3 / 3</div>
+    <img src="avenue-of-the-arts.jpg" style="width:100%">
+    <div class="text">Caption Three</div>
+  </div>
+
+  <!-- Next and previous buttons -->
+  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span>
+  <span class="dot" onclick="currentSlide(2)"></span>
+  <span class="dot" onclick="currentSlide(3)"></span>
+</div>
+
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Jobs</a></li>
+      <li><a href="#">My Network</a></li>
+      <li><a href="#">Messaging</a></li>
+      <li><a href="#">Notifications</a></li>
+      <li><a href="#">Me</a></li>
+    </ul>
+  </nav>
 </body>
 <footer>
 </footer>

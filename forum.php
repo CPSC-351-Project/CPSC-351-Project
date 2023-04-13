@@ -69,10 +69,11 @@ session_start();
                         $p_date = $postdb['post_date'];
                         $Fname = $alumni['first_name'];
                         $Lname = $alumni['last_name'];
+                        $uID = $alumni['user_id'];
 
                         echo "<tr>";
                             echo "<td><a class='link' href='post.php?pID=$postID'>$post_title</a></td>";
-                            echo "<td> $Fname $Lname</td>";
+                            echo "<td><a class='link' href='view_user.php?uID=$uID'>$Fname $Lname</a></td>";
                             echo "<td> $p_date</td>";
                         echo "</tr>";
                     }

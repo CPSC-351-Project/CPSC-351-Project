@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
     include "connection.php";
     include "functions.php";
@@ -73,31 +73,27 @@
     <body>
 
         <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
-        <div class="form-group">
-            <h2><u>Add an Event!!!</u></h2>
-            <label for="eventDate">When is the event:</label>
-            <input type="date" id="eventDate" class="form-control" name="eventDate" required><br><br>
+            <div class="form-group">
+                <h2><u>Add an Event!!!</u></h2>
+                <label for="eventDate">When is the event:</label>
+                <input type="date" id="eventDate" class="form-control" name="eventDate" required><br><br>
 
-            <label for="eventName">Event Name:</label><br>
-            <input type="text" id="eventName" class="form-control" name="eventName" required><br><br>
+                <label for="eventName">Event Name:</label><br>
+                <input type="text" id="eventName" class="form-control" name="eventName" required><br><br>
 
-            <label for="eventTime">What time is the event:</label>
-            <input type="time" id="eventTime" class="form-control" name="eventTime" required><br><br>
+                <label for="eventTime">What time is the event:</label>
+                <input type="time" id="eventTime" class="form-control" name="eventTime" required><br><br>
 
-            <label for="eventDescription">Enter event description:</label><br>
-            <textarea id="eventDescription" class="form-control" name="eventDescription" rows="2" cols="40" wrap="hard" required></textarea><br><br>
+                <label for="eventDescription">Enter event description:</label><br>
+                <textarea id="eventDescription" class="form-control" name="eventDescription" rows="2" cols="40" wrap="hard" required></textarea><br><br>
 
-            <label for="eventLocation">Location of the event:</label><br>
-            <input type="text" id="eventLocation" class="form-control" name="eventLocation" required><br><br>
+                <label for="eventLocation">Location of the event:</label><br>
+                <input type="text" id="eventLocation" class="form-control" name="eventLocation" required><br><br>
 
-            <input type="submit" value="Submit"><br><br>
-        </div>
-        </form>
-
-   
-            
-        
-            
+                <input type="submit" value="Submit"> &nbsp;
+                <button onclick="window.location.href='event_table.php'">Back</button>
+            </div>
+        </form>  
     
     </body>
     <footer>

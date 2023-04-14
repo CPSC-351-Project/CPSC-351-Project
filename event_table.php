@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     session_start();
     include "connection.php";
     include "functions.php";
@@ -52,6 +52,7 @@
         </div>
         <h1>My Events</h1>
     </header>
+    <button onclick="window.location.href='event.php';">Add Event</button>
     <table>
         <tr>
             <th>Event Date</th>

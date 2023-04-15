@@ -10,39 +10,37 @@ session_start();
 <html>
 <title>Alumni Reach</title>
 <head>   
-    <script src="function.js"></script>
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="#">Job</a>
-                <ul>
-                    <li><a href="Find Jobs.php">Find Jobs</a></li>
-                    <li><a href="Add Job.php">Post a Job</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Networking</a>
-                <ul>
-                    <li><a href="forum.php">Advice Forum</a></li>
-                    <li><a href="#">Events Page</a></li>
-                    <li><a href="message.php">Messaging</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.php">Account</a>
-                <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="management.php">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
-        
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="#">Events Page</a></li>
+                  <li><a href="message.php">Messaging</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+                  <li><a href="account.php">Notifications</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
@@ -50,53 +48,35 @@ session_start();
   </header>
 </head>
 <h4>Hello, <?php echo $user_data['first_name']; echo " "; echo $user_data['last_name']; ?>! Welcome to Alumni Reach!</h4>
-
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div class="mySlides fade">
-    <div class="numbertext">1 / 3</div>
-    <img src="christopher-newport-university-campus.jpg" style="width:100%">
-    <div class="text">Caption Text</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">2 / 3</div>
-    <img src="library.jpg" style="width:100%">
-    <div class="text">Caption Two</div>
-  </div>
-
-  <div class="mySlides fade">
-    <div class="numbertext">3 / 3</div>
-    <img src="avenue-of-the-arts.jpg" style="width:100%">
-    <div class="text">Caption Three</div>
-  </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-  <a class="next" onclick="plusSlides(1)">&#10095;</a>
-</div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span>
-  <span class="dot" onclick="currentSlide(2)"></span>
-  <span class="dot" onclick="currentSlide(3)"></span>
-</div>
-
 <body>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Jobs</a></li>
-      <li><a href="#">My Network</a></li>
-      <li><a href="#">Messaging</a></li>
-      <li><a href="#">Notifications</a></li>
-      <li><a href="#">Me</a></li>
-    </ul>
-  </nav>
+  <div class="carousel fade" id="center-image"></div>
+  <script>
+    // get the image element
+    var img = document.getElementById("center-image");
+
+    // center the image horizontally
+    img.style.display = "block";
+    img.style.marginLeft = "auto";
+    img.style.marginRight = "auto";
+  </script>
+  
+  <script src="function.js"></script>
+  <div class="center">
+    <a href="Find Jobs.php" class="urlclass">Jobs</a>
+    <p class="center">Find or post job openings.</p>
+
+    <a href="event.php" class="urlclass">Events</a>
+    <p class="center">Find career events that are happening around campus</p>
+
+    <a href="forum.php" class="urlclass">Discussion Forum</a>
+    <p class="center">This forum is for users to ask questions and for general discussion.</p>
+
+    <a href="message.php" class="urlclass">Messaging</a>
+    <p class="center">Message other users within the site.</p>
+
+    <a href="management.php" class="urlclass">My Account</a>
+    <p class="center">Manage your account.</p>
+  </div>
 </body>
 <footer>
 </footer>

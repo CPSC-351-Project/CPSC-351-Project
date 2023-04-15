@@ -20,7 +20,18 @@ function check_login($conn) {
     die;
 
 }
-
+function get_userdata($conn, $user_id){
+        
+        $query = "SELECT * FROM alumni WHERE user_id = $user_id limit 1";
+    
+        $result = mysqli_query($conn, $query);
+        if ($result && mysqli_num_rows($result) > 0){
+            $user_data = mysqli_fetch_assoc($result);
+            return $user_data;
+            echo 'user data here'.$user_data['bio'];
+        
+        }
+}
 function random_num($length)
 {
     $text = "";

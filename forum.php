@@ -49,10 +49,41 @@ session_start();
 </head>
 <body>
     <h3>Forum Post</h3>
+    <p>Click on the title to see the full post and replies</p>
+        <table class="tableClass" style="margin: auto">
+            <thead>
+                <tr>
+                    <td>Title</td>
+                    <td>Post By</td>
+                    <td>Date Posted</td>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    $forum = mysqli_query($conn, "SELECT * FROM forum_post");
+                    $alum = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
+                    while($postdb = mysqli_fetch_array($forum)) {
+                        $alumni = mysqli_fetch_array($alum);
+                        $postID = $postdb['pID'];
+                        $post_title = $postdb['post_title'];
+                        $p_date = $postdb['post_date'];
+                        $Fname = $alumni['first_name'];
+                        $Lname = $alumni['last_name'];
+                        $uID = $alumni['user_id'];
 
+                        echo "<tr>";
+                            echo "<td><a class='link' href='post.php?pID=$postID'>$post_title</a></td>";
+                            echo "<td><a class='link' href='view_user.php?uID=$uID'>$Fname $Lname</a></td>";
+                            echo "<td> $p_date</td>";
+                        echo "</tr>";
+                    }
+                    mysqli_close($conn);
+                    ?>
+            </tbody>
+        </table>
     <div>
         <p class="text-align: center;">Want to make your own post?</p>
-        <p class="text-align: center;"><a href="forum_post.php">Click Here</a></p>
+        <p class="text-align: center;"><a class="link" href="forum_post.php">Click Here</a></p>
     </div>
 </body>
 </html>

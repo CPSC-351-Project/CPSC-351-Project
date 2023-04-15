@@ -52,25 +52,8 @@
     <input type="text" name="search" placeholder="Search..." required>
     <button type="submit">Search</button>
 </form>
-<style>
-    table {
-        border-collapse: collapse;
-        width:auto;
-    }
 
-    th,
-    td {
-        text-align: left;
-        padding: 8px;
-        border: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
-
-<table>
+<table class="tableClass" style="margin: auto">
     <thead>
         <tr>
             <th>Company Name</th>
@@ -79,8 +62,6 @@
             <th>Job Description</th>
             <th>Job Link</th>
             <th>Date Posted</th>
-
-            
         </tr>
     </thead>
     <tbody>

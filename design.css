@@ -1,5 +1,5 @@
 html {
-  background-image: linear-gradient(230deg,white,#004a8e);
+  background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
 }
 
 nav {
@@ -42,20 +42,12 @@ header
     /* background-color: white; */
 }
 
-label.logo {
-  color: white;
-  font-size: 35px;
-  line-height: 80px;
-  padding: 0 100px;
-  font-weight: bold;
-}
 
 .navbar {
     height: 50px;
     padding: 0;
     margin: 0;
     position: absolute;
-    background-color: #89cff0;
 }
 
     .navbar li {
@@ -133,7 +125,7 @@ a {
     }
 
 body {
-    background-image: linear-gradient(230deg,white,#004a8e);
+    background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;

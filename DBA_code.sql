@@ -171,19 +171,6 @@ INSERT INTO `majors` (`majors`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `messaging`
---
-
-CREATE TABLE `messaging` (
-  `mid` int(11) NOT NULL,
-  `user` varchar(30) NOT NULL,
-  `message` longtext NOT NULL,
-  `timestamp` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `minors`
 --
 
@@ -294,13 +281,6 @@ ALTER TABLE `majors`
   ADD PRIMARY KEY (`majors`);
 
 --
--- Indexes for table `messaging`
---
-ALTER TABLE `messaging`
-  ADD PRIMARY KEY (`mid`),
-  ADD KEY `user_id` (`user`);
-
---
 -- Indexes for table `minors`
 --
 ALTER TABLE `minors`
@@ -337,10 +317,3 @@ ALTER TABLE `forum_post`
 --
 ALTER TABLE `forum_reply`
   ADD CONSTRAINT `postID` FOREIGN KEY (`pID`) REFERENCES `forum_post` (`pID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `messaging`
---
-ALTER TABLE `messaging`
-  ADD CONSTRAINT `user_id` FOREIGN KEY (`user`) REFERENCES `alumni` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
-COMMIT;

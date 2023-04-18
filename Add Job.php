@@ -56,7 +56,6 @@
                 <ul>
                     <li><a href="forum.php">Advice Forum</a></li>
                     <li><a href="#">Events Page</a></li>
-                    <li><a href="message.php">Messaging</a></li>
                 </ul>
             </li>
             <li>

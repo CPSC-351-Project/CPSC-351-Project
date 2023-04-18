@@ -1,5 +1,5 @@
 html {
-    background: linear-gradient(230deg,white,#004a8e);
+  background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
 }
 
 nav {
@@ -41,6 +41,8 @@ header
     position: relative;
     /* background-color: white; */
 }
+
+
 .navbar {
     height: 50px;
     padding: 0;
@@ -123,7 +125,7 @@ a {
     }
 
 body {
-    background-image: linear-gradient(230deg,white,#004a8e);
+    background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
@@ -295,16 +297,133 @@ footer
 
 
 }
-h4
-{
-	text-align: center;
-	padding: 0;
-	margin: 0;
-	border: 0;
-	font-size: 20px
-}
+
 footer a:link
 {
     color: black;
     text-decoration: none;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+  }
+
+/* Tables
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.tableClass{
+margin-left: auto;
+margin-right: auto;
+overflow-x:auto;
+width: 100%;
+}
+
+table {
+margin-left: auto;
+margin-right: auto;
+overflow-x:auto;
+width: 100%;
+/* border: 1px solid black; */
+}
+
+tbody {
+margin-left: auto;
+margin-right: auto;
+overflow-x:auto;
+width: 100%;
+}
+
+th,
+td {
+padding: 12px 15px;
+text-align: left;
+border-bottom: 1px solid #000000; }
+th:first-child,
+td:first-child {
+padding-left: 0; }
+th:last-child,
+td:last-child {
+padding-right: 0; }
+
+
+a.link:link
+{
+color: #000000;
+text-decoration: none;
+}
+a.link:visited
+{
+color: #000000;
+text-decoration: none;
+}
+a.link:hover
+{
+color: #000000;
+text-decoration: underline;
+}
+a.link:active
+{
+color: #000000;
+text-decoration: none;
+}
+
+
+/* For the slide show  */
+/* --------------------------------------------------- */
+
+.carousel{
+  width: 600px;
+  height: 300px;
+  padding: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url(christopher-newport-university-campus.jpg);
+  justify-content: center;
+}
+
+.fade{
+  -webkit-animation: 1.5s fade;
+  animation: 1.5s fade;
+}
+
+@-webkit-keyframes fade {
+  from{opacity: 0.4}
+  to{opacity: 1}
+}
+
+@keyframes fade{
+  from{opacity: 0.4}
+  to{opacity: 1}
+}
+
+
+/* media query for screens smaller than 768px */
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+/* media query for screens between 768px and 1200px */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* media query for screens larger than 1200px */
+@media only screen and (min-width: 1201px) {
+  body {
+    font-size: 20px;
+  }
 }

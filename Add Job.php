@@ -17,7 +17,7 @@
                 die("Connection failed: " . $conn->connect_error);
             }
         
-            // Preppared statement to protect from SQLi
+            // Prepared statement to protect from SQLi
             $stmt = $conn->prepare("INSERT INTO job_post (JobName, CompanyName, jobDescription, JobLink, Location, postDate) VALUES (?, ?, ?, ?, ?, NOW())");
             // Bind the variables to the statement
             $stmt->bind_param("sssss", $jobname, $companyname, $jobDescription, $jobLink, $location);

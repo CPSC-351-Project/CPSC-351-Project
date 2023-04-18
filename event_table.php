@@ -15,42 +15,43 @@
 
 <html>
 <head>
-    <title>My Events</title>
+    <title>Events</title>
     <link rel="stylesheet" href="design.css">
 </head>
 <body>
     <header>
-        <div id="wrap">
-            <ul class="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li>
-                    <a href="#">Job</a>
-                    <ul>
-                        <li><a href="Find Jobs.php">Find Jobs</a></li>
-                        <li><a href="Add Job.php">Post a Job</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Networking</a>
-                    <ul>
-                        <li><a href="event_table.php">Advice Forum</a></li>
-                        <li><a href="event.php">Events Page</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="login.php">Account</a>
-                    <ul>
-                        <li><a href="login.php">Login/Create Account</a></li>
-                        <li><a href="management.php">Manage Account</a></li>
-                        <li><a href="account.php">Notifications</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="logout.php">Logout</a>
-                </li>
-            </ul>
-        </div>
-        <h1>My Events</h1>
+    <div id="wrap">
+        <ul class="navbar">
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+                  <li><a href="message.php">Messaging</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+                  <li><a href="account.php">Notifications</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+        <h1>Events</h1>
     </header>
     <table>
         <tr>
@@ -70,5 +71,6 @@
         </tr>
         <?php } ?>
     </table>
+    <button onclick="window.location.href='event.php';">Add Event</button>
 </body>
 </html>

@@ -34,36 +34,36 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     <header>
         <link rel="stylesheet" href="design.css">
         <div id="wrap">
-            <ul class="navbar">
-                <li><a href="index.php">Home</a></li>
-                <li>
-                    <a href="#">Job</a>
-                    <ul>
-                        <li><a href="Find Jobs.php">Find Jobs</a></li>
-                        <li><a href="Add Job.php">Post a Job</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Networking</a>
-                    <ul>
-                        <li><a href="forum.php">Advice Forum</a></li>
-                        <li><a href="#">Events Page</a></li>
-                        <li><a href="message.php">Messaging</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="login.php">Account</a>
-                    <ul>
-                        <li><a href="login.php">Login/Create Account</a></li>
-                        <li><a href="management.php">Manage Account</a></li>
-                        <li><a href="account.php">Notifications</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="logout.php">Logout</a>
-                </li>
-            </ul>
-        </div>
+        <ul class="navbar">
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+                  <li><a href="message.php">Messaging</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+                  <li><a href="account.php">Notifications</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
     <h1>AlumniReach</h1>
     </header>
     <div class="center">
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <input type="text" name="job" class="form-control" value="<?php echo $user_data['job'];?>"><br><br>
                     
                     <label for="bio">Bio</label>
-                    <textarea name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>"></textarea><br><br>
+                    <input type="text" name="bio" class="form-control" rows="2" value="<?php echo $user_data['bio'];?>"></input><br><br>
                     
                     <label for="phone">Phone number (No "-" please!)</label>
                     <input type="text" name="phone" class="form-control" value="<?php echo $user_data['contactInformation'];?>"><br><br>

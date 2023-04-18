@@ -26,7 +26,7 @@ session_start();
               <a href="#">Networking</a>
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
-                  <li><a href="#">Events Page</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
                   <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
@@ -61,7 +61,7 @@ session_start();
   </script>
   
   <script src="function.js"></script>
-  <div class="center">
+  <div>
     <li><a href="Find Jobs.php" class="urlclass">Jobs</a></li>
     <p class="center">Find or post job openings.</p>
 

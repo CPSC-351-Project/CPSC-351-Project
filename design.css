@@ -100,6 +100,7 @@ header {
   background-repeat: no-repeat;
   background-position: right;
   background-size: 300px;
+  text-align: center;
 }
 
 p {
@@ -120,6 +121,15 @@ h1 {
   text-align: left;
 }
 
+.urlclass {
+  font-size: 16px;
+  transition: font-size 0.3s ease-in-out;
+  color: #000000;
+}
+
+.urlclass:hover {
+  font-size: 20px;
+}
 
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -178,3 +188,61 @@ h1 {
   color: #000000;
   text-decoration: none;
   }
+/* For the slide show  */
+/* --------------------------------------------------- */
+
+.carousel{
+  width: 600px;
+  height: 300px;
+  padding: 10px;
+  background-position: center;
+  background-size: cover;
+  background-image: url(christopher-newport-university-campus.jpg);
+  justify-content: center;
+}
+
+.fade{
+  -webkit-animation: 1.5s fade;
+  animation: 1.5s fade;
+}
+
+@-webkit-keyframes fade {
+  from{opacity: 0.4}
+  to{opacity: 1}
+}
+
+@keyframes fade{
+  from{opacity: 0.4}
+  to{opacity: 1}
+}
+
+
+/* media query for screens smaller than 768px */
+@media only screen and (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
+
+/* media query for screens between 768px and 1200px */
+@media only screen and (min-width: 768px) and (max-width: 1200px) {
+  body {
+    font-size: 18px;
+  }
+
+  .container {
+    max-width: 960px;
+  }
+}
+
+/* media query for screens larger than 1200px */
+@media only screen and (min-width: 1201px) {
+  body {
+    font-size: 20px;
+  }
+}

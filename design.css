@@ -1,429 +1,180 @@
 html {
-  background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
+  background: linear-gradient(230deg, white, #004a8e);
 }
 
-nav {
-    text-align: right;
-    text-decoration: none;
-    font-weight: bold;
-    color: white;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 20px;
+body {
+  background-image: linear-gradient(230deg, white, #004a8e);
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: black;
 }
 
-div {
-    text-align: center;
+nav, .navbar {
+  height: 50px;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  text-align: right;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+  nav a, .navbar a {
+      padding: 18px 0;
+      text-decoration: none;
+      color: white;
+      display: block;
+      transition: all .7s ease-in-out;
+  }
+
+  .navbar li {
+      height: auto;
+      width: 135.8px;
+      float: left;
+      text-align: center;
+      list-style: none;
+      font: normal bold 13px/1em Arial, Verdana, Helvetica;
+      padding: 0;
+      margin: 0;
+      color: yellow;
+  }
+
+      .navbar li:hover,
+      a:hover {
+          background-color: white;
+      }
+
+      .navbar li ul {
+          display: none;
+          height: auto;
+          margin: 0;
+          padding: 0;
+      }
+
+      .navbar li:hover ul {
+          display: block;
+      }
+
+      .navbar li ul li {
+          background-color: white;
+      }
+
+          .navbar li ul li a {
+              border-left: 1px solid #444444;
+              border-right: 1px solid #444444;
+              border-top: 1px solid #c9d4d8;
+              border-bottom: 1px solid #444444;
+          }
+
+              .navbar li ul li a:hover {
+                  background-color: #a3a1a1;
+              }
+
+a:visited {
+  text-decoration: none;
+  text-decoration: none;
+  color: #004a8e;
+}
+
+a:link {
+  text-decoration: none;
+  color: #004a8e;
+}
+
+a:hover {
+  background-color: #013d75;
+  color: white;
+}
+
+div, header {
+  text-align: center;
 }
 
 header {
-    text-align: center;
-    background-image: url(cnu.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: cover;
-    /* background-color:white; */
+  background-image: url(cnu.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: 300px;
 }
-
-header
-{
-	text-align: center;
-	background-image:url(cnu.png);
-	background-repeat:no-repeat;
-    background-position:right;
-	background-size:300px;
-    /* background-color:white; */
-}	
-#wrap {
-    width: 100%;
-    height: 50px;
-    margin: 0;
-    z-index: 99;
-    position: relative;
-    /* background-color: white; */
-}
-
-
-.navbar {
-    height: 50px;
-    padding: 0;
-    margin: 0;
-    position: absolute;
-}
-
-    .navbar li {
-        height: auto;
-        width: 135.8px;
-        float: left;
-        text-align: center;
-        list-style: none;
-        font: normal bold 13px/1em Arial, Verdana, Helvetica;
-        padding: 0;
-        margin: 0;
-        color: yellow;
-    }
-
-    .navbar a {
-        padding: 18px 0;
-        text-decoration: none;
-        color: white;
-        display: block;
-    }
-
-    .navbar li:hover,
-    a:hover {
-        background-color: white;
-    }
-
-    .navbar li ul {
-        display: none;
-        height: auto;
-        margin: 0;
-        padding: 0;
-    }
-
-    .navbar li:hover ul {
-        display: block;
-    }
-
-    .navbar li ul li {
-        background-color: white;
-    }
-
-        .navbar li ul li a {
-            border-left: 1px solid #444444;
-            border-right: 1px solid #444444;
-            border-top: 1px solid #c9d4d8;
-            border-bottom: 1px solid #444444;
-        }
-
-            .navbar li ul li a:hover {
-                background-color: #a3a1a1;
-            }
-
-nav a {
-    text-decoration: none
-}
-
-a {
-    transition: all .7s ease-in-out;
-}
-
-    a:visited {
-        text-decoration: none;
-        text-decoration: none;
-        color: #004a8e;
-    }
-
-    a:link {
-        text-decoration: none;
-        color: #004a8e;
-    }
-
-    a:hover {
-        background-color: #013d75;
-        color: white;
-    }
-
-body {
-    background-image: linear-gradient(230deg,#A9AFB3,#1E59AE);
-    background-repeat: no-repeat;
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    color: black;
-}
-
-  .navbar {
-	height: 50px;
-	padding: 0;
-	margin: 0;
-	position: absolute;
-}
-  
-  .navbar li {
-	height: auto;
-	width: 135.8px;
-	float: left;
-	text-align: center;
-	list-style: none;
-	font: normal bold 13px/1em Arial, Verdana, Helvetica;
-	padding: 0;
-	margin: 0;
-	color:yellow;
-  }
-  
-  .navbar a {
-	padding: 18px 0;
-	text-decoration: none;
-	color: white;
-	display: block;
-  }
-  
-  .navbar li:hover,
-  a:hover {
-	background-color: white;
-  }
-  
-  .navbar li ul {
-	display: none;
-	height: auto;
-	margin: 0;
-	padding: 0;
-  }
-  
-  .navbar li:hover ul {
-	display: block;
-  }
-  
-  .navbar li ul li {
-	background-color: white;
-  }
-  
-  .navbar li ul li a {
-	border-left: 1px solid #444444;
-	border-right: 1px solid #444444;
-	border-top: 1px solid #c9d4d8;
-	border-bottom: 1px solid #444444;
-  }
-  
-  .navbar li ul li a:hover {
-	background-color: #a3a1a1;
-  }
-nav a
-{
-	text-decoration: none
-}
-
-a
-{
-	transition: all .7s ease-in-out;
-
-}
-
-a:visited 
-{ 
-	text-decoration: none;
-	text-decoration: none;
-	color:	#004a8e;
-	
-}
-a:link
-{
-	text-decoration: none;
-    color: #004a8e;
-    
-}
-a:hover
-{
-	background-color:#013d75;
-	color: white;
-
-}
-
 
 p {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    color: black;
-    text-align: left;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  color: black;
+  text-align: left;
 }
 
 img {
-    border: #004a8e 3px dotted;
+  border: #004a8e 3px dotted;
 }
 
 h1 {
-    padding-bottom: .67em;
-    padding-top: 1.5em;
-    color: #004a8e;
-    text-align: left;
-    border-left: 1em;
+  padding-bottom: .67em;
+  padding-top: 1.5em;
+  color: #004a8e;
+  text-align: left;
 }
 
-.myform {
-    background-color: #FFFFFF;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-@media only screen and (max-width: 600px) {
-    header {
-        background-image: url(cnu.png);
-        background-size: 100000px;
-    }
-}
-
-h4 {
-    text-align: center;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    font-size: 20px
-}
-
-footer a:link {
-    padding-top: 1em;
-    padding-bottom: 1em;
-}
-h1
-{
-	padding-bottom: .67em;
-	padding-top: 1.5em;
-	color:#004a8e;
-	text-align: left;
-	border-left: 1em;
-}
-@media only screen and (max-width: 600px) 
-{
-	header
-	{
-		background-image: url(cnu.png);
-		background-size: 100000px;
-	}
-	
-}
-
-footer
-{
-	background-image: url(cnu.png);
-	background-repeat: no-repeat;
-	background-position: center;
-    background-size: 200px;
-    padding-top: 1em;
-    padding-bottom: 1em;
-	text-align: left;
-	font-size: 12px;
-	color: black
-
-
-}
-
-footer a:link
-{
-    color: black;
-    text-decoration: none;
-}
-
-.center {
-    margin: auto;
-    width: 50%;
-    padding: 10px;
-  }
 
 /* Tables
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .tableClass{
-margin-left: auto;
-margin-right: auto;
-overflow-x:auto;
-width: 100%;
-}
-
-table {
-margin-left: auto;
-margin-right: auto;
-overflow-x:auto;
-width: 100%;
-/* border: 1px solid black; */
-}
-
-tbody {
-margin-left: auto;
-margin-right: auto;
-overflow-x:auto;
-width: 100%;
-}
-
-th,
-td {
-padding: 12px 15px;
-text-align: left;
-border-bottom: 1px solid #000000; }
-th:first-child,
-td:first-child {
-padding-left: 0; }
-th:last-child,
-td:last-child {
-padding-right: 0; }
-
-
-a.link:link
-{
-color: #000000;
-text-decoration: none;
-}
-a.link:visited
-{
-color: #000000;
-text-decoration: none;
-}
-a.link:hover
-{
-color: #000000;
-text-decoration: underline;
-}
-a.link:active
-{
-color: #000000;
-text-decoration: none;
-}
-
-
-/* For the slide show  */
-/* --------------------------------------------------- */
-
-.carousel{
-  width: 600px;
-  height: 300px;
-  padding: 10px;
-  background-position: center;
-  background-size: cover;
-  background-image: url(christopher-newport-university-campus.jpg);
-  justify-content: center;
-}
-
-.fade{
-  -webkit-animation: 1.5s fade;
-  animation: 1.5s fade;
-}
-
-@-webkit-keyframes fade {
-  from{opacity: 0.4}
-  to{opacity: 1}
-}
-
-@keyframes fade{
-  from{opacity: 0.4}
-  to{opacity: 1}
-}
-
-
-/* media query for screens smaller than 768px */
-@media only screen and (max-width: 767px) {
-  body {
-    font-size: 14px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x:auto;
+  width: 100%;
   }
-
-  .container {
-    max-width: 100%;
-    padding: 0 10px;
+  
+  table {
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x:auto;
+  width: 100%;
+  /* border: 1px solid black; */
   }
-}
-
-/* media query for screens between 768px and 1200px */
-@media only screen and (min-width: 768px) and (max-width: 1200px) {
-  body {
-    font-size: 18px;
+  
+  tbody {
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x:auto;
+  width: 100%;
   }
-
-  .container {
-    max-width: 960px;
+  
+  th,
+  td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #000000; }
+  th:first-child,
+  td:first-child {
+  padding-left: 0; }
+  th:last-child,
+  td:last-child {
+  padding-right: 0; }
+  
+  
+  a.link:link
+  {
+  color: #000000;
+  text-decoration: none;
   }
-}
-
-/* media query for screens larger than 1200px */
-@media only screen and (min-width: 1201px) {
-  body {
-    font-size: 20px;
+  a.link:visited
+  {
+  color: #000000;
+  text-decoration: none;
   }
-}
+  a.link:hover
+  {
+  color: #000000;
+  text-decoration: underline;
+  }
+  a.link:active
+  {
+  color: #000000;
+  text-decoration: none;
+  }

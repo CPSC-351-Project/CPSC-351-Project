@@ -61,12 +61,22 @@ session_start();
   </script>
   
   <script src="function.js"></script>
-  <nav class="center">
-    <li><a href="Find Jobs.php">Jobs</a></li>
-    <li><a href="forum.php">Discussion Forum</a></li>
-    <li><a href="message.php">Messaging</a></li>
-    <li><a href="management.php">My Account</a></li>
-  </nav>
+  <div class="center">
+    <li><a href="Find Jobs.php" class="urlclass">Jobs</a></li>
+    <p class="center">Find or post job openings.</p>
+
+    <li><a href="event.php" class="urlclass">Events</a></li>
+    <p class="center">Find career events that are happening around campus</p>
+
+    <li><a href="forum.php" class="urlclass">Discussion Forum</a></li>
+    <p class="center">This forum is for users to ask questions and for general discussion.</p>
+
+    <li><a href="message.php" class="urlclass">Messaging</a></li>
+    <p class="center">Message other users within the site.</p>
+
+    <li><a href="management.php" class="urlclass">My Account</a></li>
+    <p class="center">Manage your account.</p>
+  </div>
 </body>
 <footer>
 </footer>

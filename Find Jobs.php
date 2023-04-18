@@ -5,7 +5,7 @@
         $user_data = check_login($conn);
 ?>
 <html>
-<title>Lets go</title>
+<title>Find A Job</title>
 <head>    
   <header>
     <link rel="stylesheet" href="design.css">
@@ -57,25 +57,8 @@
         onmousedown="this.style.backgroundColor='#a3a1a1'; this.style.boxShadow='0 5px #0000003d'; this.style.transform='translateY(4px)';"
         onmouseup="this.style.backgroundColor='white'; this.style.boxShadow='0 12px 16px 0 #0000003d, 0 17px 50px 0 rgba(0,0,0,0.19)'; this.style.transform='none';">Search</button>
 </form>
-<style>
-    table {
-        border-collapse: collapse;
-        width:auto;
-    }
 
-    th,
-    td {
-        text-align: left;
-        padding: 8px;
-        border: 1px solid #ddd;
-    }
-
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
-
-<table>
+<table class="tableClass" style="margin: auto">
     <thead>
         <tr>
             <th>Company Name</th>
@@ -84,8 +67,6 @@
             <th>Job Description</th>
             <th>Job Link</th>
             <th>Date Posted</th>
-
-            
         </tr>
     </thead>
     <tbody>

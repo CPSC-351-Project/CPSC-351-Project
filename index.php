@@ -62,19 +62,19 @@ session_start();
   
   <script src="function.js"></script>
   <div class="center">
-    <a href="Find Jobs.php" class="urlclass">Jobs</a>
+    <li><a href="Find Jobs.php" class="urlclass">Jobs</a></li>
     <p class="center">Find or post job openings.</p>
 
-    <a href="event.php" class="urlclass">Events</a>
+    <li><a href="event.php" class="urlclass">Events</a></li>
     <p class="center">Find career events that are happening around campus</p>
 
-    <a href="forum.php" class="urlclass">Discussion Forum</a>
+    <li><a href="forum.php" class="urlclass">Discussion Forum</a></li>
     <p class="center">This forum is for users to ask questions and for general discussion.</p>
 
-    <a href="message.php" class="urlclass">Messaging</a>
+    <li><a href="message.php" class="urlclass">Messaging</a></li>
     <p class="center">Message other users within the site.</p>
 
-    <a href="management.php" class="urlclass">My Account</a>
+    <li><a href="management.php" class="urlclass">My Account</a></li>
     <p class="center">Manage your account.</p>
   </div>
 </body>

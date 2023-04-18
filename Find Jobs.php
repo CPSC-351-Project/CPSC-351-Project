@@ -5,7 +5,7 @@
         $user_data = check_login($conn);
 ?>
 <html>
-<title>Lets go</title>
+<title>Find A Job</title>
 <head>    
   <header>
     <link rel="stylesheet" href="design.css">

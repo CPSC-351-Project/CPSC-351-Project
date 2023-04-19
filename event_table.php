@@ -6,11 +6,8 @@
     $id = $user_data['user_id'];
 
     // Select all events for the logged-in user from the database
-    $sql = "SELECT * FROM events WHERE user_id = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("i", $id);
-    $stmt->execute();
-    $result = $stmt->get_result();
+    $sql = "SELECT * FROM events";
+    $result = mysqli_query($conn, $sql);
 ?>
 
 <html>

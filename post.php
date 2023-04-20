@@ -14,11 +14,10 @@ session_start();
     }
     // echo $post_ID;
 ?>
-
 <!DOCTYPE html>
 <html>
-<title>Alumni Reach</title>
-<head>    
+<title>Forum Post</title>
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
@@ -36,7 +35,6 @@ session_start();
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -44,7 +42,6 @@ session_start();
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>
@@ -53,7 +50,7 @@ session_start();
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach-Forum</h1>      
+    <h1>AlumniReach</h1>      
   </header>
 </head>
 <body>

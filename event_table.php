@@ -16,7 +16,9 @@
     <link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <header>
+<head>   
+  <header>
+    <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
           <li><a href="index.php">Home</a></li>
@@ -32,7 +34,6 @@
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -40,7 +41,6 @@
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>
@@ -48,8 +48,10 @@
           </li>
         </ul>
       </div>
-        <h1>Events</h1>
-    </header>
+      <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->      
+  </header>
+</head>
+    <h1>Events</h1>
     <table>
         <tr>
             <th>Event Date</th>

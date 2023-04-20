@@ -32,7 +32,7 @@
 ?>
 <html>
 <title>Alumni Reach</title>
-<head>    
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
@@ -50,7 +50,6 @@
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -58,7 +57,6 @@
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>
@@ -71,7 +69,6 @@
   </header>
 </head>
     <body>
-
         <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
         <div class="form-group">
             <h2><u>Add an Event!!!</u></h2>

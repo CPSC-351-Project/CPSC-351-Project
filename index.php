@@ -27,7 +27,6 @@ session_start();
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -35,7 +34,6 @@ session_start();
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>
@@ -62,20 +60,17 @@ session_start();
   
   <script src="function.js"></script>
   <div>
-    <li><a href="Find Jobs.php" class="urlclass">Jobs</a></li>
-    <p class="center">Find or post job openings.</p>
+    <a href="Find Jobs.php" class="urlclass">Jobs</a>
+    <p style="text-align: center;">Find or post job openings.</p><br>
 
-    <li><a href="event.php" class="urlclass">Events</a></li>
-    <p class="center">Find career events that are happening around campus</p>
+    <a href="event.php" class="urlclass">Events</a>
+    <p style="text-align: center;">Find career events that are happening around campus</p><br>
 
-    <li><a href="forum.php" class="urlclass">Discussion Forum</a></li>
-    <p class="center">This forum is for users to ask questions and for general discussion.</p>
+    <a href="forum.php" class="urlclass">Discussion Forum</a>
+    <p style="text-align: center;">This forum is for users to ask questions and for general discussion.</p><br>
 
-    <li><a href="message.php" class="urlclass">Messaging</a></li>
-    <p class="center">Message other users within the site.</p>
-
-    <li><a href="management.php" class="urlclass">My Account</a></li>
-    <p class="center">Manage your account.</p>
+    <a href="management.php" class="urlclass">My Account</a>
+    <p style="text-align: center;">Manage your account.</p><br>
   </div>
 </body>
 <footer>

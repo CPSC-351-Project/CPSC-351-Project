@@ -17,7 +17,7 @@ session_start();
 <!DOCTYPE html>
 <html>
 <title>User Page</title>
-<head>    
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
@@ -35,7 +35,6 @@ session_start();
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -43,7 +42,6 @@ session_start();
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>

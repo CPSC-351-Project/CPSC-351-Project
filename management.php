@@ -8,13 +8,14 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Alumni Reach</title>
-    <link rel="stylesheet" href="design.css">
+<title>User Management</title>
+<link rel="stylesheet" href="design.css">
 </head>
 <body>
-    <header>
-        <link rel="stylesheet" href="design.css">
-        <div id="wrap">
+<head>   
+  <header>
+    <link rel="stylesheet" href="design.css">
+    <div id="wrap">
         <ul class="navbar">
           <li><a href="index.php">Home</a></li>
           <li>
@@ -29,7 +30,6 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
               <ul>
                   <li><a href="forum.php">Advice Forum</a></li>
                   <li><a href="event_table.php">Events Page</a></li>
-                  <li><a href="message.php">Messaging</a></li>
               </ul>
           </li>
           <li>
@@ -37,7 +37,6 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
               <ul>
                   <li><a href="login.php">Login/Create Account</a></li>
                   <li><a href="management.php">Manage Account</a></li>
-                  <li><a href="account.php">Notifications</a></li>
               </ul>
           </li>
           <li>
@@ -45,8 +44,10 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
           </li>
         </ul>
       </div>
-    <h1>AlumniReach</h1>
-    </header>
+      <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
+    <h1>AlumniReach</h1>      
+  </header>
+</head>
     <div class="center">
         <div class="row">
             <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">

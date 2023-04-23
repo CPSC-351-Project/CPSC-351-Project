@@ -1,4 +1,6 @@
 <?php
+// Worked on by Ramsey and Jahchi
+
 session_start();
     include "connection.php";
     include "functions.php";

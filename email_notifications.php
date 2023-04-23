@@ -1,4 +1,5 @@
 <?php
+// Worked on by Nick and Ryen
 
 // Database connection
 $hostname = "localhost";

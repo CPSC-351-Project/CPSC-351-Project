@@ -1,6 +1,7 @@
 //this code will send a notification when a student or alumni create an account 
 
 <?php
+// Worked on by Nick and Ryen
 $firstname = $_POST['firstname'];
 $lastname = $_POST['lastname'];
 $email = $_POST['email'];

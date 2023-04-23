@@ -1,4 +1,5 @@
 <?php
+// Worked on by Ramsey and Sona
   session_start();
   include "connection.php";
   include "functions.php";
@@ -8,14 +9,14 @@
 
       if(!empty($email)){
           // read from database
-
           $alumni = "select * from alumni where email='$email' limit 1";
-          $student = "select * from students where email='$email' limit 1";
           $result = mysqli_query($conn, $alumni);
 
           if($result){
+            // If there is a matching email check for matching password
             if ($result && mysqli_num_rows($result) > 0){
               $user_data = mysqli_fetch_assoc($result);
+              // if password matches then log the user in
               if($user_data['pword'] === $pword)
               {  
                 $id = $_SESSION['user_id'] = $user_data['user_id'];
@@ -23,8 +24,10 @@
                 die;
             }
           }
+          // Password not matching the email address
           echo "Wrong username or password!";
       }else{
+          // Email is not in the database
           echo "Please enter some valid information!";
       }
       
@@ -33,39 +36,36 @@
 ?>
 <!DOCTYPE html>
 <html>
-<head>    
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="#">Job</a>
-                <ul>
-                    <li><a href="Find Jobs.php">Find Jobs</a></li>
-                    <li><a href="Add Job.php">Post a Job</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Networking</a>
-                <ul>
-                    <li><a href="forum.php">Advice Forum</a></li>
-                    <li><a href="#">Events Page</a></li>
-                    <li><a href="message.php">Messaging</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.php">Account</a>
-                <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="management.php">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
-        
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
@@ -77,6 +77,7 @@
     <title>Login Here</title>
     <div class="login-form">
       <br>
+      <!-- Form to log user in -->
       <form action="" method="post">
         <label for="email">Email:</label>
         <input type="text" id="email" name="email"><br><br>

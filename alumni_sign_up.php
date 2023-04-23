@@ -1,4 +1,5 @@
 <?php
+// Worked on by Ramsey and Sona 
 session_start();
   include "connection.php";
   include "functions.php";
@@ -6,6 +7,7 @@ session_start();
   if($_SERVER["REQUEST_METHOD"] == "POST"){
     // something was posted
     // Collect information from form
+    // $class added to database, lets the system know that this users is an Alumni
     $class = 'Alumni';
     $firstname = $_POST['firstname'];
     $lastname = $_POST['lastname'];
@@ -48,6 +50,7 @@ session_start();
   <body style="text-align: center;">
   <p style="text-align: center;">Sign up page for alumni users</p>
   <div class="login-form">
+    <!-- Form for the Alumni users to create a account -->
     <form style="display: inline-block;" method="post">
       <label for="firstname">First Name</label>
       <input type="text" id="firstname" name="firstname" required><br><br>

@@ -1,4 +1,6 @@
 <?php
+// Worked on by Ramsey
+// When the user clicks on a user in the forum then it expands the profile page
 session_start();
     include "connection.php";
     include "functions.php";
@@ -17,38 +19,36 @@ session_start();
 <!DOCTYPE html>
 <html>
 <title>User Page</title>
-<head>    
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="#">Job</a>
-                <ul>
-                    <li><a href="Find Jobs.php">Find Jobs</a></li>
-                    <li><a href="Add Job.php">Post a Job</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Networking</a>
-                <ul>
-                    <li><a href="forum.php">Advice Forum</a></li>
-                    <li><a href="#">Events Page</a></li>
-                    <li><a href="message.php">Messaging</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.php">Account</a>
-                <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="management.php">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
@@ -62,7 +62,7 @@ session_start();
     $user = mysqli_query($conn, "SELECT * FROM alumni WHERE user_id = $u_ID");
     $user_name = mysqli_fetch_array($user);
 
-    // From User Table
+    // Stores user information from database into variables
     $f_name = $user_name['first_name'];
     $l_name = $user_name['last_name'];
     $email = $user_name['email'];
@@ -74,18 +74,21 @@ session_start();
     $minor_2 = $user_name['minor_2'];
     $job = $user_name['job'];
     $bio = $user_name['bio'];
-
     ?>
     <main>
 		<section class="#">
+            <!-- Prints out the profile information -->
 			<h1>Profile Information</h1>
 			<ul>
 				<li><strong>Name:</strong> <?php echo "$f_name" . " " . "$l_name";?></li>
+                <li><strong>Classification:</strong> <?php echo "$class";?></li>
+                <li><strong>Graduation Year:</strong> <?php echo "$grad_year";?></li>
 				<li><strong>Email:</strong> <?php echo "$email;"?></li>
 				<li><strong>Bio:</strong> <?php echo "$bio";?></li>
 			</ul>
 		</section>
 		<section class="post-list">
+            <!-- Prints out all of the user's posts associated to their account. Does not include replies. -->
 			<h1>Posts</h1>
             <?php
             while($f_post = mysqli_fetch_array($forum)){

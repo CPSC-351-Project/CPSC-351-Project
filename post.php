@@ -1,4 +1,5 @@
 <?php
+// Worked on by Ramsey
 session_start();
     include "connection.php";
     include "functions.php";
@@ -14,56 +15,56 @@ session_start();
     }
     // echo $post_ID;
 ?>
-
 <!DOCTYPE html>
 <html>
-<title>Alumni Reach</title>
-<head>    
+<title>Forum Post</title>
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="#">Job</a>
-                <ul>
-                    <li><a href="Find Jobs.php">Find Jobs</a></li>
-                    <li><a href="Add Job.php">Post a Job</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Networking</a>
-                <ul>
-                    <li><a href="forum.php">Advice Forum</a></li>
-                    <li><a href="#">Events Page</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.php">Account</a>
-                <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="management.php">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
-    <h1>AlumniReach-Forum</h1>      
+    <h1>AlumniReach</h1>      
   </header>
 </head>
 <body>
     <div>
         <h2>Post</h2>
         <?php
+        // Query to get post and user information
         $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $post_ID");
         $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $post_ID");
         $f_post = mysqli_fetch_array($forum);
         $user_name = mysqli_fetch_array($user);
 
+        // Stores the query information into a variable
         $post_name = $f_post['post_title'];
         $post_desc = $f_post['post_description'];
 
@@ -74,7 +75,7 @@ session_start();
         <h3><?php echo "By: $f_name $l_name"?></h3>
         <p style='text-align: center'><?php echo $post_desc ?></p>
 
-
+        <!-- Allows users to add A reply to a post -->
         <h4>Add a Reply</h4>
         <form style="display: inline-block;" method="post">
             <label for="reply"></label>
@@ -98,7 +99,6 @@ session_start();
                         mysqli_query($conn, $sql);
                         echo "Reply created successfully";
                         header("Location: forum.php");
-                        // header("Location: post.php?pID=$postID");
                         exit();
                     }else{
                         echo "Please enter some valid information";
@@ -108,6 +108,7 @@ session_start();
         ?>
     </div>
     <div>
+        <!-- Shows the replies that have been posted -->
         <h4>Replies</h4>
             <table class="tableClass" style="margin: auto">
                 <tbody>

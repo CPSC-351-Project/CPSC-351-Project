@@ -1,6 +1,7 @@
 <?php
+// Worked on by Ramsey
 
-// Database connection
+// Database connection, must be referenced in every file to use the $conn variable
 $hostname = "localhost";
 $username = "root";
 $password = "";

@@ -1,4 +1,5 @@
 ﻿<?php
+// Worked on by Sona
     session_start();
     include "connection.php";
     include "functions.php";
@@ -32,38 +33,36 @@
 ?>
 <html>
 <title>Alumni Reach</title>
-<head>    
+<head>   
   <header>
     <link rel="stylesheet" href="design.css">
     <div id="wrap">
         <ul class="navbar">
-            <li><a href="index.php">Home</a></li>
-            <li>
-                <a href="#">Job</a>
-                <ul>
-                    <li><a href="Find Jobs.php">Find Jobs</a></li>
-                    <li><a href="Add Job.php">Post a Job</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="#">Networking</a>
-                <ul>
-                    <li><a href="#">Advice Forum</a></li>
-                    <li><a href="event.php">Events Page</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="login.php">Account</a>
-                <ul>
-                    <li><a href="login.php">Login/Create Account</a></li>
-                    <li><a href="management.php">Manage Account</a></li>
-                    <li><a href="account.php">Notifications</a></li>
-                </ul>
-            </li>
-            <li>
-                <a href="logout.php">Logout</a>
-            </li>
-        
+          <li><a href="index.php">Home</a></li>
+          <li>
+              <a href="#">Job</a>
+              <ul>
+                  <li><a href="Find Jobs.php">Find Jobs</a></li>
+                  <li><a href="Add Job.php">Post a Job</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="#">Networking</a>
+              <ul>
+                  <li><a href="forum.php">Advice Forum</a></li>
+                  <li><a href="event_table.php">Events Page</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="login.php">Account</a>
+              <ul>
+                  <li><a href="login.php">Login/Create Account</a></li>
+                  <li><a href="management.php">Manage Account</a></li>
+              </ul>
+          </li>
+          <li>
+              <a href="logout.php">Logout</a>
+          </li>
         </ul>
       </div>
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->
@@ -71,7 +70,7 @@
   </header>
 </head>
     <body>
-
+        <!-- Form for user input -->
         <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
         <div class="form-group">
             <h2><u>Add an Event!!!</u></h2>
@@ -92,14 +91,8 @@
 
             <input type="submit" value="Submit"><br><br>
         </div>
-        </form>
-
-   
-            
-        
-            
-    
+        </form>                     
     </body>
-    <footer>
-    </footer>
+<footer>
+</footer>
 </html>

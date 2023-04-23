@@ -1,7 +1,32 @@
+-- Worked on by Nick and Ryen
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Apr 24, 2023 at 01:14 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
 -- Database: `alumnireach`
 --
+
+-- --------------------------------------------------------
+
 --
 -- Table structure for table `alumni`
+--
 
 CREATE TABLE `alumni` (
   `user_id` varchar(30) NOT NULL,
@@ -25,9 +50,11 @@ CREATE TABLE `alumni` (
 --
 
 INSERT INTO `alumni` (`user_id`, `class`, `first_name`, `last_name`, `email`, `pword`, `grad_year`, `major_1`, `major_2`, `minor_1`, `minor_2`, `job`, `bio`, `contactInformation`) VALUES
-('3072', '', 'Ramsey', 'Holeman', 'rjholeman25@gmail.com', '1234', 2023, '', '', '', '', '', NULL, NULL),
+('3072', 'Student', 'Ramsey', 'Holeman', 'rjholeman25@gmail.com', '1234', 2023, '', '', '', '', 'Student', 'Something', '8048406691'),
 ('466782953', 'Student', 'Student', 'Admin', 'student@email.com', '1234', 2023, 'Information Science', '', 'Data Science', 'Environmental Science', NULL, NULL, NULL),
-('805646', 'Alumni', 'Alumni', 'Admin', 'alumni@email.com', '1234', 2010, 'Computer Engineering', 'Cybersecurity', 'Linguistics', 'Studio Art', 'Developer', NULL, NULL);
+('62999448', 'Alumni', 'Sona', 'Account', 'sona@gmail.com', '1234', 2022, 'Criminology', 'None', 'Psychology', '', 'IT Therapist', NULL, NULL),
+('805646', 'Alumni', 'Alumni', 'Admin', 'alumni@email.com', '1234', 2010, 'Computer Engineering', 'Cybersecurity', 'Linguistics', 'Studio Art', 'Developer', NULL, NULL),
+('852146705', 'Student', 'Nick', 'Account', 'nick@gmail.com', '1234', 2024, 'Theater', '', 'Dance', '', NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -50,7 +77,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`eID`, `user_id`, `eventName`, `eventDate`, `eventTime`, `eventLocation`, `eventDescription`) VALUES
-(687183, '3072', 'Name', '2023-04-16', '21:48:00', 'test', 'Test'),
+(2742693, '3072', 'CAPSTONE FAIR', '2023-04-25', '07:53:00', 'LUTER', 'bE THERE'),
+(35211177, '3072', 'Job Fair', '2023-04-27', '12:00:00', 'DSU Ballroom', 'Find a job'),
 (803486006, '3072', 'Test', '2023-04-12', '20:46:00', 'Test', 'Test');
 
 -- --------------------------------------------------------
@@ -72,7 +100,8 @@ CREATE TABLE `forum_post` (
 --
 
 INSERT INTO `forum_post` (`pID`, `user_id`, `post_title`, `post_description`, `post_date`) VALUES
-(8350, '3072', 'Testing', 'This is a test. Is this thing on???', '2023-04-06 17:41:07');
+(11125656, '62999448', 'graduation', 'we are days away from being DONE!!!!!', '2023-04-20 15:56:00'),
+(2147483647, '3072', 'Best jobs for IS majors?', 'Hey I would like to know what are the best jobs for Information Science majors?', '2023-04-13 01:23:34');
 
 -- --------------------------------------------------------
 
@@ -93,8 +122,7 @@ CREATE TABLE `forum_reply` (
 --
 
 INSERT INTO `forum_reply` (`rID`, `pID`, `user_id`, `reply`, `reply_date`) VALUES
-(62647, 8350, '3072', 'hello', '2023-04-06 17:49:33'),
-(25591015, 8350, '3072', 'This works', '2023-04-10 17:14:51');
+(6694890, 2147483647, '62999448', 'Data Science is a good job to look at!', '2023-04-20 16:36:37');
 
 -- --------------------------------------------------------
 
@@ -111,6 +139,14 @@ CREATE TABLE `job_post` (
   `Location` longtext DEFAULT NULL,
   `postDate` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `job_post`
+--
+
+INSERT INTO `job_post` (`JpostID`, `jobDescription`, `JobName`, `Companyname`, `JobLink`, `Location`, `postDate`) VALUES
+(1, 'Brief description', 'Job', 'Company', 'https://www.job.com', 'Somewhere, USA', '2023-04-15 10:01:10'),
+(2, 'DFGHJKO', 'SALES ASSOCIATE', 'WALMART', 'https://www.job.com', 'NEWPORT NEWS', '2023-04-20 20:50:47');
 
 -- --------------------------------------------------------
 
@@ -320,7 +356,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `job_post`
 --
 ALTER TABLE `job_post`
-  MODIFY `JpostID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `JpostID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -344,3 +380,7 @@ ALTER TABLE `forum_reply`
 ALTER TABLE `messaging`
   ADD CONSTRAINT `user_id` FOREIGN KEY (`user`) REFERENCES `alumni` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -70,6 +70,7 @@
   </header>
 </head>
     <body>
+        <!-- Form for user input -->
         <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
         <div class="form-group">
             <h2><u>Add an Event!!!</u></h2>
@@ -90,14 +91,8 @@
 
             <input type="submit" value="Submit"><br><br>
         </div>
-        </form>
-
-   
-            
-        
-            
-    
+        </form>                     
     </body>
-    <footer>
-    </footer>
+<footer>
+</footer>
 </html>

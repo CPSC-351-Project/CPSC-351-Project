@@ -60,6 +60,7 @@ session_start();
                 <?php
                     $forum = mysqli_query($conn, "SELECT * FROM forum_post");
                     $alum = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id)");
+                    // Loops throughout the database prints out all the post
                     while($postdb = mysqli_fetch_array($forum)) {
                         $alumni = mysqli_fetch_array($alum);
                         $postID = $postdb['pID'];
@@ -69,6 +70,8 @@ session_start();
                         $Lname = $alumni['last_name'];
                         $uID = $alumni['user_id'];
 
+                        // The table row contains the post data. Users can click the post title to see the full post.
+                        // Users can also click the name to see the account of the user who mad the post.
                         echo "<tr>";
                             echo "<td><a class='link' href='post.php?pID=$postID'>$post_title</a></td>";
                             echo "<td><a class='link' href='view_user.php?uID=$uID'>$Fname $Lname</a></td>";
@@ -80,6 +83,7 @@ session_start();
             </tbody>
         </table>
     <div>
+        <!-- Allows user to make their own posts -->
         <p class="text-align: center;">Want to make your own post?</p>
         <p class="text-align: center;"><a class="link" href="forum_post.php">Click Here</a></p>
     </div>

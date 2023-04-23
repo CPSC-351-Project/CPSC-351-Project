@@ -58,11 +58,13 @@ session_start();
     <div>
         <h2>Post</h2>
         <?php
+        // Query to get post and user information
         $forum = mysqli_query($conn, "SELECT * FROM forum_post WHERE pID = $post_ID");
         $user = mysqli_query($conn, "SELECT * FROM forum_post f JOIN alumni a ON (f.user_id=a.user_id) WHERE pID = $post_ID");
         $f_post = mysqli_fetch_array($forum);
         $user_name = mysqli_fetch_array($user);
 
+        // Stores the query information into a variable
         $post_name = $f_post['post_title'];
         $post_desc = $f_post['post_description'];
 
@@ -73,7 +75,7 @@ session_start();
         <h3><?php echo "By: $f_name $l_name"?></h3>
         <p style='text-align: center'><?php echo $post_desc ?></p>
 
-
+        <!-- Allows users to add A reply to a post -->
         <h4>Add a Reply</h4>
         <form style="display: inline-block;" method="post">
             <label for="reply"></label>
@@ -97,7 +99,6 @@ session_start();
                         mysqli_query($conn, $sql);
                         echo "Reply created successfully";
                         header("Location: forum.php");
-                        // header("Location: post.php?pID=$postID");
                         exit();
                     }else{
                         echo "Please enter some valid information";
@@ -107,6 +108,7 @@ session_start();
         ?>
     </div>
     <div>
+        <!-- Shows the replies that have been posted -->
         <h4>Replies</h4>
             <table class="tableClass" style="margin: auto">
                 <tbody>

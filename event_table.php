@@ -10,7 +10,6 @@
     $sql = "SELECT * FROM events";
     $result = mysqli_query($conn, $sql);
 ?>
-
 <html>
 <head>
     <title>Events</title>
@@ -52,6 +51,7 @@
       <!-- <a href="https://cnu.edu/"><img src="cnu.png" style=float:left;width:27% ></a> -->      
   </header>
 </head>
+    <!-- Table that contains all of the events -->
     <h1>Events</h1>
     <table>
         <tr>

@@ -11,8 +11,7 @@
             $jobDescription = $_POST["Description"];
             $jobLink = $_POST["JobLink"];
             $location = $_POST["Location"];
-        
-            
+                    
             // Check connection
             if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
@@ -77,6 +76,7 @@
 </head>
     <body>
         <h2><u>Post A Job</u></h2>
+        <!-- Form for the user to add a job -->
         <form action="" method="POST">
             <label for="JobName">Enter Job Name:</label><br>
             <input type="text" id="JobName" name="JobName" required><br><br>
@@ -95,15 +95,8 @@
             <label for="JobLink">Enter Job Link:</label><br>
             <input type="url" id="JobLink" name="JobLink" required><br><br>
 
-
             <input type="submit" value="Submit"><br><br>
-            </form>
-
-   
-            
-        
-            
-    
+        </form>
     </body>
     <footer>
     </footer>

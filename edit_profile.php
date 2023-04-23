@@ -7,6 +7,7 @@ include "functions.php";
 $user_data = check_login($conn);
 $id = $user_data['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
+    // Stores the form data into variables
     $first_name = $_POST['firstname'];
     $last_name = $_POST['lastname'];
     $email = $_POST['email'];
@@ -72,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <div class="row">
             <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
                 <div class="form-group">
+                    <!-- Form to edit the user account information, when the user submits it updates their account -->
                     <h1>Edit your Account here</h1>
                     <label for="firstname">First Name</label>
                     <input type="text" name="firstname" class="form-control" value="<?php echo $user_data['first_name'];?>"><br><br>

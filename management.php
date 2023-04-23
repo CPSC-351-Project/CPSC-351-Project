@@ -53,6 +53,7 @@ $user_data = get_userdata($conn, $_SESSION['user_id']);
         <div class="row">
             <form action="" method="POST" style="max-width: 600px; margin: 0 auto; padding: 20px; padding-top: 0px; background-color: white;">
                 <div class="form-group">
+                    <!-- Shows what is in the user's profile -->
                     <h1>Manage your Account here</h1>
                     <label for="firstname">First Name</label>
                     <input type="text" name="first_name" class="form-control" value="<?php echo $user_data['first_name'];?>" disabled><br><br>

@@ -1,5 +1,6 @@
 <?php
 // Worked on by Ramsey
+// When the user clicks on a user in the forum then it expands the profile page
 session_start();
     include "connection.php";
     include "functions.php";
@@ -61,7 +62,7 @@ session_start();
     $user = mysqli_query($conn, "SELECT * FROM alumni WHERE user_id = $u_ID");
     $user_name = mysqli_fetch_array($user);
 
-    // From User Table
+    // Stores user information from database into variables
     $f_name = $user_name['first_name'];
     $l_name = $user_name['last_name'];
     $email = $user_name['email'];
@@ -73,10 +74,10 @@ session_start();
     $minor_2 = $user_name['minor_2'];
     $job = $user_name['job'];
     $bio = $user_name['bio'];
-
     ?>
     <main>
 		<section class="#">
+            <!-- Prints out the profile information -->
 			<h1>Profile Information</h1>
 			<ul>
 				<li><strong>Name:</strong> <?php echo "$f_name" . " " . "$l_name";?></li>
@@ -87,6 +88,7 @@ session_start();
 			</ul>
 		</section>
 		<section class="post-list">
+            <!-- Prints out all of the user's posts associated to their account. Does not include replies. -->
 			<h1>Posts</h1>
             <?php
             while($f_post = mysqli_fetch_array($forum)){

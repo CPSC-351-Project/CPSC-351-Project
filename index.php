@@ -1,13 +1,11 @@
 <?php
 // Worked on by Ramsey and Jahchi
-
 session_start();
     include "connection.php";
     include "functions.php";
     // $user_data = checkLoginStatus();
     $user_data = check_login($conn);
 ?>
-
 <!DOCTYPE html>
 <html>
 <title>Alumni Reach</title>
@@ -49,6 +47,7 @@ session_start();
 </head>
 <h4>Hello, <?php echo $user_data['first_name']; echo " "; echo $user_data['last_name']; ?>! Welcome to Alumni Reach!</h4>
 <body>
+  <!-- Picture carousel for homepage design -->
   <div class="carousel fade" id="center-image"></div>
   <script>
     // get the image element
@@ -60,6 +59,7 @@ session_start();
     img.style.marginRight = "auto";
   </script>
   
+  <!-- Menu for the site -->
   <script src="function.js"></script>
   <div>
     <a href="Find Jobs.php" class="urlclass">Jobs</a>
